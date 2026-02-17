@@ -1,0 +1,32 @@
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\CommListener.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Communications,1,13,27]; ]
+using Toybox.Communications;
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\CommListener.mc"; @line = 6; @symbol_classdef = [CommListener,6,6,18]; @symbol_extends<0> = [Communications,6,27,41]; @symbol_extends<1> = [ConnectionListener,6,42,60]; ]
+class CommListener extends Communications.ConnectionListener {
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\CommListener.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\CommListener.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\CommListener.mc"; @line = 8; @symbol_functiondef = [initialize,8,13,23]; ]
+    function initialize() as Void {
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_CommListener_mc_8_26_10_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\CommListener.mc" 9 8 ]
+        symbol [ ConnectionListener %tmp.2 9 8 26 ];
+        %tmp.2 = getv ? :ConnectionListener;
+        symbol [ initialize %tmp.3 9 27 37 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_CommListener_mc_8_26_10_4_stop:
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\CommListener.mc"; @line = 12; @symbol_functiondef = [onComplete,12,13,23]; ]
+    function onComplete() {
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\CommListener.mc"; @line = 16; @symbol_functiondef = [onError,16,13,20]; ]
+    function onError() {
+    }
+}
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\CommListener.mc"; @line = 1; ]
+<init> {
+}
