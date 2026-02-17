@@ -4,6 +4,7 @@ using Toybox.Background;
 using Toybox.Time;
 using Toybox.WatchUi;
 
+(:background)
 class TrioWatchFaceApp extends Application.AppBase {
 
     // Trio data dictionary — populated by background service,
