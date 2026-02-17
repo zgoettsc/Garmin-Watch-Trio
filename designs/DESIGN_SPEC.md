@@ -159,7 +159,7 @@ The user will modify Trio's `GarminManager.swift` to register the new app UUIDs.
 
 | App | Placeholder UUID |
 |-----|-----------------|
-| Watch Face | `A1B2C3D4-E5F6-4A90-B1C2-D3E4F5A6B7C8` |
+| Watch Face | `88553264-FE3D-42FA-A9E6-72A0A9D2A5D3` |
 | Data Field | `C8B7A6F5-E4D3-4C2B-A190-F6E5D4C3B2A1` |
 
 **These must be replaced** with real UUIDs from the Connect IQ developer portal before deploying.
@@ -179,7 +179,7 @@ private enum Config {
 **Change to (replace with your real UUIDs from the Connect IQ portal):**
 ```swift
 private enum Config {
-    static let watchfaceUUID = UUID(uuidString: "A1B2C3D4-E5F6-4A90-B1C2-D3E4F5A6B7C8")
+    static let watchfaceUUID = UUID(uuidString: "88553264-FE3D-42FA-A9E6-72A0A9D2A5D3")
     static let watchdataUUID = UUID(uuidString: "C8B7A6F5-E4D3-4C2B-A190-F6E5D4C3B2A1")
 }
 ```
