@@ -4,71 +4,82 @@ using Toybox.Background;
 using Toybox.Communications;
 [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [System,3,13,19]; ]
 using Toybox.System;
-[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 8; background = true; @symbol_classdef = [TrioServiceDelegate,8,6,25]; @symbol_extends<0> = [System,8,34,40]; @symbol_extends<1> = [ServiceDelegate,8,41,56]; ]
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 15; background = true; @symbol_classdef = [TrioServiceDelegate,15,6,25]; @symbol_extends<0> = [System,15,34,40]; @symbol_extends<1> = [ServiceDelegate,15,41,56]; ]
 class TrioServiceDelegate extends System.ServiceDelegate {
-    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 8; ]
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 15; ]
     <init> {
     }
-    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 8; ]
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 15; ]
     static
     <init> {
     }
-    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 10; @symbol_functiondef = [initialize,10,13,23]; ]
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 17; @symbol_functiondef = [initialize,17,13,23]; ]
     function initialize() as Void {
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_10_26_12_4_start:
-[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 11 8 ]
-        symbol [ ServiceDelegate %tmp.2 11 8 23 ];
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_17_26_19_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 18 8 ]
+        symbol [ ServiceDelegate %tmp.2 18 8 23 ];
         %tmp.2 = getv ? :ServiceDelegate;
-        symbol [ initialize %tmp.3 11 24 34 ];
+        symbol [ initialize %tmp.3 18 24 34 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_10_26_12_4_stop:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_17_26_19_4_stop:
     }
-    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 14; @symbol_functiondef = [onTemporalEvent,14,13,28]; ]
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 21; @symbol_functiondef = [onTemporalEvent,21,13,28]; ]
     function onTemporalEvent() {
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_14_31_17_4_start:
-[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 16 8 ]
-        symbol [ Communications %tmp.1 16 8 22 ];
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_21_31_27_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 23 8 ]
+        symbol [ Communications %tmp.1 23 8 22 ];
         %tmp.1 = getm $.Toybox.Communications;
-        symbol [ registerForPhoneAppMessages %tmp.2 16 23 50 ];
+        symbol [ registerForPhoneAppMessages %tmp.2 23 23 50 ];
         %tmp.2 = getv function %tmp.1 :registerForPhoneAppMessages;
         %tmp.3 = self;
-        symbol [ method %tmp.4 16 51 57 ];
+        symbol [ method %tmp.4 23 51 57 ];
         %tmp.4 = getv function %tmp.3 :method;
         %tmp.6 = const :onPhoneMessage;
-        symbol [ onPhoneMessage %tmp.6 16 59 73 const ];
+        symbol [ onPhoneMessage %tmp.6 23 59 73 const ];
         %tmp.7 = invoke %tmp.3 %tmp.4(%tmp.6);
         invoke %tmp.1 %tmp.2(%tmp.7);
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_14_31_17_4_stop:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 26 8 ]
+        symbol [ Communications %tmp.8 26 8 22 ];
+        %tmp.8 = getm $.Toybox.Communications;
+        symbol [ transmit %tmp.9 26 23 31 ];
+        %tmp.9 = getv function %tmp.8 :transmit;
+        %tmp.10 = "status";
+        %tmp.11 = null;
+        symbol [ BgCommListener %tmp.15 26 52 66 ];
+        %tmp.15 = getv ? :BgCommListener;
+        %tmp.12 = newc %tmp.15 ();
+        invoke %tmp.8 %tmp.9(%tmp.10, %tmp.11, %tmp.12);
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_21_31_27_4_stop:
     }
-    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 19; @symbol_functiondef = [onPhoneMessage,19,13,27]; @symbol_param<0> = [msg,19,28,31]; @symbol_param<0>_type<0> = [Communications,19,35,49]; @symbol_param<0>_type<1> = [PhoneAppMessage,19,50,65]; ]
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 29; @symbol_functiondef = [onPhoneMessage,29,13,27]; @symbol_param<0> = [msg,29,28,31]; @symbol_param<0>_type<0> = [Communications,29,35,49]; @symbol_param<0>_type<1> = [PhoneAppMessage,29,50,65]; ]
     function onPhoneMessage(msg as Communications.PhoneAppMessage) as Void {
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_19_75_24_4_start:
-[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 20 8 ]
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_20_8_23_8_if_stmt:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_29_75_34_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 30 8 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_30_8_33_8_if_stmt:
         %tmp.1 = lgetv %msg;
-        symbol [ msg %tmp.1 20 12 15 ];
-        symbol [ data %tmp.2 20 16 20 ];
+        symbol [ msg %tmp.1 30 12 15 ];
+        symbol [ data %tmp.2 30 16 20 ];
         %tmp.2 = getv %tmp.1 :data;
         %tmp.3 = null;
         %tmp.4 = ne %tmp.2 %tmp.3;
-        bf %tmp.4 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_20_8_23_8_if_end;
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_20_8_23_8_if_true:
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_20_30_23_8_start:
-[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 22 12 ]
-        symbol [ Background %tmp.5 22 12 22 ];
+        bf %tmp.4 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_30_8_33_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_30_8_33_8_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_30_30_33_8_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 32 12 ]
+        symbol [ Background %tmp.5 32 12 22 ];
         %tmp.5 = getm $.Toybox.Background;
-        symbol [ exit %tmp.6 22 23 27 ];
+        symbol [ exit %tmp.6 32 23 27 ];
         %tmp.6 = getv function %tmp.5 :exit;
         %tmp.7 = lgetv %msg;
-        symbol [ msg %tmp.7 22 28 31 ];
-        symbol [ data %tmp.8 22 32 36 ];
+        symbol [ msg %tmp.7 32 28 31 ];
+        symbol [ data %tmp.8 32 32 36 ];
         %tmp.8 = getv %tmp.7 :data;
         invoke %tmp.5 %tmp.6(%tmp.8);
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_20_30_23_8_stop:
-        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_20_8_23_8_if_end;
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_20_8_23_8_if_end:
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_19_75_24_4_stop:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_30_30_33_8_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_30_8_33_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_30_8_33_8_if_end:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_29_75_34_4_stop:
     }
 }
 [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 1; ]
