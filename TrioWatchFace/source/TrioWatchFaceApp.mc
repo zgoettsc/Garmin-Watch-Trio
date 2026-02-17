@@ -1,10 +1,10 @@
 using Toybox.Application;
-using Toybox.Communications;
+using Toybox.Background;
 using Toybox.WatchUi;
 
 class TrioWatchFaceApp extends Application.AppBase {
 
-    // Trio data dictionary — populated by phone messages
+    // Trio data dictionary — populated by background service
     var trioData = {};
 
     function initialize() {
@@ -12,24 +12,28 @@ class TrioWatchFaceApp extends Application.AppBase {
     }
 
     function onStart(state) {
-        // Listen for data pushed from Trio on the phone
-        Communications.registerForPhoneAppMessages(method(:onPhoneMessage));
-
-        // Request initial data so we don't wait for the next push cycle
-        Communications.transmit("status", null, new CommListener());
+        // Schedule the background service to run every 5 minutes
+        // (minimum interval for watch faces)
+        Background.registerForTemporalEvent(new Time.Duration(300));
     }
 
     function onStop(state) {
+        Background.deleteTemporalEvent();
     }
 
     function getInitialView() {
         return [ new TrioWatchFaceView() ];
     }
 
-    // Called when Trio sends a data dictionary to the watch
-    function onPhoneMessage(msg as Communications.PhoneAppMessage) as Void {
-        if (msg.data != null) {
-            trioData = msg.data;
+    // Return the background service delegate
+    function getServiceDelegate() {
+        return [ new TrioServiceDelegate() ];
+    }
+
+    // Called when the background service hands back data via Background.exit()
+    function onBackgroundData(data) {
+        if (data != null) {
+            trioData = data;
             WatchUi.requestUpdate();
         }
     }
