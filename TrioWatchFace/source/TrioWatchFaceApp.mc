@@ -27,7 +27,7 @@ class TrioWatchFaceApp extends Application.AppBase {
     }
 
     // Called when Trio sends a data dictionary to the watch
-    function onPhoneMessage(msg) {
+    function onPhoneMessage(msg as Communications.PhoneAppMessage) as Void {
         if (msg.data != null) {
             trioData = msg.data;
             WatchUi.requestUpdate();
