@@ -73,9 +73,9 @@ C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_Tr
         ret %tmp.7;
 C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_25_30_27_4_stop:
     }
-    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 30; @symbol_functiondef = [onPhoneMessage,30,13,27]; @symbol_param<0> = [msg,30,28,31]; ]
-    function onPhoneMessage(msg) {
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_30_33_35_4_start:
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 30; @symbol_functiondef = [onPhoneMessage,30,13,27]; @symbol_param<0> = [msg,30,28,31]; @symbol_param<0>_type<0> = [Communications,30,35,49]; @symbol_param<0>_type<1> = [PhoneAppMessage,30,50,65]; ]
+    function onPhoneMessage(msg as Communications.PhoneAppMessage) as Void {
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_30_75_35_4_start:
 [ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc" 31 8 ]
 C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_31_8_34_8_if_stmt:
         %tmp.1 = lgetv %msg;
@@ -103,7 +103,7 @@ C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_Tr
 C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_31_30_34_8_stop:
         goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_31_8_34_8_if_end;
 C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_31_8_34_8_if_end:
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_30_33_35_4_stop:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_30_75_35_4_stop:
     }
 }
 [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 1; ]
