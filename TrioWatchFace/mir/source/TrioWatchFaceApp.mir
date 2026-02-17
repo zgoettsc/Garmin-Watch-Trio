@@ -1,0 +1,111 @@
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Application,1,13,24]; ]
+using Toybox.Application;
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Communications,2,13,27]; ]
+using Toybox.Communications;
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [WatchUi,3,13,20]; ]
+using Toybox.WatchUi;
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 5; @symbol_classdef = [TrioWatchFaceApp,5,6,22]; @symbol_extends<0> = [Application,5,31,42]; @symbol_extends<1> = [AppBase,5,43,50]; ]
+class TrioWatchFaceApp extends Application.AppBase {
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 5; ]
+    <init> {
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc" 8 8 ]
+        %tmp.1 = newd 0;
+        putv self :trioData %tmp.1;
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 8; @position = 8; @symbol_vardef = [trioData,8,8,16]; ]
+    var trioData;
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 10; @symbol_functiondef = [initialize,10,13,23]; ]
+    function initialize() as Void {
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_10_26_12_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc" 11 8 ]
+        symbol [ AppBase %tmp.2 11 8 15 ];
+        %tmp.2 = getv ? :AppBase;
+        symbol [ initialize %tmp.3 11 16 26 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_10_26_12_4_stop:
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 14; @symbol_functiondef = [onStart,14,13,20]; @symbol_param<0> = [state,14,21,26]; ]
+    function onStart(state) {
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_14_28_20_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc" 16 8 ]
+        symbol [ Communications %tmp.1 16 8 22 ];
+        %tmp.1 = getm $.Toybox.Communications;
+        symbol [ registerForPhoneAppMessages %tmp.2 16 23 50 ];
+        %tmp.2 = getv function %tmp.1 :registerForPhoneAppMessages;
+        %tmp.3 = self;
+        symbol [ method %tmp.4 16 51 57 ];
+        %tmp.4 = getv function %tmp.3 :method;
+        %tmp.6 = const :onPhoneMessage;
+        symbol [ onPhoneMessage %tmp.6 16 59 73 const ];
+        %tmp.7 = invoke %tmp.3 %tmp.4(%tmp.6);
+        invoke %tmp.1 %tmp.2(%tmp.7);
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc" 19 8 ]
+        symbol [ Communications %tmp.8 19 8 22 ];
+        %tmp.8 = getm $.Toybox.Communications;
+        symbol [ transmit %tmp.9 19 23 31 ];
+        %tmp.9 = getv function %tmp.8 :transmit;
+        %tmp.10 = "status";
+        %tmp.11 = null;
+        symbol [ CommListener %tmp.15 19 52 64 ];
+        %tmp.15 = getv ? :CommListener;
+        %tmp.12 = newc %tmp.15 ();
+        invoke %tmp.8 %tmp.9(%tmp.10, %tmp.11, %tmp.12);
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_14_28_20_4_stop:
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 22; @symbol_functiondef = [onStop,22,13,19]; @symbol_param<0> = [state,22,20,25]; ]
+    function onStop(state) {
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 25; @symbol_functiondef = [getInitialView,25,13,27]; ]
+    function getInitialView() {
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_25_30_27_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc" 26 8 ]
+        %tmp.1 = newa 1;
+        symbol [ TrioWatchFaceView %tmp.5 26 21 38 ];
+        %tmp.5 = getv ? :TrioWatchFaceView;
+        %tmp.2 = newc %tmp.5 ();
+        %tmp.6 = dup %tmp.1;
+        %tmp.7 = aputv %tmp.6 0 %tmp.2;
+        ret %tmp.7;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_25_30_27_4_stop:
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 30; @symbol_functiondef = [onPhoneMessage,30,13,27]; @symbol_param<0> = [msg,30,28,31]; ]
+    function onPhoneMessage(msg) {
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_30_33_35_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc" 31 8 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_31_8_34_8_if_stmt:
+        %tmp.1 = lgetv %msg;
+        symbol [ msg %tmp.1 31 12 15 ];
+        symbol [ data %tmp.2 31 16 20 ];
+        %tmp.2 = getv %tmp.1 :data;
+        %tmp.3 = null;
+        %tmp.4 = ne %tmp.2 %tmp.3;
+        bf %tmp.4 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_31_8_34_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_31_8_34_8_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_31_30_34_8_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc" 32 12 ]
+        %tmp.5 = lgetv %msg;
+        symbol [ msg %tmp.5 32 23 26 ];
+        symbol [ data %tmp.6 32 27 31 ];
+        %tmp.6 = getv %tmp.5 :data;
+        symbol [ trioData ? 32 12 20 ];
+        putv self :trioData %tmp.6;
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc" 33 12 ]
+        symbol [ WatchUi %tmp.7 33 12 19 ];
+        %tmp.7 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.8 33 20 33 ];
+        %tmp.8 = getv function %tmp.7 :requestUpdate;
+        invoke %tmp.7 %tmp.8();
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_31_30_34_8_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_31_8_34_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_31_8_34_8_if_end:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioWatchFaceApp_mc_30_33_35_4_stop:
+    }
+}
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioWatchFaceApp.mc"; @line = 1; ]
+<init> {
+}
