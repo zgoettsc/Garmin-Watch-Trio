@@ -155,6 +155,17 @@ Two rows: BG+trend, delta+IOB (COB dropped)
 
 The user will modify Trio's `GarminManager.swift` to register the new app UUIDs.
 
+### Placeholder UUIDs (used in development)
+
+| App | Placeholder UUID |
+|-----|-----------------|
+| Watch Face | `A1B2C3D4-E5F6-4A90-B1C2-D3E4F5A6B7C8` |
+| Data Field | `C8B7A6F5-E4D3-4C2B-A190-F6E5D4C3B2A1` |
+
+**These must be replaced** with real UUIDs from the Connect IQ developer portal before deploying.
+
+### Instructions for Trio Modification
+
 **File:** `Trio/Sources/Services/WatchManager/GarminManager.swift` (lines 621–627)
 
 **Change from:**
@@ -165,15 +176,17 @@ private enum Config {
 }
 ```
 
-**Change to (Option A — replace existing):**
+**Change to (replace with your real UUIDs from the Connect IQ portal):**
 ```swift
 private enum Config {
-    static let watchfaceUUID = UUID(uuidString: "<NEW-WATCHFACE-UUID>")
-    static let watchdataUUID = UUID(uuidString: "<NEW-DATAFIELD-UUID>")
+    static let watchfaceUUID = UUID(uuidString: "A1B2C3D4-E5F6-4A90-B1C2-D3E4F5A6B7C8")
+    static let watchdataUUID = UUID(uuidString: "C8B7A6F5-E4D3-4C2B-A190-F6E5D4C3B2A1")
 }
 ```
 
-The actual UUIDs will be assigned by the Connect IQ developer portal when the apps are created. We will provide these to the user once known.
+**Also in `registerDevices()`** (lines 361–393 of `GarminManager.swift`): no changes needed — the existing code already creates `IQApp` instances using `Config.watchfaceUUID` and `Config.watchdataUUID`, so updating the UUIDs in `Config` is the only change required.
+
+No other Trio files need modification. The data format, message transport, and throttling all remain the same.
 
 ---
 
@@ -181,31 +194,36 @@ The actual UUIDs will be assigned by the Connect IQ developer portal when the ap
 
 ```
 TrioWatchFace/
-├── manifest.xml              # App metadata, UUID, supported devices
+├── manifest.xml                          # App metadata, UUID, device targets
+├── monkey.jungle                         # Build configuration
 ├── resources/
-│   ├── strings.xml           # String resources
-│   ├── drawables.xml         # Drawable resources (bitmaps)
-│   ├── layouts/
-│   │   └── layout.xml        # Watchface layout definition
-│   └── fonts/                # Custom fonts if needed
+│   ├── strings/strings.xml               # App name string
+│   └── drawables/
+│       ├── drawables.xml                 # Launcher icon reference
+│       └── launcher_icon.png             # TODO: provide a 40×40 PNG icon
 ├── source/
-│   ├── TrioWatchFaceApp.mc   # App entry point
-│   ├── TrioWatchFaceView.mc  # Main view (onUpdate draws the face)
-│   ├── TrioData.mc           # Data model (stores parsed Trio state)
-│   └── TrioComms.mc          # Communications handler
-└── monkey.jungle             # Build configuration
+│   ├── TrioWatchFaceApp.mc               # App entry: comms registration, data storage
+│   ├── TrioWatchFaceView.mc              # All drawing logic (6 zones, trend arrows)
+│   └── CommListener.mc                   # ConnectionListener for status requests
 
 TrioDataField/
 ├── manifest.xml
+├── monkey.jungle
 ├── resources/
-│   ├── strings.xml
-│   └── drawables.xml
+│   ├── strings/strings.xml
+│   └── drawables/
+│       ├── drawables.xml
+│       └── launcher_icon.png             # TODO: provide a 40×40 PNG icon
 ├── source/
-│   ├── TrioDataFieldApp.mc   # App entry point
-│   ├── TrioDataFieldView.mc  # Field rendering (compute + onUpdate)
-│   └── TrioData.mc           # Shared data model
-└── monkey.jungle
+│   ├── TrioDataFieldApp.mc               # App entry: comms registration, data storage
+│   ├── TrioDataFieldView.mc              # Adaptive layouts (tall/medium/compact)
+│   └── CommListener.mc                   # ConnectionListener for status requests
 ```
+
+### Build Requirements
+- **Connect IQ SDK** 3.1.0+
+- **Device**: select `fenix7x` in the SDK manager (covers Enduro 2)
+- **Launcher icon**: provide a 40×40 pixel PNG in each `resources/drawables/` directory
 
 ---
 
