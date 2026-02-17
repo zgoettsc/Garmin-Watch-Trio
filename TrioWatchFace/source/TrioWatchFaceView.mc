@@ -37,7 +37,6 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     // Called once per minute by the system, and on-demand via WatchUi.requestUpdate()
     function onUpdate(dc) {
         var width  = dc.getWidth();
-        var height = dc.getHeight();
         var cx     = width / 2;
 
         // Black background
@@ -100,9 +99,9 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     // ────────────────────────────────────────────
     //  Zone 3 — Blood Glucose + Trend Arrow
     // ────────────────────────────────────────────
-    private function drawBgAndTrend(dc, cx, data) {
-        var glucose  = data["glucose"];
-        var trendRaw = data["trendRaw"];
+    private function drawBgAndTrend(dc, cx, data as Dictionary) {
+        var glucose  = data["glucose"] as String?;
+        var trendRaw = data["trendRaw"] as String?;
         var bgColor  = getBgColor(glucose);
         var bgText   = (glucose != null) ? glucose : "--";
 
@@ -125,8 +124,8 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     // ────────────────────────────────────────────
     //  Zone 4 — Delta
     // ────────────────────────────────────────────
-    private function drawDelta(dc, cx, data) {
-        var delta   = data["delta"];
+    private function drawDelta(dc, cx, data as Dictionary) {
+        var delta   = data["delta"] as String?;
         var display = (delta != null) ? delta : "--";
 
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -137,9 +136,9 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     // ────────────────────────────────────────────
     //  Zone 5 — IOB (left) and COB (right)
     // ────────────────────────────────────────────
-    private function drawIobCob(dc, cx, data) {
-        var iob = data["iob"];
-        var cob = data["cob"];
+    private function drawIobCob(dc, cx, data as Dictionary) {
+        var iob = data["iob"] as String?;
+        var cob = data["cob"] as String?;
         var iobText = (iob != null) ? (iob + "u") : "--";
         var cobText = (cob != null) ? (cob + "g") : "--";
 
@@ -211,8 +210,8 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     // ════════════════════════════════════════════
     //  Helper: is the loop recent (< 15 min)?
     // ════════════════════════════════════════════
-    private function isLoopActive(data) {
-        var loopTime = data["lastLoopDateInterval"];
+    private function isLoopActive(data as Dictionary) {
+        var loopTime = data["lastLoopDateInterval"] as Number?;
         if (loopTime == null) {
             return false;
         }
