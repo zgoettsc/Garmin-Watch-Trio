@@ -1,0 +1,209 @@
+================================================================================
+TRIO WATCH FACE MOCKUP — Garmin Enduro 2 (280x280 round MIP display)
+================================================================================
+
+NORMAL STATE (Loop active, BG in range):
+─────────────────────────────────────────
+
+                  ╭────────────────────────╮
+              ╭───╯                          ╰───╮
+           ╭──╯          Tue  Feb 17              ╰──╮
+         ╭─╯                                        ╰─╮
+        ╭╯                                            ╰╮
+       ╭╯             10:42                             ╰╮
+      ╭╯                                                ╰╮
+      │                                                  │
+     │                                                    │
+     │              120  -->                              │
+     │               +5                                   │
+     │                                                    │
+      │                                                  │
+      ╰╮         2.5u          25g                     ╭╯
+       ╰╮                 *                           ╭╯
+        ╰╮                                          ╭╯
+         ╰─╮                                      ╭─╯
+           ╰──╮                                ╰──╯
+              ╰───╮                          ╭───╯
+                  ╰────────────────────────╯
+
+    LEGEND:
+    ┌─────────────────────────────────────────────────┐
+    │  "Tue  Feb 17"  =  Date (small, top)            │
+    │  "10:42"        =  Time (LARGE, prominent)      │
+    │  "120"          =  Blood Glucose (LARGE, bold)   │
+    │  "-->"          =  Trend arrow (Flat)            │
+    │  "+5"           =  Delta (medium font)           │
+    │  "2.5u"         =  IOB - Insulin on Board        │
+    │  "25g"          =  COB - Carbs on Board          │
+    │  "*"            =  Loop status (green dot)       │
+    └─────────────────────────────────────────────────┘
+
+
+LAYOUT GRID (approximate pixel zones on 280x280):
+─────────────────────────────────────────
+
+    ┌──────────────────────────────────────┐
+    │  Zone 1: DATE           y: 30-50     │
+    │  Small font, centered                │
+    │  "Tue  Feb 17"                       │
+    ├──────────────────────────────────────┤
+    │  Zone 2: TIME           y: 55-110    │
+    │  LARGEST font, centered              │
+    │  "10:42"                             │
+    ├──────────────────────────────────────┤
+    │  Zone 3: GLUCOSE+TREND  y: 120-175   │
+    │  Large font, centered with arrow     │
+    │  "120  -->"                          │
+    ├──────────────────────────────────────┤
+    │  Zone 4: DELTA          y: 175-200   │
+    │  Medium font, centered               │
+    │  "+5"                                │
+    ├──────────────────────────────────────┤
+    │  Zone 5: IOB | COB      y: 210-240   │
+    │  Small-medium font, split L/R        │
+    │  "2.5u"      "25g"                   │
+    ├──────────────────────────────────────┤
+    │  Zone 6: LOOP STATUS    y: 245-260   │
+    │  Tiny icon, centered                 │
+    │  Green dot or Red X                  │
+    └──────────────────────────────────────┘
+
+
+TREND ARROW SYMBOLS (mapped from Trio's trendRaw values):
+─────────────────────────────────────────
+
+    trendRaw value     Display
+    ─────────────      ───────
+    "DoubleUp"         ↑↑  (two up arrows)
+    "SingleUp"         ↑   (up arrow)
+    "FortyFiveUp"      ↗   (diagonal up)
+    "Flat"             →   (right arrow)
+    "FortyFiveDown"    ↘   (diagonal down)
+    "SingleDown"       ↓   (down arrow)
+    "DoubleDown"       ↓↓  (two down arrows)
+    "--" or null       -   (dash / no data)
+
+
+COLOR SCHEME (64-color MIP palette):
+─────────────────────────────────────────
+
+    Element        Color              Rationale
+    ───────        ─────              ─────────
+    Background     Black (0x000000)   Battery efficient on MIP
+    Time           White (0xFFFFFF)   Maximum readability
+    Date           Light gray         Visible but not competing
+    BG value       Dynamic:
+                     Green            In range (e.g. 70-180)
+                     Yellow           Caution (e.g. 55-70, 180-250)
+                     Red              Urgent (e.g. <55, >250)
+    Trend arrow    Same as BG color   Reinforces urgency
+    Delta          White              Clean, neutral
+    IOB label      Cyan/light blue    Distinct from BG colors
+    COB label      Orange/amber       Distinct, food-associated
+    Loop dot       Green (active)     Intuitive "good" signal
+    Loop X         Red (inactive)     Intuitive "warning" signal
+
+
+STATE VARIATIONS:
+═════════════════════════════════════════
+
+1. HIGH GLUCOSE (urgent):
+
+              ╭────────────────────────╮
+          ╭───╯                          ╰───╮
+       ╭──╯          Tue  Feb 17              ╰──╮
+      ╭╯                                        ╰╮
+     ╭╯             10:42                         ╰╮
+     │                                              │
+     │              285  ↑↑                         │
+     │              +22                             │
+     │                                              │
+     ╰╮          1.2u          10g                 ╭╯
+      ╰╮                 *                        ╭╯
+       ╰──╮                                  ╰──╯
+          ╰───╮                          ╭───╯
+              ╰────────────────────────╯
+
+    BG "285" and "↑↑" displayed in RED
+    Delta "+22" in white
+    Green loop dot = loop is running
+
+
+2. LOW GLUCOSE (urgent):
+
+              ╭────────────────────────╮
+          ╭───╯                          ╰───╮
+       ╭──╯          Tue  Feb 17              ╰──╮
+      ╭╯                                        ╰╮
+     ╭╯             10:42                         ╰╮
+     │                                              │
+     │               58  ↓                          │
+     │              -15                             │
+     │                                              │
+     ╰╮          0.3u          45g                 ╭╯
+      ╰╮                 *                        ╭╯
+       ╰──╮                                  ╰──╯
+          ╰───╮                          ╭───╯
+              ╰────────────────────────╯
+
+    BG "58" and "↓" displayed in RED
+    Loop is active (green dot)
+
+
+3. LOOP INACTIVE (stale > 15 min):
+
+              ╭────────────────────────╮
+          ╭───╯                          ╰───╮
+       ╭──╯          Tue  Feb 17              ╰──╮
+      ╭╯                                        ╰╮
+     ╭╯             10:42                         ╰╮
+     │                                              │
+     │              145  →                          │
+     │               +2                             │
+     │                                              │
+     ╰╮          3.1u          0g                  ╭╯
+      ╰╮                 X                        ╭╯
+       ╰──╮                                  ╰──╯
+          ╰───╮                          ╭───╯
+              ╰────────────────────────╯
+
+    Red X instead of green dot
+    BG is green (in range) — color is independent of loop status
+
+
+4. NO DATA (watch just started, waiting for first update):
+
+              ╭────────────────────────╮
+          ╭───╯                          ╰───╮
+       ╭──╯          Tue  Feb 17              ╰──╮
+      ╭╯                                        ╰╮
+     ╭╯             10:42                         ╰╮
+     │                                              │
+     │               --   -                         │
+     │               --                             │
+     │                                              │
+     ╰╮          --             --                 ╭╯
+      ╰╮                 X                        ╭╯
+       ╰──╮                                  ╰──╯
+          ╰───╮                          ╭───╯
+              ╰────────────────────────╯
+
+    All Trio values show "--" placeholder
+    Red X (no loop data received yet)
+    Time and date always work (from watch itself)
+
+
+FONT SIZE HIERARCHY (approximate):
+─────────────────────────────────────────
+
+    Element     Approx Height    Priority
+    ───────     ─────────────    ────────
+    Time        ~50px            1 (largest)
+    BG Value    ~42px            2 (nearly as large)
+    Trend Arrow ~36px            3 (beside BG)
+    Delta       ~22px            4 (medium)
+    IOB / COB   ~20px            5 (small-medium)
+    Date        ~16px            6 (small)
+    Loop icon   ~12px            7 (tiny indicator)
+
+================================================================================
