@@ -1,0 +1,76 @@
+================================================================================
+TRIO DATA FIELD MOCKUP — Garmin Enduro 2
+================================================================================
+
+Data fields appear inside activity screens (running, cycling, etc.)
+They come in various sizes. We should support at minimum:
+
+================================================================================
+SINGLE FIELD (full width, short height — most common):
+================================================================================
+
+    ┌──────────────────────────────────────────────┐
+    │                                              │
+    │    120 →  +5     IOB 2.5   COB 25   *       │
+    │                                              │
+    └──────────────────────────────────────────────┘
+
+    Single-line layout:  BG  Trend  Delta  |  IOB  COB  LoopDot
+    Everything on one line, compact
+
+
+================================================================================
+TALL SINGLE FIELD (full width, taller — e.g. 1-field layout):
+================================================================================
+
+    ┌──────────────────────────────────────────────┐
+    │                                              │
+    │              120  →                          │
+    │              +5                              │
+    │                                              │
+    │         IOB 2.5     COB 25     *            │
+    │                                              │
+    └──────────────────────────────────────────────┘
+
+    Two rows:
+      Row 1: BG + Trend + Delta
+      Row 2: IOB + COB + Loop status
+
+
+================================================================================
+SMALL FIELD (quarter screen — e.g. 4-field layout):
+================================================================================
+
+    ┌─────────────────────┐
+    │                     │
+    │     120 →           │
+    │  +5  2.5u  25g     │
+    │                     │
+    └─────────────────────┘
+
+    Condensed: BG+Trend on line 1, Delta+IOB+COB on line 2
+    Loop indicator omitted (no room)
+
+
+================================================================================
+COLOR BEHAVIOR:
+================================================================================
+
+    Same BG color logic as watchface:
+      Green   = in range
+      Yellow  = caution
+      Red     = urgent
+
+    Other text = white or black depending on activity background
+
+
+================================================================================
+DATA PRIORITY (when space is limited):
+================================================================================
+
+    Priority 1: BG + Trend (always shown)
+    Priority 2: Delta (shown if room)
+    Priority 3: IOB + COB (shown if room)
+    Priority 4: Loop status (shown if room)
+
+================================================================================

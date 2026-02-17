@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- Trio Data Field for Garmin Enduro 2 -->
+<!-- PLACEHOLDER UUID — replace with your real UUID from the Connect IQ developer portal -->
+<iq:manifest xmlns:iq="http://www.garmin.com/xml/connectiq" version="3">
+    <iq:application entry="TrioDataFieldApp"
+                    id="C8B7A6F5-E4D3-4C2B-A190-F6E5D4C3B2A1"
+                    launcherIcon="@Drawables.LauncherIcon"
+                    name="@Strings.AppName"
+                    type="datafield"
+                    minSdkVersion="3.1.0">
+        <iq:products>
+            <iq:product id="fenix7x"/>
+        </iq:products>
+        <iq:permissions>
+            <iq:uses-permission id="Communications"/>
+        </iq:permissions>
+        <iq:languages>
+            <iq:language>eng</iq:language>
+        </iq:languages>
+    </iq:application>
+</iq:manifest>
