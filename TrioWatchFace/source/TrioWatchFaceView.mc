@@ -37,7 +37,6 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     // Called once per minute by the system, and on-demand via WatchUi.requestUpdate()
     function onUpdate(dc) {
         var width  = dc.getWidth();
-        var height = dc.getHeight();
         var cx     = width / 2;
 
         // Black background
