@@ -82,7 +82,7 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
 
         var timeStr = Lang.format("$1$:$2$", [hours, clock.min.format("%02d")]);
 
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, Y_TIME, Graphics.FONT_NUMBER_HOT, timeStr,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
