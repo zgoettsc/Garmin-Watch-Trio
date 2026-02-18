@@ -33,8 +33,9 @@ class TrioServiceDelegate extends System.ServiceDelegate {
     // This is an override of ServiceDelegate.onPhoneAppMessage(), which the
     // system invokes when registerForPhoneAppMessageEvent() triggers a wake.
     function onPhoneAppMessage(msg as Communications.PhoneAppMessage) as Void {
-        if (msg.data != null) {
-            Background.exit(msg.data);
-        }
+        // Always call Background.exit() so the service terminates and
+        // the next temporal event can fire.  Pass null when there's no
+        // payload — onBackgroundData() already guards against null.
+        Background.exit(msg.data);
     }
 }
