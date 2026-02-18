@@ -16,9 +16,6 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     // Loop is considered stale after 15 minutes (900 seconds)
     private const LOOP_STALE_SEC = 900;
 
-    // Offset between Unix epoch (Jan 1, 1970) and Garmin epoch (Dec 31, 1989).
-    private const UNIX_EPOCH_OFFSET = 631065600;
-
     // ── Layout Y-coordinates (280×280 round display) ──
     // DIAGNOSTIC BUILD: time replaced with debug info in the wide center area
     private const Y_DATE         = 28;
@@ -123,12 +120,13 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
         dc.drawText(cx, Y_DIAG2, Graphics.FONT_XTINY, line2,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // ── Line 3: show Garmin now and Unix now for epoch verification ──
-        var nowGarmin = Time.now().value();
-        var nowUnix = nowGarmin + UNIX_EPOCH_OFFSET;
-        // Show in millions to save space (e.g., "1140M" and "1771M")
-        var line3 = "gNow:" + (nowGarmin / 1000000).toString() + "M"
-                  + " uNow:" + (nowUnix / 1000000).toString() + "M";
+        // ── Line 3: show now-LDI difference (should be small, e.g. "age:45s") ──
+        var now = Time.now().value();
+        var line3 = "now:" + (now / 1000000).toString() + "M";
+        if (loopTime != null) {
+            var diff = now - loopTime;
+            line3 = line3 + " age:" + diff.toString() + "s";
+        }
 
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, Y_DIAG3, Graphics.FONT_XTINY, line3,
@@ -240,13 +238,16 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     }
 
     // ── Loop freshness check ──
+    // Time.now().value() returns Unix epoch on fenix7x (confirmed via diagnostics:
+    // gNow:1771M matches Feb 2026 Unix timestamp, NOT Garmin epoch ~1140M).
+    // Trio also sends lastLoopDateInterval as Unix epoch. Direct comparison.
     private function isLoopActive(data) {
         var loopTime = data["lastLoopDateInterval"];
         if (loopTime == null) {
             return false;
         }
-        var nowUnix = Time.now().value() + UNIX_EPOCH_OFFSET;
-        return (nowUnix - loopTime) < LOOP_STALE_SEC;
+        var now = Time.now().value();
+        return (now - loopTime) < LOOP_STALE_SEC;
     }
 
     // ── Trend arrow drawing ──
