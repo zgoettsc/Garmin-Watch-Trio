@@ -26,9 +26,13 @@ class TrioWatchFaceApp extends Application.AppBase {
         }
 
         // Schedule the background service to run every 5 minutes
-        // (minimum allowed interval for watch faces).
-        // Each cycle requests fresh data from Trio via "status" message.
+        // as a fallback poll (minimum allowed interval for watch faces).
         Background.registerForTemporalEvent(new Time.Duration(300));
+
+        // Also wake the background service instantly whenever Trio
+        // pushes a message — this is what makes BG updates arrive
+        // in real-time instead of only every 5 minutes.
+        Background.registerForPhoneAppMessages();
     }
 
     function onStop(state) {

@@ -5,12 +5,15 @@ using Toybox.System;
 // Background service delegate — the only place a watch face
 // is allowed to use Toybox.Communications.
 //
-// Flow:
-//   1. Temporal event fires every 5 min → onTemporalEvent()
-//   2. We register for phone messages AND request fresh data ("status")
-//   3. Trio responds with a data dictionary
-//   4. onPhoneMessage() receives it and passes to foreground via Background.exit()
-//   5. Foreground onBackgroundData() stores and displays the data
+// Two wake-up paths:
+//   A. Push — Trio sends data → registerForPhoneAppMessages wakes us
+//      → onPhoneMessage() fires directly with the payload
+//   B. Poll — temporal event fires every 5 min → onTemporalEvent()
+//      → we send "status" to ask Trio for fresh data
+//      → Trio responds → onPhoneMessage() fires with the payload
+//
+// In both cases onPhoneMessage() passes data to the foreground
+// via Background.exit().
 (:background)
 class TrioServiceDelegate extends System.ServiceDelegate {
 
@@ -18,17 +21,16 @@ class TrioServiceDelegate extends System.ServiceDelegate {
         ServiceDelegate.initialize();
     }
 
+    // Poll path: fires every 5 min as a fallback.
+    // Sends "status" to Trio so it replies with fresh data.
     function onTemporalEvent() {
-        // Listen for data pushed from Trio
         Communications.registerForPhoneAppMessages(method(:onPhoneMessage));
-
-        // Request fresh data so we don't wait for Trio's next push cycle
         Communications.transmit("status", null, new BgCommListener());
     }
 
+    // Called for both push (Trio initiated) and poll (our "status" response).
     function onPhoneMessage(msg as Communications.PhoneAppMessage) as Void {
         if (msg.data != null) {
-            // Hand the payload back to the foreground via onBackgroundData()
             Background.exit(msg.data);
         }
     }
