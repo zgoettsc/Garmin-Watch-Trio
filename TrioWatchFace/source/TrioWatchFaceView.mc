@@ -161,32 +161,76 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     }
 
     // ────────────────────────────────────────────
-    //  Zone 6 — Loop status dot/X and battery %
+    //  Zone 6 — Diagnostic status line
+    //  Layout: [●] Rx:3m  L:--  85%
+    //
+    //  ● / ✕  = loop active / stale
+    //  Rx:Xm  = minutes since watch received ANY data (green ≤10m, red otherwise)
+    //  L:Xm   = minutes since Trio's loop ran, or "--" if null
+    //  85%    = battery
     // ────────────────────────────────────────────
     private function drawLoopAndBattery(dc, cx, data) {
         var loopActive = isLoopActive(data);
+        var app = Application.getApp();
 
-        // ── Loop indicator (left of center) ──
-        var indicatorX = cx - 20;
+        // ── Loop indicator (leftmost) ──
+        var indicatorX = cx - 75;
 
         if (loopActive) {
-            // Green filled circle
             dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
             dc.fillCircle(indicatorX, Y_STATUS, 5);
         } else {
-            // Red X
             dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
             dc.setPenWidth(2);
             dc.drawLine(indicatorX - 4, Y_STATUS - 4, indicatorX + 4, Y_STATUS + 4);
             dc.drawLine(indicatorX - 4, Y_STATUS + 4, indicatorX + 4, Y_STATUS - 4);
         }
 
-        // ── Battery % (right of center) ──
+        // ── Data freshness: minutes since watch last received data ──
+        var rxLabel = "Rx:--";
+        var rxStale = true;
+        if (app.lastReceiveTime > 0) {
+            var ageSec = Time.now().value() - app.lastReceiveTime;
+            if (ageSec >= 0) {
+                var ageMin = ageSec / 60;
+                rxStale = (ageMin > 10);
+                if (ageMin < 100) {
+                    rxLabel = "Rx:" + ageMin.toString() + "m";
+                } else {
+                    rxLabel = "Rx:" + (ageMin / 60).toString() + "h";
+                }
+            } else {
+                rxLabel = "Rx:0m";
+                rxStale = false;
+            }
+        }
+        dc.setColor(rxStale ? Graphics.COLOR_RED : Graphics.COLOR_GREEN,
+                     Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx - 35, Y_STATUS, Graphics.FONT_XTINY, rxLabel,
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+
+        // ── Loop age: minutes since Trio's last determination timestamp ──
+        // Shows "--" if lastLoopDateInterval is null (not sent by Trio)
+        var loopTime = data["lastLoopDateInterval"];
+        var loopLabel = "L:--";
+        if (loopTime != null) {
+            var nowUnix = Time.now().value() + UNIX_EPOCH_OFFSET;
+            var loopAgeSec = nowUnix - loopTime;
+            if (loopAgeSec >= 0) {
+                loopLabel = "L:" + (loopAgeSec / 60).toString() + "m";
+            } else {
+                loopLabel = "L:neg";  // clock mismatch diagnostic
+            }
+        }
+        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx + 20, Y_STATUS, Graphics.FONT_XTINY, loopLabel,
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+
+        // ── Battery % (rightmost) ──
         var battery = System.getSystemStats().battery;
         var battStr = battery.toNumber().toString() + "%";
-
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx + 20, Y_STATUS, Graphics.FONT_XTINY, battStr,
+        dc.drawText(cx + 65, Y_STATUS, Graphics.FONT_XTINY, battStr,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
