@@ -17,6 +17,11 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     // Loop is considered stale after 15 minutes (900 seconds)
     private const LOOP_STALE_SEC = 900;
 
+    // Offset between Unix epoch (Jan 1, 1970) and Garmin epoch (Dec 31, 1989).
+    // Trio sends lastLoopDateInterval as Unix timestamp, but Time.now().value()
+    // returns seconds since the Garmin epoch. Add this to convert Garmin → Unix.
+    private const UNIX_EPOCH_OFFSET = 631065600;
+
     // ── Layout Y-coordinates (280×280 round display) ──
     private const Y_DATE         = 32;
     private const Y_TIME         = 82;
@@ -215,8 +220,9 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
         if (loopTime == null) {
             return false;
         }
-        var now = Time.now().value();
-        return (now - loopTime) < LOOP_STALE_SEC;
+        // Convert Garmin epoch to Unix epoch for comparison with Trio's timestamp
+        var nowUnix = Time.now().value() + UNIX_EPOCH_OFFSET;
+        return (nowUnix - loopTime) < LOOP_STALE_SEC;
     }
 
     // ════════════════════════════════════════════
