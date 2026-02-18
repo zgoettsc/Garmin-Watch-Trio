@@ -3,164 +3,231 @@
     <manifest filename="C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\manifest.xml"/>
     <pcToLineNum>
         <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\BgCommListener.mc" id="1" lineNum="8" parent="globals/BgCommListener" pc="268435460" symbol="&lt;init&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="2" lineNum="15" parent="globals/TrioServiceDelegate" pc="268435472" symbol="&lt;init&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="3" lineNum="8" parent="globals/TrioWatchFaceApp" pc="268435484" symbol="&lt;init&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="3" lineNum="12" parent="globals/TrioWatchFaceApp" pc="268435495" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="2" lineNum="18" parent="globals/TrioServiceDelegate" pc="268435472" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="3" lineNum="9" parent="globals/TrioWatchFaceApp" pc="268435484" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="3" lineNum="13" parent="globals/TrioWatchFaceApp" pc="268435495" symbol="&lt;init&gt;"/>
         <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\BgCommListener.mc" id="6" lineNum="10" parent="globals/BgCommListener" pc="268435505" symbol="initialize"/>
         <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\BgCommListener.mc" id="6" lineNum="11" parent="globals/BgCommListener" pc="268435507" symbol="initialize"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="7" lineNum="29" parent="globals/TrioServiceDelegate" pc="268435520" symbol="onPhoneMessage"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="7" lineNum="30" parent="globals/TrioServiceDelegate" pc="268435522" symbol="onPhoneMessage"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="7" lineNum="32" parent="globals/TrioServiceDelegate" pc="268435532" symbol="onPhoneMessage"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="8" lineNum="21" parent="globals/TrioServiceDelegate" pc="268435555" symbol="onTemporalEvent"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="8" lineNum="23" parent="globals/TrioServiceDelegate" pc="268435557" symbol="onTemporalEvent"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="8" lineNum="26" parent="globals/TrioServiceDelegate" pc="268435583" symbol="onTemporalEvent"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="9" lineNum="17" parent="globals/TrioServiceDelegate" pc="268435621" symbol="initialize"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="9" lineNum="18" parent="globals/TrioServiceDelegate" pc="268435623" symbol="initialize"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="21" parent="globals/TrioWatchFaceApp" pc="268435636" symbol="onStart"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="23" parent="globals/TrioWatchFaceApp" pc="268435639" symbol="onStart"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="24" parent="globals/TrioWatchFaceApp" pc="268435658" symbol="onStart"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="25" parent="globals/TrioWatchFaceApp" pc="268435664" symbol="onStart"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="31" parent="globals/TrioWatchFaceApp" pc="268435676" symbol="onStart"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="11" lineNum="43" parent="globals/TrioWatchFaceApp" pc="268435715" symbol="getServiceDelegate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="11" lineNum="44" parent="globals/TrioWatchFaceApp" pc="268435717" symbol="getServiceDelegate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="12" lineNum="38" parent="globals/TrioWatchFaceApp" pc="268435743" symbol="getInitialView"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="12" lineNum="39" parent="globals/TrioWatchFaceApp" pc="268435745" symbol="getInitialView"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="13" lineNum="17" parent="globals/TrioWatchFaceApp" pc="268435771" symbol="initialize"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="13" lineNum="18" parent="globals/TrioWatchFaceApp" pc="268435773" symbol="initialize"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="48" parent="globals/TrioWatchFaceApp" pc="268435786" symbol="onBackgroundData"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="49" parent="globals/TrioWatchFaceApp" pc="268435788" symbol="onBackgroundData"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="50" parent="globals/TrioWatchFaceApp" pc="268435794" symbol="onBackgroundData"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="52" parent="globals/TrioWatchFaceApp" pc="268435803" symbol="onBackgroundData"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="53" parent="globals/TrioWatchFaceApp" pc="268435823" symbol="onBackgroundData"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="15" lineNum="34" parent="globals/TrioWatchFaceApp" pc="268435838" symbol="onStop"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="15" lineNum="35" parent="globals/TrioWatchFaceApp" pc="268435840" symbol="onStop"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="16" lineNum="8" parent="globals/TrioWatchFaceView" pc="268435852" symbol="&lt;init&gt;"/>
-        <entry filename="c:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\gen\\006-B3907-00\\source\\Rez.mcgen" id="17" lineNum="7" parent="globals/Rez" pc="268435864" symbol="&lt;init&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="161" parent="globals/TrioWatchFaceView" pc="268435884" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="162" parent="globals/TrioWatchFaceView" pc="268435887" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="165" parent="globals/TrioWatchFaceView" pc="268435899" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="167" parent="globals/TrioWatchFaceView" pc="268435906" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="169" parent="globals/TrioWatchFaceView" pc="268435911" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="170" parent="globals/TrioWatchFaceView" pc="268435927" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="173" parent="globals/TrioWatchFaceView" pc="268435947" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="174" parent="globals/TrioWatchFaceView" pc="268435964" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="175" parent="globals/TrioWatchFaceView" pc="268435976" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="176" parent="globals/TrioWatchFaceView" pc="268436002" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="180" parent="globals/TrioWatchFaceView" pc="268436028" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="181" parent="globals/TrioWatchFaceView" pc="268436045" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="183" parent="globals/TrioWatchFaceView" pc="268436066" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="184" parent="globals/TrioWatchFaceView" pc="268436083" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="74" parent="globals/TrioWatchFaceView" pc="268436107" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="75" parent="globals/TrioWatchFaceView" pc="268436110" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="76" parent="globals/TrioWatchFaceView" pc="268436122" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="78" parent="globals/TrioWatchFaceView" pc="268436130" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="79" parent="globals/TrioWatchFaceView" pc="268436149" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="79" parent="globals/TrioWatchFaceView" pc="268436157" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="80" parent="globals/TrioWatchFaceView" pc="268436167" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="80" parent="globals/TrioWatchFaceView" pc="268436174" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="83" parent="globals/TrioWatchFaceView" pc="268436184" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="85" parent="globals/TrioWatchFaceView" pc="268436234" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="86" parent="globals/TrioWatchFaceView" pc="268436251" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="229" parent="globals/TrioWatchFaceView" pc="268436272" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="230" parent="globals/TrioWatchFaceView" pc="268436275" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="231" parent="globals/TrioWatchFaceView" pc="268436289" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="233" parent="globals/TrioWatchFaceView" pc="268436301" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="235" parent="globals/TrioWatchFaceView" pc="268436305" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="237" parent="globals/TrioWatchFaceView" pc="268436329" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="238" parent="globals/TrioWatchFaceView" pc="268436353" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="241" parent="globals/TrioWatchFaceView" pc="268436357" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="243" parent="globals/TrioWatchFaceView" pc="268436374" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="244" parent="globals/TrioWatchFaceView" pc="268436398" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="248" parent="globals/TrioWatchFaceView" pc="268436487" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="250" parent="globals/TrioWatchFaceView" pc="268436504" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="251" parent="globals/TrioWatchFaceView" pc="268436528" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="255" parent="globals/TrioWatchFaceView" pc="268436617" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="257" parent="globals/TrioWatchFaceView" pc="268436634" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="258" parent="globals/TrioWatchFaceView" pc="268436658" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="262" parent="globals/TrioWatchFaceView" pc="268436747" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="264" parent="globals/TrioWatchFaceView" pc="268436764" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="265" parent="globals/TrioWatchFaceView" pc="268436794" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="269" parent="globals/TrioWatchFaceView" pc="268436892" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="271" parent="globals/TrioWatchFaceView" pc="268436909" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="272" parent="globals/TrioWatchFaceView" pc="268436939" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="276" parent="globals/TrioWatchFaceView" pc="268437037" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="278" parent="globals/TrioWatchFaceView" pc="268437054" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="281" parent="globals/TrioWatchFaceView" pc="268437140" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="285" parent="globals/TrioWatchFaceView" pc="268437232" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="287" parent="globals/TrioWatchFaceView" pc="268437249" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="290" parent="globals/TrioWatchFaceView" pc="268437335" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="296" parent="globals/TrioWatchFaceView" pc="268437427" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="93" parent="globals/TrioWatchFaceView" pc="268437452" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawSeparator&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="94" parent="globals/TrioWatchFaceView" pc="268437454" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawSeparator&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="95" parent="globals/TrioWatchFaceView" pc="268437470" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawSeparator&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="96" parent="globals/TrioWatchFaceView" pc="268437482" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawSeparator&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="213" parent="globals/TrioWatchFaceView" pc="268437507" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="214" parent="globals/TrioWatchFaceView" pc="268437510" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="215" parent="globals/TrioWatchFaceView" pc="268437520" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="216" parent="globals/TrioWatchFaceView" pc="268437526" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="218" parent="globals/TrioWatchFaceView" pc="268437531" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="219" parent="globals/TrioWatchFaceView" pc="268437549" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="139" parent="globals/TrioWatchFaceView" pc="268437559" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="140" parent="globals/TrioWatchFaceView" pc="268437562" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="141" parent="globals/TrioWatchFaceView" pc="268437572" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="142" parent="globals/TrioWatchFaceView" pc="268437582" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="143" parent="globals/TrioWatchFaceView" pc="268437606" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="145" parent="globals/TrioWatchFaceView" pc="268437630" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="148" parent="globals/TrioWatchFaceView" pc="268437634" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="149" parent="globals/TrioWatchFaceView" pc="268437650" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="153" parent="globals/TrioWatchFaceView" pc="268437674" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="154" parent="globals/TrioWatchFaceView" pc="268437691" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="127" parent="globals/TrioWatchFaceView" pc="268437716" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="128" parent="globals/TrioWatchFaceView" pc="268437719" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="129" parent="globals/TrioWatchFaceView" pc="268437729" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="131" parent="globals/TrioWatchFaceView" pc="268437747" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="132" parent="globals/TrioWatchFaceView" pc="268437764" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="102" parent="globals/TrioWatchFaceView" pc="268437786" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="103" parent="globals/TrioWatchFaceView" pc="268437789" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="104" parent="globals/TrioWatchFaceView" pc="268437799" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="105" parent="globals/TrioWatchFaceView" pc="268437809" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="106" parent="globals/TrioWatchFaceView" pc="268437821" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="109" parent="globals/TrioWatchFaceView" pc="268437839" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="110" parent="globals/TrioWatchFaceView" pc="268437843" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="111" parent="globals/TrioWatchFaceView" pc="268437858" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="112" parent="globals/TrioWatchFaceView" pc="268437862" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="113" parent="globals/TrioWatchFaceView" pc="268437869" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="115" parent="globals/TrioWatchFaceView" pc="268437885" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="116" parent="globals/TrioWatchFaceView" pc="268437899" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="120" parent="globals/TrioWatchFaceView" pc="268437920" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="121" parent="globals/TrioWatchFaceView" pc="268437933" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="26" lineNum="33" parent="globals/TrioWatchFaceView" pc="268437954" symbol="initialize"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="26" lineNum="34" parent="globals/TrioWatchFaceView" pc="268437956" symbol="initialize"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="38" parent="globals/TrioWatchFaceView" pc="268437969" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="39" parent="globals/TrioWatchFaceView" pc="268437972" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="40" parent="globals/TrioWatchFaceView" pc="268437981" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="43" parent="globals/TrioWatchFaceView" pc="268437988" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="44" parent="globals/TrioWatchFaceView" pc="268438000" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="47" parent="globals/TrioWatchFaceView" pc="268438008" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="48" parent="globals/TrioWatchFaceView" pc="268438020" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="50" parent="globals/TrioWatchFaceView" pc="268438028" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="51" parent="globals/TrioWatchFaceView" pc="268438041" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="52" parent="globals/TrioWatchFaceView" pc="268438054" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="53" parent="globals/TrioWatchFaceView" pc="268438067" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="54" parent="globals/TrioWatchFaceView" pc="268438082" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="55" parent="globals/TrioWatchFaceView" pc="268438097" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="56" parent="globals/TrioWatchFaceView" pc="268438112" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="28" lineNum="62" parent="globals/TrioWatchFaceView" pc="268438128" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="28" lineNum="63" parent="globals/TrioWatchFaceView" pc="268438131" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="28" lineNum="64" parent="globals/TrioWatchFaceView" pc="268438157" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="28" lineNum="66" parent="globals/TrioWatchFaceView" pc="268438207" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="28" lineNum="67" parent="globals/TrioWatchFaceView" pc="268438224" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="191" parent="globals/TrioWatchFaceView" pc="268438244" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="192" parent="globals/TrioWatchFaceView" pc="268438247" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="193" parent="globals/TrioWatchFaceView" pc="268438253" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="196" parent="globals/TrioWatchFaceView" pc="268438262" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="197" parent="globals/TrioWatchFaceView" pc="268438271" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="198" parent="globals/TrioWatchFaceView" pc="268438277" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="201" parent="globals/TrioWatchFaceView" pc="268438286" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="202" parent="globals/TrioWatchFaceView" pc="268438303" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="204" parent="globals/TrioWatchFaceView" pc="268438312" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="205" parent="globals/TrioWatchFaceView" pc="268438329" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
-        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="207" parent="globals/TrioWatchFaceView" pc="268438338" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="7" lineNum="35" parent="globals/TrioServiceDelegate" pc="268435520" symbol="onPhoneAppMessage"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="7" lineNum="36" parent="globals/TrioServiceDelegate" pc="268435522" symbol="onPhoneAppMessage"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="7" lineNum="37" parent="globals/TrioServiceDelegate" pc="268435532" symbol="onPhoneAppMessage"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="8" lineNum="27" parent="globals/TrioServiceDelegate" pc="268435555" symbol="onTemporalEvent"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="8" lineNum="28" parent="globals/TrioServiceDelegate" pc="268435557" symbol="onTemporalEvent"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="8" lineNum="29" parent="globals/TrioServiceDelegate" pc="268435583" symbol="onTemporalEvent"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="9" lineNum="20" parent="globals/TrioServiceDelegate" pc="268435621" symbol="initialize"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioServiceDelegate.mc" id="9" lineNum="21" parent="globals/TrioServiceDelegate" pc="268435623" symbol="initialize"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="28" parent="globals/TrioWatchFaceApp" pc="268435636" symbol="onStart"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="30" parent="globals/TrioWatchFaceApp" pc="268435639" symbol="onStart"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="31" parent="globals/TrioWatchFaceApp" pc="268435658" symbol="onStart"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="32" parent="globals/TrioWatchFaceApp" pc="268435664" symbol="onStart"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="34" parent="globals/TrioWatchFaceApp" pc="268435676" symbol="onStart"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="35" parent="globals/TrioWatchFaceApp" pc="268435695" symbol="onStart"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="36" parent="globals/TrioWatchFaceApp" pc="268435701" symbol="onStart"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="41" parent="globals/TrioWatchFaceApp" pc="268435713" symbol="onStart"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="10" lineNum="46" parent="globals/TrioWatchFaceApp" pc="268435751" symbol="onStart"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="11" lineNum="59" parent="globals/TrioWatchFaceApp" pc="268435763" symbol="getServiceDelegate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="11" lineNum="60" parent="globals/TrioWatchFaceApp" pc="268435765" symbol="getServiceDelegate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="12" lineNum="54" parent="globals/TrioWatchFaceApp" pc="268435791" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="12" lineNum="55" parent="globals/TrioWatchFaceApp" pc="268435793" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="13" lineNum="24" parent="globals/TrioWatchFaceApp" pc="268435819" symbol="initialize"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="13" lineNum="25" parent="globals/TrioWatchFaceApp" pc="268435821" symbol="initialize"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="64" parent="globals/TrioWatchFaceApp" pc="268435834" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="65" parent="globals/TrioWatchFaceApp" pc="268435837" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="66" parent="globals/TrioWatchFaceApp" pc="268435843" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="67" parent="globals/TrioWatchFaceApp" pc="268435852" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="70" parent="globals/TrioWatchFaceApp" pc="268435875" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="71" parent="globals/TrioWatchFaceApp" pc="268435895" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="76" parent="globals/TrioWatchFaceApp" pc="268435918" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="77" parent="globals/TrioWatchFaceApp" pc="268435933" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="78" parent="globals/TrioWatchFaceApp" pc="268435943" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="79" parent="globals/TrioWatchFaceApp" pc="268435950" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="80" parent="globals/TrioWatchFaceApp" pc="268435966" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="81" parent="globals/TrioWatchFaceApp" pc="268435973" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="82" parent="globals/TrioWatchFaceApp" pc="268435980" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="83" parent="globals/TrioWatchFaceApp" pc="268435987" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="83" parent="globals/TrioWatchFaceApp" pc="268435993" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="84" parent="globals/TrioWatchFaceApp" pc="268436003" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="84" parent="globals/TrioWatchFaceApp" pc="268436014" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="85" parent="globals/TrioWatchFaceApp" pc="268436024" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="85" parent="globals/TrioWatchFaceApp" pc="268436035" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="86" parent="globals/TrioWatchFaceApp" pc="268436045" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="86" parent="globals/TrioWatchFaceApp" pc="268436056" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="87" parent="globals/TrioWatchFaceApp" pc="268436066" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="87" parent="globals/TrioWatchFaceApp" pc="268436077" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="88" parent="globals/TrioWatchFaceApp" pc="268436087" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="88" parent="globals/TrioWatchFaceApp" pc="268436098" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="89" parent="globals/TrioWatchFaceApp" pc="268436108" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="90" parent="globals/TrioWatchFaceApp" pc="268436132" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="92" parent="globals/TrioWatchFaceApp" pc="268436178" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="14" lineNum="95" parent="globals/TrioWatchFaceApp" pc="268436201" symbol="onBackgroundData"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="15" lineNum="49" parent="globals/TrioWatchFaceApp" pc="268436216" symbol="onStop"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="15" lineNum="50" parent="globals/TrioWatchFaceApp" pc="268436218" symbol="onStop"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceApp.mc" id="15" lineNum="51" parent="globals/TrioWatchFaceApp" pc="268436229" symbol="onStop"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="16" lineNum="8" parent="globals/TrioWatchFaceView" pc="268436241" symbol="&lt;init&gt;"/>
+        <entry filename="c:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\gen\\006-B3907-00\\source\\Rez.mcgen" id="17" lineNum="7" parent="globals/Rez" pc="268436253" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="254" parent="globals/TrioWatchFaceView" pc="268436273" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="255" parent="globals/TrioWatchFaceView" pc="268436276" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="256" parent="globals/TrioWatchFaceView" pc="268436290" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="258" parent="globals/TrioWatchFaceView" pc="268436302" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="260" parent="globals/TrioWatchFaceView" pc="268436306" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="261" parent="globals/TrioWatchFaceView" pc="268436330" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="262" parent="globals/TrioWatchFaceView" pc="268436354" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="265" parent="globals/TrioWatchFaceView" pc="268436358" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="266" parent="globals/TrioWatchFaceView" pc="268436375" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="267" parent="globals/TrioWatchFaceView" pc="268436399" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="271" parent="globals/TrioWatchFaceView" pc="268436488" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="272" parent="globals/TrioWatchFaceView" pc="268436505" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="273" parent="globals/TrioWatchFaceView" pc="268436529" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="277" parent="globals/TrioWatchFaceView" pc="268436618" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="278" parent="globals/TrioWatchFaceView" pc="268436635" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="279" parent="globals/TrioWatchFaceView" pc="268436659" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="283" parent="globals/TrioWatchFaceView" pc="268436748" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="284" parent="globals/TrioWatchFaceView" pc="268436765" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="285" parent="globals/TrioWatchFaceView" pc="268436795" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="289" parent="globals/TrioWatchFaceView" pc="268436893" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="290" parent="globals/TrioWatchFaceView" pc="268436910" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="291" parent="globals/TrioWatchFaceView" pc="268436940" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="295" parent="globals/TrioWatchFaceView" pc="268437038" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="296" parent="globals/TrioWatchFaceView" pc="268437055" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="299" parent="globals/TrioWatchFaceView" pc="268437141" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="303" parent="globals/TrioWatchFaceView" pc="268437233" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="304" parent="globals/TrioWatchFaceView" pc="268437250" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="307" parent="globals/TrioWatchFaceView" pc="268437336" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="18" lineNum="312" parent="globals/TrioWatchFaceView" pc="268437428" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="137" parent="globals/TrioWatchFaceView" pc="268437453" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawSeparator&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="138" parent="globals/TrioWatchFaceView" pc="268437455" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawSeparator&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="139" parent="globals/TrioWatchFaceView" pc="268437471" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawSeparator&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="19" lineNum="140" parent="globals/TrioWatchFaceView" pc="268437483" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawSeparator&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="244" parent="globals/TrioWatchFaceView" pc="268437508" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="245" parent="globals/TrioWatchFaceView" pc="268437511" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="246" parent="globals/TrioWatchFaceView" pc="268437521" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="247" parent="globals/TrioWatchFaceView" pc="268437527" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="249" parent="globals/TrioWatchFaceView" pc="268437532" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="20" lineNum="250" parent="globals/TrioWatchFaceView" pc="268437550" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="193" parent="globals/TrioWatchFaceView" pc="268437560" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="194" parent="globals/TrioWatchFaceView" pc="268437563" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="197" parent="globals/TrioWatchFaceView" pc="268437575" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="198" parent="globals/TrioWatchFaceView" pc="268437582" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="199" parent="globals/TrioWatchFaceView" pc="268437587" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="200" parent="globals/TrioWatchFaceView" pc="268437603" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="202" parent="globals/TrioWatchFaceView" pc="268437623" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="203" parent="globals/TrioWatchFaceView" pc="268437640" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="204" parent="globals/TrioWatchFaceView" pc="268437652" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="205" parent="globals/TrioWatchFaceView" pc="268437678" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="209" parent="globals/TrioWatchFaceView" pc="268437704" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="210" parent="globals/TrioWatchFaceView" pc="268437716" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="211" parent="globals/TrioWatchFaceView" pc="268437724" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="212" parent="globals/TrioWatchFaceView" pc="268437743" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="212" parent="globals/TrioWatchFaceView" pc="268437751" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="213" parent="globals/TrioWatchFaceView" pc="268437761" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="213" parent="globals/TrioWatchFaceView" pc="268437768" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="215" parent="globals/TrioWatchFaceView" pc="268437778" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="217" parent="globals/TrioWatchFaceView" pc="268437828" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="21" lineNum="218" parent="globals/TrioWatchFaceView" pc="268437844" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="175" parent="globals/TrioWatchFaceView" pc="268437869" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="176" parent="globals/TrioWatchFaceView" pc="268437872" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="177" parent="globals/TrioWatchFaceView" pc="268437882" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="178" parent="globals/TrioWatchFaceView" pc="268437892" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="179" parent="globals/TrioWatchFaceView" pc="268437916" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="181" parent="globals/TrioWatchFaceView" pc="268437940" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="183" parent="globals/TrioWatchFaceView" pc="268437944" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="184" parent="globals/TrioWatchFaceView" pc="268437960" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="187" parent="globals/TrioWatchFaceView" pc="268437984" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="22" lineNum="188" parent="globals/TrioWatchFaceView" pc="268438001" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="165" parent="globals/TrioWatchFaceView" pc="268438026" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="166" parent="globals/TrioWatchFaceView" pc="268438029" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="167" parent="globals/TrioWatchFaceView" pc="268438039" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="169" parent="globals/TrioWatchFaceView" pc="268438057" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="23" lineNum="170" parent="globals/TrioWatchFaceView" pc="268438074" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="144" parent="globals/TrioWatchFaceView" pc="268438096" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="145" parent="globals/TrioWatchFaceView" pc="268438099" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="146" parent="globals/TrioWatchFaceView" pc="268438109" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="147" parent="globals/TrioWatchFaceView" pc="268438119" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="148" parent="globals/TrioWatchFaceView" pc="268438131" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="150" parent="globals/TrioWatchFaceView" pc="268438149" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="151" parent="globals/TrioWatchFaceView" pc="268438153" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="152" parent="globals/TrioWatchFaceView" pc="268438168" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="153" parent="globals/TrioWatchFaceView" pc="268438172" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="154" parent="globals/TrioWatchFaceView" pc="268438179" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="156" parent="globals/TrioWatchFaceView" pc="268438195" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="157" parent="globals/TrioWatchFaceView" pc="268438209" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="160" parent="globals/TrioWatchFaceView" pc="268438230" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="24" lineNum="161" parent="globals/TrioWatchFaceView" pc="268438243" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="75" parent="globals/TrioWatchFaceView" pc="268438264" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="76" parent="globals/TrioWatchFaceView" pc="268438267" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="79" parent="globals/TrioWatchFaceView" pc="268438279" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="80" parent="globals/TrioWatchFaceView" pc="268438286" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="81" parent="globals/TrioWatchFaceView" pc="268438289" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="82" parent="globals/TrioWatchFaceView" pc="268438300" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="83" parent="globals/TrioWatchFaceView" pc="268438325" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="84" parent="globals/TrioWatchFaceView" pc="268438332" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="85" parent="globals/TrioWatchFaceView" pc="268438339" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="86" parent="globals/TrioWatchFaceView" pc="268438346" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="88" parent="globals/TrioWatchFaceView" pc="268438358" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="89" parent="globals/TrioWatchFaceView" pc="268438365" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="93" parent="globals/TrioWatchFaceView" pc="268438371" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="94" parent="globals/TrioWatchFaceView" pc="268438374" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="95" parent="globals/TrioWatchFaceView" pc="268438389" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="98" parent="globals/TrioWatchFaceView" pc="268438408" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="99" parent="globals/TrioWatchFaceView" pc="268438425" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="101" parent="globals/TrioWatchFaceView" pc="268438470" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="103" parent="globals/TrioWatchFaceView" pc="268438499" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="107" parent="globals/TrioWatchFaceView" pc="268438518" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="108" parent="globals/TrioWatchFaceView" pc="268438528" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="109" parent="globals/TrioWatchFaceView" pc="268438535" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="110" parent="globals/TrioWatchFaceView" pc="268438541" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="111" parent="globals/TrioWatchFaceView" pc="268438548" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="111" parent="globals/TrioWatchFaceView" pc="268438559" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="112" parent="globals/TrioWatchFaceView" pc="268438569" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="112" parent="globals/TrioWatchFaceView" pc="268438580" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="113" parent="globals/TrioWatchFaceView" pc="268438590" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="113" parent="globals/TrioWatchFaceView" pc="268438601" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="114" parent="globals/TrioWatchFaceView" pc="268438611" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="114" parent="globals/TrioWatchFaceView" pc="268438622" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="115" parent="globals/TrioWatchFaceView" pc="268438632" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="115" parent="globals/TrioWatchFaceView" pc="268438643" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="116" parent="globals/TrioWatchFaceView" pc="268438653" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="119" parent="globals/TrioWatchFaceView" pc="268438681" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="120" parent="globals/TrioWatchFaceView" pc="268438698" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="124" parent="globals/TrioWatchFaceView" pc="268438717" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="125" parent="globals/TrioWatchFaceView" pc="268438735" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="126" parent="globals/TrioWatchFaceView" pc="268438762" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="127" parent="globals/TrioWatchFaceView" pc="268438768" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="128" parent="globals/TrioWatchFaceView" pc="268438775" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="131" parent="globals/TrioWatchFaceView" pc="268438802" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="25" lineNum="132" parent="globals/TrioWatchFaceView" pc="268438818" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="26" lineNum="35" parent="globals/TrioWatchFaceView" pc="268438838" symbol="initialize"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="26" lineNum="36" parent="globals/TrioWatchFaceView" pc="268438840" symbol="initialize"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="39" parent="globals/TrioWatchFaceView" pc="268438853" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="40" parent="globals/TrioWatchFaceView" pc="268438856" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="41" parent="globals/TrioWatchFaceView" pc="268438865" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="43" parent="globals/TrioWatchFaceView" pc="268438872" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="44" parent="globals/TrioWatchFaceView" pc="268438884" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="46" parent="globals/TrioWatchFaceView" pc="268438892" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="47" parent="globals/TrioWatchFaceView" pc="268438904" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="49" parent="globals/TrioWatchFaceView" pc="268438912" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="50" parent="globals/TrioWatchFaceView" pc="268438925" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="51" parent="globals/TrioWatchFaceView" pc="268438940" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="52" parent="globals/TrioWatchFaceView" pc="268438953" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="53" parent="globals/TrioWatchFaceView" pc="268438968" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="54" parent="globals/TrioWatchFaceView" pc="268438983" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="27" lineNum="55" parent="globals/TrioWatchFaceView" pc="268438998" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="28" lineNum="59" parent="globals/TrioWatchFaceView" pc="268439014" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="28" lineNum="60" parent="globals/TrioWatchFaceView" pc="268439017" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="28" lineNum="61" parent="globals/TrioWatchFaceView" pc="268439043" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="28" lineNum="63" parent="globals/TrioWatchFaceView" pc="268439093" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="28" lineNum="64" parent="globals/TrioWatchFaceView" pc="268439110" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="223" parent="globals/TrioWatchFaceView" pc="268439130" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="224" parent="globals/TrioWatchFaceView" pc="268439133" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="225" parent="globals/TrioWatchFaceView" pc="268439139" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="227" parent="globals/TrioWatchFaceView" pc="268439148" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="228" parent="globals/TrioWatchFaceView" pc="268439157" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="229" parent="globals/TrioWatchFaceView" pc="268439163" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="231" parent="globals/TrioWatchFaceView" pc="268439172" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="232" parent="globals/TrioWatchFaceView" pc="268439189" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="234" parent="globals/TrioWatchFaceView" pc="268439198" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="235" parent="globals/TrioWatchFaceView" pc="268439215" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
+        <entry filename="C:\\Users\\d1\\Desktop\\Development PC\\EPM\\Garmin-Watch-Trio\\TrioWatchFace\\source\\TrioWatchFaceView.mc" id="29" lineNum="237" parent="globals/TrioWatchFaceView" pc="268439224" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
     </pcToLineNum>
     <symbolTable>
         <entry id="8388639" module="true" symbol="Graphics"/>
@@ -172,7 +239,9 @@
         <entry id="8388924" module="true" symbol="Gregorian"/>
         <entry field="true" id="8388611" module="true" symbol="Toybox"/>
         <entry field="true" id="22" symbol="AppName"/>
+        <entry id="14" method="true" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;"/>
         <entry id="4" module="true" symbol="globals/Rez/Strings"/>
+        <entry field="true" id="9" symbol="lastReceiveTime"/>
         <entry id="16" method="true" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawSeparator&gt;"/>
         <entry id="8388648" module="true" symbol="WatchUi"/>
         <entry id="2" module="true" symbol="globals/Rez"/>
@@ -181,6 +250,7 @@
         <entry id="8" object="true" symbol="TrioWatchFaceView"/>
         <entry id="8388771" module="true" object="true" symbol="Drawables"/>
         <entry id="8390169" method="true" symbol="getServiceDelegate"/>
+        <entry id="17" method="true" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;"/>
         <entry id="7" object="true" symbol="TrioWatchFaceApp"/>
         <entry id="8388637" module="true" symbol="Communications"/>
         <entry id="3" module="true" symbol="globals/Rez/Drawables"/>
@@ -191,8 +261,6 @@
         <entry id="8388769" module="true" object="true" symbol="Rez"/>
         <entry id="6" object="true" symbol="TrioServiceDelegate"/>
         <entry id="8388640" module="true" symbol="Lang"/>
-        <entry id="15" method="true" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;"/>
-        <entry id="9" method="true" symbol="onPhoneMessage"/>
         <entry field="true" id="21" symbol="LauncherIcon"/>
         <entry id="8388610" symbol="statics"/>
         <entry id="8389350" module="true" symbol="globals"/>
@@ -200,6 +268,7 @@
         <entry id="8390146" module="true" symbol="Background"/>
         <entry field="true" id="10" symbol="trioData"/>
         <entry id="8388702" method="true" symbol="initialize"/>
+        <entry id="8391507" method="true" symbol="onPhoneAppMessage"/>
         <entry id="8389279" method="true" symbol="onStart"/>
         <entry id="18" method="true" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;"/>
         <entry id="19" method="true" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;"/>
@@ -208,81 +277,103 @@
         <entry id="8389281" method="true" symbol="onStop"/>
         <entry id="8388829" method="true" symbol="onComplete"/>
         <entry id="11" method="true" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;"/>
-        <entry id="14" method="true" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
+        <entry id="15" method="true" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;"/>
         <entry id="8388635" module="true" symbol="Application"/>
-        <entry id="17" method="true" symbol="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;"/>
     </symbolTable>
     <localVars>
         <entry arg="true" endPc="268435554" name="msg" stackId="1" startPc="268435520"/>
-        <entry arg="true" endPc="268435714" name="state" stackId="1" startPc="268435636"/>
-        <entry endPc="268435713" name="stored" stackId="2" startPc="268435639"/>
-        <entry arg="true" endPc="268435837" name="data" stackId="1" startPc="268435786"/>
-        <entry arg="true" endPc="268435851" name="state" stackId="1" startPc="268435838"/>
-        <entry arg="true" endPc="268436106" name="dc" stackId="1" startPc="268435884"/>
-        <entry arg="true" endPc="268436106" name="cx" stackId="2" startPc="268435884"/>
-        <entry arg="true" endPc="268436106" name="data" stackId="3" startPc="268435884"/>
-        <entry endPc="268436105" name="loopActive" stackId="4" startPc="268435887"/>
-        <entry endPc="268436105" name="indicatorX" stackId="5" startPc="268435887"/>
-        <entry endPc="268436105" name="battery" stackId="6" startPc="268435887"/>
-        <entry endPc="268436105" name="battStr" stackId="7" startPc="268435887"/>
-        <entry arg="true" endPc="268436271" name="dc" stackId="1" startPc="268436107"/>
-        <entry arg="true" endPc="268436271" name="cx" stackId="2" startPc="268436107"/>
-        <entry endPc="268436270" name="clock" stackId="3" startPc="268436110"/>
-        <entry endPc="268436270" name="hours" stackId="4" startPc="268436110"/>
-        <entry endPc="268436270" name="timeStr" stackId="5" startPc="268436110"/>
-        <entry arg="true" endPc="268437451" name="dc" stackId="1" startPc="268436272"/>
-        <entry arg="true" endPc="268437451" name="cx" stackId="2" startPc="268436272"/>
-        <entry arg="true" endPc="268437451" name="cy" stackId="3" startPc="268436272"/>
-        <entry arg="true" endPc="268437451" name="trendRaw" stackId="4" startPc="268436272"/>
-        <entry arg="true" endPc="268437451" name="color" stackId="5" startPc="268436272"/>
-        <entry endPc="268437450" name="s" stackId="6" startPc="268436275"/>
-        <entry arg="true" endPc="268437506" name="dc" stackId="1" startPc="268437452"/>
-        <entry arg="true" endPc="268437506" name="cx" stackId="2" startPc="268437452"/>
-        <entry arg="true" endPc="268437558" name="data" stackId="1" startPc="268437507"/>
-        <entry endPc="268437558" name="loopTime" stackId="2" startPc="268437510"/>
-        <entry endPc="268437558" name="now" stackId="3" startPc="268437510"/>
-        <entry arg="true" endPc="268437715" name="dc" stackId="1" startPc="268437559"/>
-        <entry arg="true" endPc="268437715" name="cx" stackId="2" startPc="268437559"/>
-        <entry arg="true" endPc="268437715" name="data" stackId="3" startPc="268437559"/>
-        <entry endPc="268437714" name="iob" stackId="4" startPc="268437562"/>
-        <entry endPc="268437714" name="cob" stackId="5" startPc="268437562"/>
-        <entry endPc="268437714" name="iobText" stackId="6" startPc="268437562"/>
-        <entry endPc="268437714" name="cobText" stackId="7" startPc="268437562"/>
-        <entry endPc="268437714" name="spacing" stackId="8" startPc="268437562"/>
-        <entry arg="true" endPc="268437785" name="dc" stackId="1" startPc="268437716"/>
-        <entry arg="true" endPc="268437785" name="cx" stackId="2" startPc="268437716"/>
-        <entry arg="true" endPc="268437785" name="data" stackId="3" startPc="268437716"/>
-        <entry endPc="268437784" name="delta" stackId="4" startPc="268437719"/>
-        <entry endPc="268437784" name="display" stackId="5" startPc="268437719"/>
-        <entry arg="true" endPc="268437953" name="dc" stackId="1" startPc="268437786"/>
-        <entry arg="true" endPc="268437953" name="cx" stackId="2" startPc="268437786"/>
-        <entry arg="true" endPc="268437953" name="data" stackId="3" startPc="268437786"/>
-        <entry endPc="268437952" name="glucose" stackId="4" startPc="268437789"/>
-        <entry endPc="268437952" name="trendRaw" stackId="5" startPc="268437789"/>
-        <entry endPc="268437952" name="bgColor" stackId="6" startPc="268437789"/>
-        <entry endPc="268437952" name="bgText" stackId="7" startPc="268437789"/>
-        <entry endPc="268437952" name="bgFont" stackId="8" startPc="268437789"/>
-        <entry endPc="268437952" name="bgWidth" stackId="9" startPc="268437789"/>
-        <entry endPc="268437952" name="arrowSpace" stackId="10" startPc="268437789"/>
-        <entry endPc="268437952" name="totalWidth" stackId="11" startPc="268437789"/>
-        <entry endPc="268437952" name="bgX" stackId="12" startPc="268437789"/>
-        <entry endPc="268437952" name="arrowX" stackId="13" startPc="268437789"/>
-        <entry arg="true" endPc="268438127" name="dc" stackId="1" startPc="268437969"/>
-        <entry endPc="268438126" name="width" stackId="2" startPc="268437972"/>
-        <entry endPc="268438126" name="cx" stackId="3" startPc="268437972"/>
-        <entry endPc="268438126" name="app" stackId="4" startPc="268437972"/>
-        <entry endPc="268438126" name="data" stackId="5" startPc="268437972"/>
-        <entry arg="true" endPc="268438243" name="dc" stackId="1" startPc="268438128"/>
-        <entry arg="true" endPc="268438243" name="cx" stackId="2" startPc="268438128"/>
-        <entry endPc="268438242" name="now" stackId="3" startPc="268438131"/>
-        <entry endPc="268438242" name="dateStr" stackId="4" startPc="268438131"/>
-        <entry arg="true" endPc="268438342" name="glucose" stackId="1" startPc="268438244"/>
-        <entry endPc="268438342" name="bg" stackId="2" startPc="268438247"/>
+        <entry arg="true" endPc="268435762" name="state" stackId="1" startPc="268435636"/>
+        <entry endPc="268435761" name="stored" stackId="2" startPc="268435639"/>
+        <entry endPc="268435761" name="rxTime" stackId="3" startPc="268435639"/>
+        <entry arg="true" endPc="268436215" name="data" stackId="1" startPc="268435834"/>
+        <entry endPc="268436197" name="keys" stackId="2" startPc="268435933"/>
+        <entry endPc="268436197" name="log" stackId="3" startPc="268435933"/>
+        <entry endPc="268436177" name="i" stackId="4" startPc="268435966"/>
+        <entry endPc="268436167" name="k" stackId="5" startPc="268435966"/>
+        <entry endPc="268436167" name="v" stackId="6" startPc="268435966"/>
+        <entry endPc="268436167" name="t" stackId="7" startPc="268435966"/>
+        <entry endPc="268436167" name="vs" stackId="8" startPc="268435966"/>
+        <entry arg="true" endPc="268436240" name="state" stackId="1" startPc="268436216"/>
+        <entry arg="true" endPc="268437452" name="dc" stackId="1" startPc="268436273"/>
+        <entry arg="true" endPc="268437452" name="cx" stackId="2" startPc="268436273"/>
+        <entry arg="true" endPc="268437452" name="cy" stackId="3" startPc="268436273"/>
+        <entry arg="true" endPc="268437452" name="trendRaw" stackId="4" startPc="268436273"/>
+        <entry arg="true" endPc="268437452" name="color" stackId="5" startPc="268436273"/>
+        <entry endPc="268437451" name="s" stackId="6" startPc="268436276"/>
+        <entry arg="true" endPc="268437507" name="dc" stackId="1" startPc="268437453"/>
+        <entry arg="true" endPc="268437507" name="cx" stackId="2" startPc="268437453"/>
+        <entry arg="true" endPc="268437559" name="data" stackId="1" startPc="268437508"/>
+        <entry endPc="268437559" name="loopTime" stackId="2" startPc="268437511"/>
+        <entry endPc="268437559" name="now" stackId="3" startPc="268437511"/>
+        <entry arg="true" endPc="268437868" name="dc" stackId="1" startPc="268437560"/>
+        <entry arg="true" endPc="268437868" name="cx" stackId="2" startPc="268437560"/>
+        <entry arg="true" endPc="268437868" name="data" stackId="3" startPc="268437560"/>
+        <entry endPc="268437867" name="loopActive" stackId="4" startPc="268437563"/>
+        <entry endPc="268437867" name="indicatorX" stackId="5" startPc="268437563"/>
+        <entry endPc="268437867" name="clock" stackId="6" startPc="268437563"/>
+        <entry endPc="268437867" name="hours" stackId="7" startPc="268437563"/>
+        <entry endPc="268437867" name="timeStr" stackId="8" startPc="268437563"/>
+        <entry arg="true" endPc="268438025" name="dc" stackId="1" startPc="268437869"/>
+        <entry arg="true" endPc="268438025" name="cx" stackId="2" startPc="268437869"/>
+        <entry arg="true" endPc="268438025" name="data" stackId="3" startPc="268437869"/>
+        <entry endPc="268438024" name="iob" stackId="4" startPc="268437872"/>
+        <entry endPc="268438024" name="cob" stackId="5" startPc="268437872"/>
+        <entry endPc="268438024" name="iobText" stackId="6" startPc="268437872"/>
+        <entry endPc="268438024" name="cobText" stackId="7" startPc="268437872"/>
+        <entry endPc="268438024" name="spacing" stackId="8" startPc="268437872"/>
+        <entry arg="true" endPc="268438095" name="dc" stackId="1" startPc="268438026"/>
+        <entry arg="true" endPc="268438095" name="cx" stackId="2" startPc="268438026"/>
+        <entry arg="true" endPc="268438095" name="data" stackId="3" startPc="268438026"/>
+        <entry endPc="268438094" name="delta" stackId="4" startPc="268438029"/>
+        <entry endPc="268438094" name="display" stackId="5" startPc="268438029"/>
+        <entry arg="true" endPc="268438263" name="dc" stackId="1" startPc="268438096"/>
+        <entry arg="true" endPc="268438263" name="cx" stackId="2" startPc="268438096"/>
+        <entry arg="true" endPc="268438263" name="data" stackId="3" startPc="268438096"/>
+        <entry endPc="268438262" name="glucose" stackId="4" startPc="268438099"/>
+        <entry endPc="268438262" name="trendRaw" stackId="5" startPc="268438099"/>
+        <entry endPc="268438262" name="bgColor" stackId="6" startPc="268438099"/>
+        <entry endPc="268438262" name="bgText" stackId="7" startPc="268438099"/>
+        <entry endPc="268438262" name="bgFont" stackId="8" startPc="268438099"/>
+        <entry endPc="268438262" name="bgWidth" stackId="9" startPc="268438099"/>
+        <entry endPc="268438262" name="arrowSpace" stackId="10" startPc="268438099"/>
+        <entry endPc="268438262" name="totalWidth" stackId="11" startPc="268438099"/>
+        <entry endPc="268438262" name="bgX" stackId="12" startPc="268438099"/>
+        <entry endPc="268438262" name="arrowX" stackId="13" startPc="268438099"/>
+        <entry arg="true" endPc="268438837" name="dc" stackId="1" startPc="268438264"/>
+        <entry arg="true" endPc="268438837" name="cx" stackId="2" startPc="268438264"/>
+        <entry arg="true" endPc="268438837" name="data" stackId="3" startPc="268438264"/>
+        <entry endPc="268438836" name="app" stackId="4" startPc="268438267"/>
+        <entry endPc="268438836" name="rxStr" stackId="5" startPc="268438267"/>
+        <entry endPc="268438836" name="rxStale" stackId="6" startPc="268438267"/>
+        <entry endPc="268438367" name="ageSec" stackId="7" startPc="268438300"/>
+        <entry endPc="268438354" name="ageMin" stackId="8" startPc="268438332"/>
+        <entry endPc="268438836" name="keyCount" stackId="9" startPc="268438267"/>
+        <entry endPc="268438836" name="battery" stackId="10" startPc="268438267"/>
+        <entry endPc="268438836" name="line1" stackId="11" startPc="268438267"/>
+        <entry endPc="268438836" name="loopTime" stackId="12" startPc="268438267"/>
+        <entry endPc="268438836" name="line2" stackId="13" startPc="268438267"/>
+        <entry endPc="268438677" name="typeCode" stackId="14" startPc="268438541"/>
+        <entry endPc="268438836" name="now" stackId="15" startPc="268438267"/>
+        <entry endPc="268438836" name="line3" stackId="16" startPc="268438267"/>
+        <entry endPc="268438798" name="diff" stackId="17" startPc="268438768"/>
+        <entry arg="true" endPc="268439013" name="dc" stackId="1" startPc="268438853"/>
+        <entry endPc="268439012" name="width" stackId="2" startPc="268438856"/>
+        <entry endPc="268439012" name="cx" stackId="3" startPc="268438856"/>
+        <entry endPc="268439012" name="app" stackId="4" startPc="268438856"/>
+        <entry endPc="268439012" name="data" stackId="5" startPc="268438856"/>
+        <entry arg="true" endPc="268439129" name="dc" stackId="1" startPc="268439014"/>
+        <entry arg="true" endPc="268439129" name="cx" stackId="2" startPc="268439014"/>
+        <entry endPc="268439128" name="now" stackId="3" startPc="268439017"/>
+        <entry endPc="268439128" name="dateStr" stackId="4" startPc="268439017"/>
+        <entry arg="true" endPc="268439228" name="glucose" stackId="1" startPc="268439130"/>
+        <entry endPc="268439228" name="bg" stackId="2" startPc="268439133"/>
     </localVars>
     <deviceInfo deviceVersion="5c7ae9cf907f88c116a91dc4ffd75be9b5b7d2e9" partNumber="006-B3907-00"/>
     <annotations>
+        <annotationEntry annotation="background" class="TrioWatchFaceApp" module="globals" symbol="DEBUG_LOG_KEY"/>
         <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
         <annotationEntry annotation="background" class="BgCommListener" module="globals" symbol="onError"/>
+        <annotationEntry annotation="background" class="TrioServiceDelegate" module="globals" symbol="onPhoneAppMessage"/>
         <annotationEntry annotation="background" class="BgCommListener" module="globals" symbol="initialize"/>
         <annotationEntry annotation="background" class="TrioWatchFaceApp" module="globals" symbol="getServiceDelegate"/>
         <annotationEntry annotation="background" class="TrioServiceDelegate" module="globals" symbol="initialize"/>
@@ -293,20 +384,21 @@
         <annotationEntry annotation="background" class="TrioWatchFaceApp" module="globals" symbol="trioData"/>
         <annotationEntry annotation="background" class="TrioServiceDelegate" module="globals" symbol="onTemporalEvent"/>
         <annotationEntry annotation="background" class="TrioWatchFaceApp" module="globals" symbol="STORAGE_KEY"/>
-        <annotationEntry annotation="background" class="TrioServiceDelegate" module="globals" symbol="onPhoneMessage"/>
+        <annotationEntry annotation="background" class="TrioWatchFaceApp" module="globals" symbol="RECEIVE_TIME_KEY"/>
         <annotationEntry annotation="background" class="TrioWatchFaceApp" module="globals" symbol="initialize"/>
         <annotationEntry annotation="background" class="TrioWatchFaceApp" module="globals" symbol="onStop"/>
         <annotationEntry annotation="background" class="TrioWatchFaceApp" module="globals" symbol="getInitialView"/>
+        <annotationEntry annotation="background" class="TrioWatchFaceApp" module="globals" symbol="lastReceiveTime"/>
     </annotations>
     <dataEntryOffsetMappings>
         <dataEntry label="globals" offset="49" parentId="" symbolId="globals" type="module"/>
         <dataEntry label="globals/BgCommListener" offset="125" parentId="globals" symbolId="BgCommListener" type="class"/>
         <dataEntry label="globals/TrioServiceDelegate" offset="187" parentId="globals" symbolId="TrioServiceDelegate" type="class"/>
         <dataEntry label="globals/TrioWatchFaceApp" offset="249" parentId="globals" symbolId="TrioWatchFaceApp" type="class"/>
-        <dataEntry label="globals/TrioWatchFaceView" offset="369" parentId="globals" symbolId="TrioWatchFaceView" type="class"/>
-        <dataEntry label="globals/Rez" offset="512" parentId="globals" symbolId="Rez" type="module"/>
-        <dataEntry label="globals/Rez/Drawables" offset="556" parentId="Rez" symbolId="Drawables" type="module"/>
-        <dataEntry label="globals/Rez/Strings" offset="591" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry label="globals/TrioWatchFaceView" offset="458" parentId="globals" symbolId="TrioWatchFaceView" type="class"/>
+        <dataEntry label="globals/Rez" offset="601" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry label="globals/Rez/Drawables" offset="645" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="680" parentId="Rez" symbolId="Strings" type="module"/>
     </dataEntryOffsetMappings>
     <functions>
         <functionEntry accessMode="public" endPc="268435471" name="&lt;init&gt;" parent="BgCommListener" startPc="268435460">
@@ -327,7 +419,7 @@
         <functionEntry accessMode="public" endPc="268435519" name="initialize" parent="BgCommListener" startPc="268435505">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435554" name="onPhoneMessage" parent="TrioServiceDelegate" startPc="268435520">
+        <functionEntry accessMode="public" endPc="268435554" name="onPhoneAppMessage" parent="TrioServiceDelegate" startPc="268435520">
             <param id="msg"/>
             <documentation/>
         </functionEntry>
@@ -337,45 +429,34 @@
         <functionEntry accessMode="public" endPc="268435635" name="initialize" parent="TrioServiceDelegate" startPc="268435621">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435714" name="onStart" parent="TrioWatchFaceApp" startPc="268435636">
+        <functionEntry accessMode="public" endPc="268435762" name="onStart" parent="TrioWatchFaceApp" startPc="268435636">
             <param id="state"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435742" name="getServiceDelegate" parent="TrioWatchFaceApp" startPc="268435715">
+        <functionEntry accessMode="public" endPc="268435790" name="getServiceDelegate" parent="TrioWatchFaceApp" startPc="268435763">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435770" name="getInitialView" parent="TrioWatchFaceApp" startPc="268435743">
+        <functionEntry accessMode="public" endPc="268435818" name="getInitialView" parent="TrioWatchFaceApp" startPc="268435791">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435785" name="initialize" parent="TrioWatchFaceApp" startPc="268435771">
+        <functionEntry accessMode="public" endPc="268435833" name="initialize" parent="TrioWatchFaceApp" startPc="268435819">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435837" name="onBackgroundData" parent="TrioWatchFaceApp" startPc="268435786">
+        <functionEntry accessMode="public" endPc="268436215" name="onBackgroundData" parent="TrioWatchFaceApp" startPc="268435834">
             <param id="data"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435851" name="onStop" parent="TrioWatchFaceApp" startPc="268435838">
+        <functionEntry accessMode="public" endPc="268436240" name="onStop" parent="TrioWatchFaceApp" startPc="268436216">
             <param id="state"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435863" name="&lt;init&gt;" parent="TrioWatchFaceView" startPc="268435852">
+        <functionEntry accessMode="public" endPc="268436252" name="&lt;init&gt;" parent="TrioWatchFaceView" startPc="268436241">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435883" name="&lt;init&gt;" parent="Rez" startPc="268435864">
+        <functionEntry accessMode="public" endPc="268436272" name="&lt;init&gt;" parent="Rez" startPc="268436253">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="private" endPc="268436106" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawLoopAndBattery&gt;" parent="TrioWatchFaceView" startPc="268435884">
-            <param id="dc"/>
-            <param id="cx"/>
-            <param id="data"/>
-            <documentation/>
-        </functionEntry>
-        <functionEntry accessMode="private" endPc="268436271" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTime&gt;" parent="TrioWatchFaceView" startPc="268436107">
-            <param id="dc"/>
-            <param id="cx"/>
-            <documentation/>
-        </functionEntry>
-        <functionEntry accessMode="private" endPc="268437451" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;" parent="TrioWatchFaceView" startPc="268436272">
+        <functionEntry accessMode="private" endPc="268437452" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawTrendArrow&gt;" parent="TrioWatchFaceView" startPc="268436273">
             <param id="dc"/>
             <param id="cx"/>
             <param id="cy"/>
@@ -383,46 +464,58 @@
             <param id="color"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="private" endPc="268437506" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawSeparator&gt;" parent="TrioWatchFaceView" startPc="268437452">
+        <functionEntry accessMode="private" endPc="268437507" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawSeparator&gt;" parent="TrioWatchFaceView" startPc="268437453">
             <param id="dc"/>
             <param id="cx"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="private" endPc="268437558" name="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;" parent="TrioWatchFaceView" startPc="268437507">
+        <functionEntry accessMode="private" endPc="268437559" name="&lt;globals/TrioWatchFaceView/&lt;&gt;isLoopActive&gt;" parent="TrioWatchFaceView" startPc="268437508">
             <param id="data"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="private" endPc="268437715" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;" parent="TrioWatchFaceView" startPc="268437559">
-            <param id="dc"/>
-            <param id="cx"/>
-            <param id="data"/>
-            <documentation/>
-        </functionEntry>
-        <functionEntry accessMode="private" endPc="268437785" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;" parent="TrioWatchFaceView" startPc="268437716">
+        <functionEntry accessMode="private" endPc="268437868" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawStatusLine&gt;" parent="TrioWatchFaceView" startPc="268437560">
             <param id="dc"/>
             <param id="cx"/>
             <param id="data"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="private" endPc="268437953" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;" parent="TrioWatchFaceView" startPc="268437786">
+        <functionEntry accessMode="private" endPc="268438025" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawIobCob&gt;" parent="TrioWatchFaceView" startPc="268437869">
             <param id="dc"/>
             <param id="cx"/>
             <param id="data"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268437968" name="initialize" parent="TrioWatchFaceView" startPc="268437954">
+        <functionEntry accessMode="private" endPc="268438095" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDelta&gt;" parent="TrioWatchFaceView" startPc="268438026">
+            <param id="dc"/>
+            <param id="cx"/>
+            <param id="data"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268438127" name="onUpdate" parent="TrioWatchFaceView" startPc="268437969">
+        <functionEntry accessMode="private" endPc="268438263" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawBgAndTrend&gt;" parent="TrioWatchFaceView" startPc="268438096">
+            <param id="dc"/>
+            <param id="cx"/>
+            <param id="data"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="private" endPc="268438837" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDiagnostics&gt;" parent="TrioWatchFaceView" startPc="268438264">
+            <param id="dc"/>
+            <param id="cx"/>
+            <param id="data"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438852" name="initialize" parent="TrioWatchFaceView" startPc="268438838">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439013" name="onUpdate" parent="TrioWatchFaceView" startPc="268438853">
             <param id="dc"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="private" endPc="268438243" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;" parent="TrioWatchFaceView" startPc="268438128">
+        <functionEntry accessMode="private" endPc="268439129" name="&lt;globals/TrioWatchFaceView/&lt;&gt;drawDate&gt;" parent="TrioWatchFaceView" startPc="268439014">
             <param id="dc"/>
             <param id="cx"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="private" endPc="268438342" name="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;" parent="TrioWatchFaceView" startPc="268438244">
+        <functionEntry accessMode="private" endPc="268439228" name="&lt;globals/TrioWatchFaceView/&lt;&gt;getBgColor&gt;" parent="TrioWatchFaceView" startPc="268439130">
             <param id="glucose"/>
             <documentation/>
         </functionEntry>
