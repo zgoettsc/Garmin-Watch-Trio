@@ -94,5 +94,11 @@ class TrioWatchFaceApp extends Application.AppBase {
 
             WatchUi.requestUpdate();
         }
+
+        // CRITICAL: Phone app message events are one-shot in the Garmin SDK.
+        // After the event fires, it is unregistered and no more push data
+        // will arrive until we re-register.  Do this after every background
+        // exit (even null/error) so push stays alive.
+        Background.registerForPhoneAppMessageEvent();
     }
 }

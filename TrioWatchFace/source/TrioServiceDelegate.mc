@@ -8,12 +8,14 @@ using Toybox.System;
 // Two wake-up paths:
 //   A. Push — Trio sends data → registerForPhoneAppMessageEvent wakes us
 //      → onPhoneAppMessage() fires directly with the payload
+//      → Background.exit(data) → app re-registers push in onBackgroundData
 //   B. Poll — temporal event fires every 5 min → onTemporalEvent()
-//      → we register for messages and send "status" to ask Trio
-//      → Trio responds → onPhoneAppMessage() fires with the payload
+//      → sends "status" to Trio → exits immediately (fire-and-forget)
+//      → Trio responds → push event wakes us → same as path A
 //
-// In both cases onPhoneAppMessage() passes data to the foreground
-// via Background.exit().
+// Push events are one-shot (Garmin SDK requirement): after the event fires,
+// the app must call registerForPhoneAppMessageEvent() again.  This is done
+// in onBackgroundData() after every background exit.
 (:background)
 class TrioServiceDelegate extends System.ServiceDelegate {
 
@@ -22,10 +24,10 @@ class TrioServiceDelegate extends System.ServiceDelegate {
     }
 
     // Poll path: fires every 5 min as a fallback.
-    // Registers for phone messages and sends "status" to Trio
-    // so it replies with fresh data.
+    // Sends "status" to Trio so it replies with fresh data.
+    // The service exits immediately in onComplete/onError (BgCommListener);
+    // Trio's response arrives via the push channel (registerForPhoneAppMessageEvent).
     function onTemporalEvent() {
-        Communications.registerForPhoneAppMessages(method(:onPhoneAppMessage));
         Communications.transmit("status", null, new BgCommListener());
     }
 

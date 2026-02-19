@@ -14,7 +14,12 @@ class BgCommListener extends Communications.ConnectionListener {
     }
 
     function onComplete() {
-        // Trio received our request; data will arrive via phone message
+        // Request sent successfully.  Exit immediately — the response from
+        // Trio will arrive via the push channel (registerForPhoneAppMessageEvent).
+        // Without this, the service hangs waiting for a phone message that may
+        // never arrive (e.g. GCM bridge hiccup), causing the system to throttle
+        // future temporal events.
+        Background.exit(null);
     }
 
     function onError() {
