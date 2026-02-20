@@ -19,7 +19,6 @@ class TrioWatchFaceApp extends Application.AppBase {
     // Storage keys
     private const STORAGE_KEY = "trioData";
     private const RECEIVE_TIME_KEY = "lastRx";
-    private const DEBUG_LOG_KEY = "debugLog";
 
     function initialize() {
         AppBase.initialize();
@@ -69,28 +68,6 @@ class TrioWatchFaceApp extends Application.AppBase {
             // Persist so the data is available immediately on next app start
             Storage.setValue(STORAGE_KEY, data);
             Storage.setValue(RECEIVE_TIME_KEY, lastReceiveTime);
-
-            // Debug: log every key with its type and value so we can see
-            // exactly what Trio sent (viewable if we read Storage later).
-            // Type codes: S=String, N=Number(32b), L=Long(64b), F=Float, D=Double
-            if (data instanceof Lang.Dictionary) {
-                var keys = data.keys();
-                var log = "";
-                for (var i = 0; i < keys.size(); i++) {
-                    var k = keys[i];
-                    var v = data[k];
-                    var t = "?";
-                    if (v == null)              { t = "null"; }
-                    else if (v instanceof Long)   { t = "L"; }
-                    else if (v instanceof Number) { t = "N"; }
-                    else if (v instanceof Float)  { t = "F"; }
-                    else if (v instanceof Double) { t = "D"; }
-                    else if (v instanceof String) { t = "S"; }
-                    var vs = (v != null) ? v.toString() : "null";
-                    log = log + k.toString() + "(" + t + ")=" + vs + "|";
-                }
-                Storage.setValue(DEBUG_LOG_KEY, log);
-            }
 
             WatchUi.requestUpdate();
         }
