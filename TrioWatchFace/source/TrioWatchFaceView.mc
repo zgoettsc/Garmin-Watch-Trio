@@ -116,14 +116,22 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
 
-        // Glucose age: minutes since last data received
+        // Glucose age: minutes since Trio sent the payload (sentAt = "HH:mm:ss")
         var ageStr = "--";
-        if (app.lastReceiveTime > 0) {
-            var ageSec = Time.now().value() - app.lastReceiveTime;
-            if (ageSec >= 0) {
-                ageStr = (ageSec / 60).toString() + "m";
-            } else {
-                ageStr = "0m";
+        var sentAt = safeGet(data, "sentAt");
+        if (sentAt != null && sentAt.length() >= 8) {
+            var sentH = sentAt.substring(0, 2).toNumber();
+            var sentM = sentAt.substring(3, 5).toNumber();
+            var sentS = sentAt.substring(6, 8).toNumber();
+            if (sentH != null && sentM != null && sentS != null) {
+                var sentTotal = sentH * 3600 + sentM * 60 + sentS;
+                var clock = System.getClockTime();
+                var nowTotal = clock.hour * 3600 + clock.min * 60 + clock.sec;
+                var diffSec = nowTotal - sentTotal;
+                if (diffSec < 0) {
+                    diffSec = diffSec + 86400;  // midnight crossover
+                }
+                ageStr = (diffSec / 60).toString() + "m";
             }
         }
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
