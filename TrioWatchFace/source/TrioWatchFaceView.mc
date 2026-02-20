@@ -85,19 +85,21 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
         dc.drawText(cx + spacing, 222, Graphics.FONT_TINY, cobText,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // ── Zone 6: Loop status + Battery ──
-        drawLoopAndBattery(dc, cx, spacing, 250, data);
+        // ── Zone 6: Loop status + Glucose age + Battery ──
+        drawStatusRow(dc, cx, width, 250, data, app);
     }
 
     // ════════════════════════════════════════════
-    //  Loop indicator (green dot / red X) + battery %
+    //  Loop indicator + glucose age + battery %
     // ════════════════════════════════════════════
-    private function drawLoopAndBattery(dc, cx, spacing, y, data) {
+    private function drawStatusRow(dc, cx, width, y, data, app) {
+        var sp = width / 4;
+
+        // Loop indicator: green dot or red X
         var loopActive = false;
         var loopDate = safeGet(data, "lastLoopDateInterval");
         if (loopDate != null) {
             var nowSec = Time.now().value();
-            // Handle both Number (32-bit) and Long (64-bit) from ConnectIQ
             var loopSec = (loopDate instanceof Long) ? loopDate.toNumber() : loopDate;
             var age = nowSec - loopSec;
             if (age >= 0 && age < LOOP_STALE_SEC) {
@@ -107,18 +109,32 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
 
         if (loopActive) {
             dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
-            dc.fillCircle(cx - spacing, y, 5);
+            dc.fillCircle(cx - sp, y, 5);
         } else {
             dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx - spacing, y, Graphics.FONT_XTINY, "X",
+            dc.drawText(cx - sp, y, Graphics.FONT_XTINY, "X",
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
+
+        // Glucose age: minutes since last data received
+        var ageStr = "--";
+        if (app.lastReceiveTime > 0) {
+            var ageSec = Time.now().value() - app.lastReceiveTime;
+            if (ageSec >= 0) {
+                ageStr = (ageSec / 60).toString() + "m";
+            } else {
+                ageStr = "0m";
+            }
+        }
+        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, y, Graphics.FONT_XTINY, ageStr,
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
         // Battery
         var battery = System.getSystemStats().battery;
         var battStr = battery.toNumber().toString() + "%";
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx + spacing, y, Graphics.FONT_XTINY, battStr,
+        dc.drawText(cx + sp, y, Graphics.FONT_XTINY, battStr,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
