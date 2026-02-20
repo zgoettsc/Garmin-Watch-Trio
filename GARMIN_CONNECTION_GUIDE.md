@@ -131,7 +131,9 @@ Trio rebuilds and sends the watch state when any of these events occur:
 
 ### Throttling
 
-All updates are throttled to a **minimum 10-second interval** via Combine's `.throttle()` operator. If multiple triggers fire within 10 seconds, only the most recent state is sent. This prevents overwhelming the Bluetooth connection.
+Proactive push updates are throttled to a **minimum 300-second (5-minute) interval** via Combine's `.throttle()` operator. If multiple triggers fire within that window, only the most recent state is sent. This matches the CGM reading interval and prevents flooding the ConnectIQ message queue — the watch's one-shot `registerForPhoneAppMessageEvent` model can only process one message at a time, so a shorter throttle causes an unbounded queue and 30+ minute delays.
+
+The poll response path (watch sends `"status"` → `receivedMessage(_:from:)` → `broadcastStateToWatchApps()`) bypasses this throttle entirely, so the watch always gets an immediate response when it explicitly requests data.
 
 ---
 
@@ -142,7 +144,7 @@ All updates are throttled to a **minimum 10-second interval** via Combine's `.th
 1. `GarminWatchState` is created with the latest data
 2. Encoded to JSON via `JSONEncoder().encode(watchState)`
 3. Deserialized to `NSDictionary` via `JSONSerialization.jsonObject()`
-4. Published through a `PassthroughSubject<NSDictionary, Never>` (throttled at 10s)
+4. Published through a `PassthroughSubject<NSDictionary, Never>` (throttled at 300s)
 5. For each app in `watchApps`, Trio checks if the app is installed via `connectIQ.getAppStatus()`
 6. If installed, sends via `connectIQ.sendMessage(dict, to: app, progress:, completion:)`
 7. The ConnectIQ SDK handles the Bluetooth transport through Garmin Connect Mobile to the watch

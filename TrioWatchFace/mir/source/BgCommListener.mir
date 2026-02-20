@@ -1,30 +1,41 @@
-[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Communications,1,13,27]; ]
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Background,1,13,23]; ]
+using Toybox.Background;
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Communications,2,13,27]; ]
 using Toybox.Communications;
-[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 8; background = true; @symbol_classdef = [BgCommListener,8,6,20]; @symbol_extends<0> = [Communications,8,29,43]; @symbol_extends<1> = [ConnectionListener,8,44,62]; ]
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 10; background = true; @symbol_classdef = [BgCommListener,10,6,20]; @symbol_extends<0> = [Communications,10,29,43]; @symbol_extends<1> = [ConnectionListener,10,44,62]; ]
 class BgCommListener extends Communications.ConnectionListener {
-    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 8; ]
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 10; ]
     <init> {
     }
-    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 8; ]
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 10; ]
     static
     <init> {
     }
-    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 10; @symbol_functiondef = [initialize,10,13,23]; ]
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 12; @symbol_functiondef = [initialize,12,13,23]; ]
     function initialize() as Void {
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_BgCommListener_mc_10_26_12_4_start:
-[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc" 11 8 ]
-        symbol [ ConnectionListener %tmp.2 11 8 26 ];
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_BgCommListener_mc_12_26_14_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc" 13 8 ]
+        symbol [ ConnectionListener %tmp.2 13 8 26 ];
         %tmp.2 = getv ? :ConnectionListener;
-        symbol [ initialize %tmp.3 11 27 37 ];
+        symbol [ initialize %tmp.3 13 27 37 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_BgCommListener_mc_10_26_12_4_stop:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_BgCommListener_mc_12_26_14_4_stop:
     }
-    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 14; @symbol_functiondef = [onComplete,14,13,23]; ]
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 16; @symbol_functiondef = [onComplete,16,13,23]; ]
     function onComplete() {
     }
-    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 18; @symbol_functiondef = [onError,18,13,20]; ]
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 21; @symbol_functiondef = [onError,21,13,20]; ]
     function onError() {
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_BgCommListener_mc_21_23_25_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc" 24 8 ]
+        symbol [ Background %tmp.1 24 8 18 ];
+        %tmp.1 = getm $.Toybox.Background;
+        symbol [ exit %tmp.2 24 19 23 ];
+        %tmp.2 = getv function %tmp.1 :exit;
+        %tmp.3 = null;
+        invoke %tmp.1 %tmp.2(%tmp.3);
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_BgCommListener_mc_21_23_25_4_stop:
     }
 }
 [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\BgCommListener.mc"; @line = 1; ]
