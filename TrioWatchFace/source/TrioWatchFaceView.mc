@@ -23,7 +23,6 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
 
     function onUpdate(dc) {
         var width  = dc.getWidth();
-        var height = dc.getHeight();
         var cx     = width / 2;
 
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
