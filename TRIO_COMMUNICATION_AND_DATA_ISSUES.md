@@ -1,84 +1,133 @@
 # Trio Communication and Data Issues
 
-Investigation document for the persistent data delivery delay between the Trio iOS app and the Garmin watch face.
+Investigation and resolution of the persistent data delivery delay between the Trio iOS app and the Garmin watch face.
+
+**Status: RESOLVED** — Transit delay reduced from 25-31 minutes to ~1 minute.
 
 ---
 
-## Current Watch-Side Architecture
+## Problem Summary
 
-### Two Data Paths
+The Garmin watch face was displaying glucose data that was 25-31 minutes old. The watch processed messages instantly upon receipt (Rx: 0-3m), and Trio built payloads with fresh data at send time (sentAt ≈ glucoseDate), so the entire delay was in transit between the phone and the watch.
 
-The watch face receives data through two independent paths:
+---
 
-**Path A: Push (Trio-initiated)**
-```
-Trio iOS App → ConnectIQ SDK → Garmin Connect Mobile (GCM) → BLE → Watch
-```
-- Trio proactively sends `GarminWatchState` when glucose/IOB/COB/loop data changes
-- Throttled at 300 seconds (5 minutes) via Combine `.throttle()` on `GarminManager.swift:321`
-- Watch wakes via `registerForPhoneAppMessageEvent()` (one-shot, re-registered after each delivery)
+## Root Causes Found
 
-**Path B: Poll (watch-initiated)**
+The delay was **not** a Garmin middleware problem. It was caused by multiple issues on the Trio phone side in `GarminManager.swift`:
+
+### 1. Stale Data at Build Time (Primary Cause)
+
+The original `setupGarminWatchState()` method fetched glucose data from CoreData, but new CGM readings arrive via `NSBatchInsertRequest` which **bypasses** NSManagedObjectContext change propagation. The fetch context held stale data from its last query, so the "fresh" payload was actually built from old readings.
+
+**Fix:** Replaced direct CoreData fetches with `LiveActivityManager.snapshotPublisher`, which receives pre-merged snapshots that are always current. The `buildWatchState(from:)` method now takes a `LiveActivitySnapshot` parameter instead of querying CoreData directly.
+
+### 2. Four Racing Combine Triggers
+
+The original push pipeline had four independent Combine publishers that could fire simultaneously when a new CGM reading arrived:
+- `glucoseStorage.updatePublisher`
+- `iobService.iobPublisher`
+- CoreData save notification for `OrefDetermination`
+- CoreData change notification for `GlucoseStored`
+
+Each trigger independently called `setupGarminWatchState()`, which fetched from CoreData. Multiple concurrent fetches raced against the context merge, and whichever fired first often grabbed stale data.
+
+**Fix:** Replaced all four triggers with a single subscription to `LiveActivityManager.snapshotPublisher`. This fires once per data update cycle with a consistent, already-merged snapshot. No race conditions.
+
+### 3. Throttle Too Aggressive (10 seconds)
+
+The original `.throttle(for: .seconds(10))` produced ~6 messages/minute, but the watch's one-shot `registerForPhoneAppMessageEvent()` model can only consume ~2-3 messages/minute. The excess messages queued in the ConnectIQ/GCM pipeline, creating an ever-growing backlog.
+
+**Fix:** Changed throttle to `.throttle(for: .seconds(300))` (5 minutes), matching the CGM reading interval. At most one push per cycle keeps the queue shallow.
+
+### 4. No In-Flight Send Gating
+
+The original code could call `connectIQ.sendMessage()` for the same app while a previous send was still in-flight. The ConnectIQ SDK would queue these, compounding the backlog.
+
+**Fix:** Added `appsWithInFlightSend: Set<UUID>` tracking. If a send to an app hasn't completed, the new send is skipped. The next cycle sends fresh data instead of queuing stale data.
+
+### 5. Poll Responses Were Throttled
+
+When the watch sent a `"status"` poll, the original `receivedMessage(_:from:)` handler rebuilt state and sent it through the same throttled `watchStateSubject` pipeline. This meant poll responses could be delayed up to 5 minutes by the throttle.
+
+**Fix:** `receivedMessage` now calls `broadcastStateToWatchApps()` directly, bypassing the throttle entirely. It uses cached `lastWatchStateData` for instant response — no CoreData fetch needed.
+
+### 6. No Safety Net for Dropped Updates
+
+If the Combine pipeline stalled (publisher error, backpressure, etc.), no data would flow until the next external trigger.
+
+**Fix:** Added a `Timer.publish(every: 5 * 60)` safety net that unconditionally re-sends `lastWatchStateData` through the pipeline. Redundant sends are naturally deduplicated by the throttle.
+
+---
+
+## Resolution Timeline
+
+| Time | Transit Delay | What Changed |
+|------|--------------|--------------|
+| Initial | ~31 min | Baseline — 10s throttle, 4 racing triggers, stale CoreData fetches |
+| +2h | ~18 min | User foregrounded Garmin Connect Mobile |
+| +3h | ~28 min | Throttle changed to 300s (helped prevent new queue growth, but residual queue still draining) |
+| +4h | ~22 min | Queue continuing to drain |
+| +5h | ~10 min | Full Trio-side rewrite deployed (snapshot publisher, single pipeline, in-flight gating) |
+| +6h | ~6 min | System stabilizing |
+| +7h | ~1 min | Steady state — effectively real-time for CGM data |
+
+---
+
+## Current Architecture
+
+### Trio Side (GarminManager.swift)
+
 ```
-Watch → BLE → GCM → Trio → (builds fresh state) → GCM → BLE → Watch
+CGM Reading
+    ↓
+CoreData (NSBatchInsertRequest)
+    ↓
+LiveActivityManager context auto-merges
+    ↓
+LiveActivityData @Published properties update
+    ↓
+snapshotPublisher.send(LiveActivitySnapshot)
+    ↓
+GarminManager.subscribeToUpdateTriggers()
+    ↓
+buildWatchState(from: snapshot) → JSON encode → cache in lastWatchStateData
+    ↓
+watchStateSubject.send(dict)
+    ↓
+.throttle(300s, latest: true)
+    ↓
+broadcastStateToWatchApps() → sendMessage (with in-flight gating)
+    ↓
+ConnectIQ SDK → Garmin Connect Mobile → BLE → Watch
 ```
-- Watch sends `"status"` string via `Communications.transmit()` every 5 minutes (temporal event)
-- Trio's `receivedMessage(_:from:)` (line 520) responds immediately by calling `broadcastStateToWatchApps()` directly, **bypassing the throttle**
-- This is a fallback to ensure data arrives even if push delivery fails
+
+**Additional paths:**
+- **Poll response:** Watch sends `"status"` → `receivedMessage` → `broadcastStateToWatchApps` (bypasses throttle, uses cached data)
+- **Safety net timer:** Every 5 min → re-sends `lastWatchStateData` through throttled pipeline
+
+### Watch Side
+
+**Watch Face (`TrioWatchFace/`)** — background service model:
+- Push path: `registerForPhoneAppMessageEvent()` (one-shot, re-registered after each delivery)
+- Poll path: Temporal event every 5 min sends `"status"` to Trio
+- Both paths converge through `onPhoneAppMessage()` → `Background.exit(data)` → `onBackgroundData()`
+
+**Data Field (`TrioDataField/`)** — foreground model:
+- Uses `Communications.registerForPhoneAppMessages()` directly (not one-shot)
+- Sends `"status"` on startup
+- Not subject to the background service constraints
 
 ### Watch-Side Source Files
 
 | File | Role |
 |------|------|
-| `TrioWatchFace/source/TrioWatchFaceApp.mc` | App lifecycle, registers both temporal (poll) and phone message (push) events, processes incoming data in `onBackgroundData()`, persists to Storage |
-| `TrioWatchFace/source/TrioServiceDelegate.mc` | Background service — handles both push and poll wake-ups, exits via `Background.exit(msg.data)` |
-| `TrioWatchFace/source/BgCommListener.mc` | Connection listener for poll transmit — on error calls `Background.exit(null)` so the service terminates cleanly |
-| `TrioWatchFace/source/TrioWatchFaceView.mc` | Debug display — shows raw key/value dump with Rx age |
+| `TrioWatchFace/source/TrioWatchFaceApp.mc` | App lifecycle, registers temporal (poll) and phone message (push) events, processes data in `onBackgroundData()`, persists to Storage |
+| `TrioWatchFace/source/TrioWatchFaceView.mc` | 6-zone display: date, time, BG+trend, delta, IOB/COB, loop status+battery |
+| `TrioWatchFace/source/TrioServiceDelegate.mc` | Background service — handles push and poll wake-ups via `Background.exit(msg.data)` |
+| `TrioWatchFace/source/BgCommListener.mc` | Connection listener for poll transmit — on error calls `Background.exit(null)` |
 
-### One-Shot Message Model (Critical Constraint)
-
-Garmin's ConnectIQ SDK uses a **one-shot** model for watch face phone app message events:
-
-1. `Background.registerForPhoneAppMessageEvent()` registers the watch to receive ONE message
-2. When a message arrives, the background service wakes, processes it, and calls `Background.exit(data)`
-3. `onBackgroundData()` in the foreground app handles the data, then **must re-register** for the next message
-4. Until re-registration completes, no further messages can be delivered — they queue in the ConnectIQ/GCM layer
-
-This means the watch can only process messages **serially**, with system overhead per cycle (estimated 10-30 seconds per message including wake, process, exit, re-register, next delivery).
-
-### Temporal Event (Poll) Details
-
-Registered in `onStart()` at `TrioWatchFaceApp.mc:41`:
-```monkeyc
-Background.registerForTemporalEvent(new Time.Duration(300));  // 5 min minimum for watch faces
-```
-
-When it fires (`TrioServiceDelegate.mc:31-33`):
-```monkeyc
-function onTemporalEvent() {
-    Communications.registerForPhoneAppMessages(method(:onPhoneAppMessage));
-    Communications.transmit("status", null, new BgCommListener());
-}
-```
-
-The temporal event sends `"status"` to Trio, which triggers an **immediate** response (bypasses the push throttle). If the transmit fails (phone disconnected, GCM not running), `BgCommListener.onError()` calls `Background.exit(null)` so the background service terminates and the next temporal event can fire.
-
-### Data Field App (Simpler Model)
-
-The data field (`TrioDataField/`) uses a simpler model — it's NOT a watch face, so it can use foreground `Communications` directly:
-- Registers `Communications.registerForPhoneAppMessages()` in `onStart()`
-- Sends `"status"` on startup to request initial data
-- Receives messages in `onPhoneMessage()` callback (foreground, not one-shot)
-
-This app type is **not subject to the same one-shot constraint** and should not exhibit the same delivery delay.
-
----
-
-## Trio (Phone) Side — What We Know
-
-### Message Assembly
-
-Trio builds `GarminWatchState` with these fields (all strings except `lastLoopDateInterval` which is UInt64):
+### Message Format
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -90,168 +139,61 @@ Trio builds `GarminWatchState` with these fields (all strings except `lastLoopDa
 | `lastLoopDateInterval` | UInt64 | Unix epoch seconds of last successful loop |
 | `eventualBGRaw` | String | Predicted eventual BG |
 | `isf` | String | Current insulin sensitivity factor |
-| `sentAt` | String | Timestamp when the payload was built (HH:mm:ss) |
-| `glucoseDate` | String | Timestamp of the glucose reading itself (HH:mm:ss) |
-
-### Push Triggers
-
-The push pipeline fires when any of these Combine publishers emit:
-- `glucoseStorage.updatePublisher` — new CGM reading
-- `iobService.iobPublisher` — IOB recalculated
-- CoreData save notification for `OrefDetermination` — new loop result
-- CoreData change notification for `GlucoseStored` — glucose entry deleted
-- `SettingsObserver` callback — user changes glucose unit preference
-
-### Throttle (Recently Changed)
-
-**Previous:** 10-second throttle (`GarminManager.swift:321`)
-**Current:** 300-second throttle (changed to match CGM reading interval)
-
-The change was made because the 10-second throttle produced ~6 messages/minute while the watch's one-shot model was estimated to consume only ~2-3/minute, potentially causing unbounded queue growth.
-
-### Poll Response Path
-
-`receivedMessage(_:from:)` at `GarminManager.swift:520` handles incoming `"status"` messages from the watch. It calls `broadcastStateToWatchApps()` **directly**, bypassing `watchStateSubject` and its throttle. This means poll responses should be immediate — no throttle delay.
-
-### Message Dispatch
-
-For each registered `IQApp` in `watchApps`:
-1. Check if installed via `connectIQ.getAppStatus()`
-2. Send via `connectIQ.sendMessage(dict, to: app, progress:, completion:)`
-3. ConnectIQ SDK handles handoff to Garmin Connect Mobile
+| `sentAt` | String | Timestamp when payload was built (HH:mm:ss) |
+| `glucoseDate` | String | Timestamp of the glucose reading (HH:mm:ss) |
+| `source` | String | `"push"` or `"poll"` — diagnostic field |
 
 ---
 
-## Observed Data Delay — Field Evidence
+## Key Constraints
 
-### Observation 1: ~31 minute delay
-```
-Watch time:   7:21 PM
-sentAt:       18:50:04 (6:50 PM)
-glucoseDate:  18:49:59
-Rx:           0m
-```
-- **Transit time (sentAt → watch):** ~31 minutes
-- **Rx: 0m** — watch just received it, processed instantly
-- The message sat in the ConnectIQ/GCM pipeline for 31 minutes before the watch got it
+### One-Shot Message Model (Watch Face)
 
-### Observation 2: ~18 minute delay (improvement during active testing)
-```
-Watch time:   7:52 PM
-sentAt:       19:34:25 (7:34 PM)
-glucoseDate:  19:34:18
-Rx:           0m
-```
-- **Transit time:** ~18 minutes
-- User had Garmin Connect Mobile in the foreground for 12 minutes before this reading
-- Delay improved but did NOT become fresh — still 18 minutes behind
+Garmin's ConnectIQ SDK uses a one-shot model for watch face phone app message events:
+1. `Background.registerForPhoneAppMessageEvent()` registers to receive ONE message
+2. Message arrives → background service wakes → `Background.exit(data)`
+3. `onBackgroundData()` processes data, then **must re-register** for the next message
+4. Until re-registration completes, messages queue in ConnectIQ/GCM
 
-### Observation 3: ~28 minute delay (after 300s throttle change)
-```
-Watch time:   9:57 PM
-sentAt:       21:29:24 (9:29 PM)
-glucoseDate:  21:29:19
-Rx:           3m
-```
-- **Transit time (sentAt → received):** ~25 minutes (received at ~9:54, sent at 9:29)
-- **Rx: 3m** — watch received it 3 minutes ago (displayed on next face update)
-- The 300-second throttle change did NOT resolve the delay
-- Delay got worse again compared to observation 2
+The watch processes messages serially with ~10-30s overhead per cycle. This is why the Trio-side throttle (300s) and in-flight gating are critical — they prevent the queue from growing faster than the watch can drain it.
 
-### Key Patterns
+### Temporal Event Minimum Interval
 
-1. **`sentAt` and `glucoseDate` are always within seconds of each other** — Trio is building payloads with fresh data at send time. The phone side is NOT the source of staleness.
-
-2. **Rx is always small (0-3 minutes)** — the watch processes messages immediately upon receipt. The watch side is NOT the source of staleness.
-
-3. **The entire delay is in transit:** Trio → ConnectIQ SDK → GCM → BLE → Watch. This is a black box we do not control.
-
-4. **The delay fluctuates (31 → 18 → 28)** — this is inconsistent with a simple FIFO queue model, which would show monotonically decreasing delay as the queue drains. The fluctuation suggests external factors: iOS app suspension, GCM sync windows, or BLE connection scheduling.
-
-5. **Foregrounding GCM helped partially but did not fix it** — 12 minutes with GCM open reduced delay from 31 to 18 minutes, but never to fresh data. This suggests GCM foreground state is a factor but not the only one.
-
-6. **Switching watch faces sometimes helps** — this re-runs `onStart()`, re-registers both temporal and phone message events, and may trigger BLE activity that prompts GCM to flush queued messages.
+Watch faces can only register temporal events at a minimum of 300 seconds (5 minutes). This is a ConnectIQ SDK limitation for battery life.
 
 ---
 
-## Potential Causes Under Investigation
+## Lessons Learned
 
-### 1. Residual Message Queue from Old 10s Throttle
-**Theory:** Before the throttle was changed to 300s, the 10-second throttle may have accumulated hundreds of messages in the ConnectIQ queue. These must drain FIFO before new (300s-throttle) messages reach the watch. At ~20-30 seconds per one-shot cycle, draining 500 messages takes 3-6 hours.
+1. **The transport layer was a red herring.** Initial investigation focused on ConnectIQ/GCM/BLE delivery delays, but the real problem was stale data being sent from the phone. Fresh data transits the pipeline in ~1 minute.
 
-**Evidence for:** The delay hasn't improved yet after the throttle change, and only ~2 hours had passed.
-**Evidence against:** The fluctuation (31 → 18 → 28) doesn't match a steady queue drain.
-**Test:** Kill Trio, kill GCM, switch away from watch face and back, reopen GCM, reopen Trio. This should clear any residual queue. If the delay persists after a clean restart, this theory is eliminated.
+2. **`NSBatchInsertRequest` bypasses change propagation.** CoreData batch inserts don't trigger `NSManagedObjectContextDidSave` on the inserting context. Any downstream consumer must use a context that auto-merges from the persistent store, or subscribe to a publisher that guarantees merged data.
 
-### 2. GCM Message Delivery is Inherently Batched/Delayed
-**Theory:** Garmin Connect Mobile may not relay ConnectIQ messages to the watch in real time. It may batch deliveries on its own schedule (e.g., during periodic sync windows every 15-30 minutes), regardless of when `sendMessage()` was called.
+3. **Multiple Combine triggers for the same logical event create race conditions.** When glucose, IOB, and loop determination all update within milliseconds, four independent publishers fire concurrently. The first to execute its sink may read partially-updated state. A single consolidated publisher eliminates the race.
 
-**Evidence for:** The ~30 minute delay is suspiciously close to typical GCM sync intervals. Foregrounding GCM improved but didn't eliminate delay — GCM may have internal scheduling independent of iOS app state.
-**Evidence against:** If this were purely a sync interval issue, foregrounding GCM should have overridden the schedule and delivered immediately.
-**Test:** Check if other ConnectIQ apps (e.g., a simple test app) also experience delivery delays when receiving messages from a companion app.
+4. **The one-shot constraint makes queue management critical.** Even a small mismatch between send rate and consume rate compounds over time. The 10s throttle produced 6x the messages the watch could process, building a 30+ minute backlog within hours.
 
-### 3. iOS Background Execution Limits on GCM and/or Trio
-**Theory:** iOS suspends background apps aggressively. When Trio calls `connectIQ.sendMessage()`, the ConnectIQ SDK hands the message to GCM via IPC. If GCM is suspended by iOS, this handoff may fail silently or queue. Similarly, when the watch sends `"status"` and it reaches GCM, if Trio is suspended, GCM cannot forward the request.
-
-**Evidence for:** The fluctuating delay correlates with periods of phone activity vs. inactivity. The delay was shortest (18 min) during active testing when the user was interacting with the phone.
-**Evidence against:** Foregrounding GCM for 12 minutes didn't produce fresh data. If iOS suspension were the sole cause, foregrounding should have fixed it immediately.
-**Test:** Keep BOTH Trio AND GCM in foreground (split screen or rapid switching) and observe if delay drops to near-zero. If it does, iOS suspension is confirmed as a major factor.
-
-### 4. ConnectIQ SDK Internal Queue/Rate Limiting
-**Theory:** The ConnectIQ Mobile SDK may have internal rate limiting or queuing that introduces delay independent of GCM's state. Even with GCM foregrounded, the SDK may batch messages for delivery at intervals.
-
-**Evidence for:** Delay persisted even with GCM in foreground.
-**Evidence against:** This would be a Garmin SDK design limitation documented somewhere.
-**Test:** Review ConnectIQ SDK documentation for any mention of message delivery timing, batching, or rate limits. Also test with the ConnectIQ simulator where BLE isn't a factor.
-
-### 5. BLE Connection Interval
-**Theory:** The Bluetooth Low Energy connection between the phone and watch has a connection interval that determines how often data can be exchanged. If GCM negotiates a long connection interval (for battery), message delivery is delayed until the next BLE window.
-
-**Evidence for:** BLE connection intervals can range from 7.5ms to 4 seconds, and in practice Garmin watches use longer intervals for battery life.
-**Evidence against:** BLE intervals are measured in seconds, not the 25-30 minutes we're observing. This alone cannot explain the delay but could compound other issues.
-
-### 6. Background Service Contention on the Watch
-**Theory:** The watch's background service is a shared resource. Only one background task can run at a time. If the temporal event (poll) fires while a push message is being delivered (or vice versa), one may be blocked or dropped.
-
-**Evidence for:** The temporal event fires every 5 minutes and the push can arrive at any time. The poll's `Communications.transmit("status")` occupies the background service until the response arrives or `BgCommListener.onError()` fires.
-**Evidence against:** The watch code handles both paths through the same `onPhoneAppMessage()` handler, and `Background.exit()` always terminates the service. Contention would cause occasional dropped messages, not consistent 30-minute delays.
+5. **Poll responses should bypass push throttling.** The watch's background service may go back to sleep if the poll response is delayed. Direct broadcast with cached data provides instant response.
 
 ---
 
-## What We Have Adapted (Changes Made So Far)
+## Debugging Tools Used
 
-1. **Throttle increase (Trio side):** Changed `GarminManager.swift:321` from `.throttle(for: .seconds(10))` to `.throttle(for: .seconds(300))` to prevent flooding the one-shot message queue. Poll response path remains unthrottled.
+- **Debug watch face:** Temporarily replaced the production watch face with a raw data dump showing all received fields with type annotations (`key(S)=value`) and an Rx age counter. This made it possible to see exactly what Trio sent and when it arrived.
 
-2. **Debug watch face (watch side):** Current watch face view (`TrioWatchFaceView.mc`) is a raw data dump showing all received fields with type annotations and an Rx age counter. This enables field diagnosis of delivery timing.
+- **`sentAt` field:** Diagnostic timestamp added to the payload showing when Trio built it. Comparing `sentAt` to watch display time reveals the transit delay.
 
-3. **Documented one-shot re-registration (watch side):** Added explicit comments and ensured `registerForPhoneAppMessageEvent()` is called after every `onBackgroundData()` exit, including null/error cases (`TrioWatchFaceApp.mc:98-102`).
+- **`source` field:** Distinguishes push vs poll deliveries for path diagnosis.
 
----
-
-## Recommended Next Steps
-
-### Immediate: Clean Restart Test
-Kill Trio, kill GCM, switch to a different watch face, wait 30 seconds, switch back to the Trio watch face, reopen GCM, reopen Trio. This eliminates any residual message queue and tests the 300s throttle from a clean state. **If the delay persists after this, the queue theory is eliminated and the issue is in the ConnectIQ/GCM delivery infrastructure.**
-
-### Add sentAt-vs-now Staleness Display on Watch
-Modify the watch face to calculate and display the age of `sentAt` relative to the current watch time. This makes the transit delay immediately visible without manual subtraction.
-
-### Test Poll-Only Mode
-Temporarily disable push on the Trio side (comment out the throttled pipeline that writes to `watchStateSubject`). Only the poll path remains: the watch requests data every 5 minutes via `"status"`, Trio responds immediately. If the poll response arrives within seconds, the push delivery pipeline (or its queue) is the issue. If the poll response is also delayed by 25+ minutes, the problem is in the GCM/BLE layer itself and affects ALL ConnectIQ communication.
-
-### Instrument the Trio Side
-Add logging in `connectIQ.sendMessage()` completion handler to record whether messages are being accepted or rejected by the ConnectIQ SDK. If `sendMessage` reports errors, GCM may not be relaying.
-
-### Investigate ConnectIQ SDK Documentation
-Search for any documented behavior around message delivery timing, SDK-level queuing, or delivery guarantees. The ConnectIQ Mobile SDK may have known limitations or configuration options for delivery behavior.
-
-### Test with ConnectIQ Simulator
-Use the Garmin ConnectIQ simulator to send messages from the companion app to the watch. The simulator bypasses BLE entirely. If messages arrive instantly in the simulator, the delay is confirmed to be in the BLE/GCM layer, not in the app code.
+- **`Rx:Nm` display:** Shows minutes since the watch received the last message, confirming the watch processes data instantly upon receipt.
 
 ---
 
-## Summary
+## Trio-Side Files Modified
 
-The watch-side code is functioning correctly. Messages are processed immediately upon receipt (Rx: 0-3m). The phone-side code is building fresh payloads at send time (sentAt matches glucoseDate within seconds). **The entire 25-31 minute delay occurs in the ConnectIQ SDK / Garmin Connect Mobile / BLE transport layer** — a black box neither the watch code nor the Trio code directly controls.
+All changes on branch `claude/fix-garmin-stale-data-M7QCh` of the Trio repo:
 
-The throttle change from 10s to 300s was a necessary fix to prevent queue flooding but may not be sufficient if the underlying transport has inherent delivery latency. The clean restart test is the critical next step to isolate whether we're still draining a residual queue or facing a fundamental ConnectIQ delivery limitation.
+| File | Changes |
+|------|---------|
+| `GarminManager.swift` | Replaced 4 racing triggers with single `snapshotPublisher` subscription; replaced CoreData fetch with snapshot-based `buildWatchState(from:)`; added in-flight send gating; added periodic refresh timer; poll response bypasses throttle and uses cached data |
+| `GarminWatchState.swift` | Added `source` field; `Equatable`/`Hashable` exclude diagnostic fields (`sentAt`, `glucoseDate`, `source`) |

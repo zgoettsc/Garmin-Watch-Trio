@@ -1,5 +1,4 @@
 using Toybox.Application;
-using Toybox.Application.Storage;
 using Toybox.Graphics;
 using Toybox.Lang;
 using Toybox.System;
@@ -7,10 +6,16 @@ using Toybox.Time;
 using Toybox.Time.Gregorian;
 using Toybox.WatchUi;
 
-// ══════════════════════════════════════════════════
-//  DEBUG BUILD — raw data dump only, no normal fields
-// ══════════════════════════════════════════════════
 class TrioWatchFaceView extends WatchUi.WatchFace {
+
+    // BG color thresholds (mg/dL)
+    private const BG_URGENT_LOW  = 55;
+    private const BG_LOW         = 70;
+    private const BG_HIGH        = 180;
+    private const BG_URGENT_HIGH = 250;
+
+    // Loop is stale after 15 minutes (900 seconds)
+    private const LOOP_STALE_SEC = 900;
 
     function initialize() {
         WatchFace.initialize();
@@ -27,72 +32,136 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
         var app  = Application.getApp();
         var data = app.trioData;
 
-        // ── Row 1: Time + Rx age ──
+        // ── Zone 1: Date ──
+        var now  = Time.now();
+        var info = Gregorian.info(now, Time.FORMAT_MEDIUM);
+        var dateStr = info.day_of_week + " " + info.month + " " + info.day;
+        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, 40, Graphics.FONT_XTINY, dateStr,
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+
+        // ── Zone 2: Time ──
         var clock = System.getClockTime();
         var hours = clock.hour;
         if (!System.getDeviceSettings().is24Hour) {
             if (hours > 12) { hours = hours - 12; }
             if (hours == 0) { hours = 12; }
         }
-        var timeStr = Lang.format("$1$:$2$", [hours, clock.min.format("%02d")]);
-
-        var rxStr = "--";
-        if (app.lastReceiveTime > 0) {
-            var ageSec = Time.now().value() - app.lastReceiveTime;
-            if (ageSec >= 0) {
-                rxStr = (ageSec / 60).toString() + "m";
-            } else {
-                rxStr = "0m";
-            }
-        }
-
-        var header = timeStr + "  Rx:" + rxStr;
-        dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, 18, Graphics.FONT_XTINY, header,
+        var timeStr = hours.toString() + ":" + clock.min.format("%02d");
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, 82, Graphics.FONT_NUMBER_HOT, timeStr,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // ── Row 2+: Raw debug log from Storage ──
-        // Format: "key1(type)=val|key2(type)=val|..."
-        var log = Storage.getValue("debugLog");
-        if (log == null || log.length() == 0) {
-            dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, height / 2, Graphics.FONT_XTINY, "No data yet",
-                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-            return;
-        }
+        // ── Zone 3: BG + Trend arrow ──
+        var glucose  = safeGet(data, "glucose");
+        var trendRaw = safeGet(data, "trendRaw");
+        var bgText   = (glucose != null) ? glucose : "--";
+        var tArrow   = getTrendArrow(trendRaw);
+        var bgColor  = getBgColor(glucose);
 
-        // Split on "|" into individual key entries and draw one per line
-        var entries = splitString(log, '|');
-        var y = 38;
-        var lineHeight = 20;
+        dc.setColor(bgColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, 145, Graphics.FONT_LARGE, bgText + " " + tArrow,
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
+        // ── Zone 4: Delta ──
+        var delta = safeGet(data, "delta");
+        var dText = (delta != null) ? delta : "--";
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        for (var i = 0; i < entries.size(); i++) {
-            if (entries[i].length() == 0) {
-                continue;  // skip trailing empty from final "|"
-            }
-            if (y + lineHeight > height) {
-                break;  // don't draw off-screen
-            }
-            dc.drawText(cx, y, Graphics.FONT_XTINY, entries[i],
-                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-            y += lineHeight;
-        }
+        dc.drawText(cx, 185, Graphics.FONT_SMALL, dText,
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+
+        // ── Zone 5: IOB / COB ──
+        var iob = safeGet(data, "iob");
+        var cob = safeGet(data, "cob");
+        var iobText = (iob != null) ? (iob + "u") : "--";
+        var cobText = (cob != null) ? (cob + "g") : "--";
+        var spacing = width / 5;
+
+        dc.setColor(0x00FFFF, Graphics.COLOR_TRANSPARENT);  // cyan
+        dc.drawText(cx - spacing, 222, Graphics.FONT_TINY, iobText,
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+
+        dc.setColor(0xFF5500, Graphics.COLOR_TRANSPARENT);  // orange
+        dc.drawText(cx + spacing, 222, Graphics.FONT_TINY, cobText,
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+
+        // ── Zone 6: Loop status + Battery ──
+        drawLoopAndBattery(dc, cx, spacing, 250, data);
     }
 
-    // Simple string split since Monkey C doesn't have String.split()
-    private function splitString(str, delim) {
-        var result = [];
-        var start = 0;
-        for (var i = 0; i < str.length(); i++) {
-            if (str.substring(i, i + 1).equals(delim.toString())) {
-                result.add(str.substring(start, i));
-                start = i + 1;
+    // ════════════════════════════════════════════
+    //  Loop indicator (green dot / red X) + battery %
+    // ════════════════════════════════════════════
+    private function drawLoopAndBattery(dc, cx, spacing, y, data) {
+        var loopActive = false;
+        var loopDate = safeGet(data, "lastLoopDateInterval");
+        if (loopDate != null) {
+            var nowSec = Time.now().value();
+            // Handle both Number (32-bit) and Long (64-bit) from ConnectIQ
+            var loopSec = (loopDate instanceof Long) ? loopDate.toNumber() : loopDate;
+            var age = nowSec - loopSec;
+            if (age >= 0 && age < LOOP_STALE_SEC) {
+                loopActive = true;
             }
         }
-        if (start < str.length()) {
-            result.add(str.substring(start, str.length()));
+
+        if (loopActive) {
+            dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
+            dc.fillCircle(cx - spacing, y, 5);
+        } else {
+            dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(cx - spacing, y, Graphics.FONT_XTINY, "X",
+                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
-        return result;
+
+        // Battery
+        var battery = System.getSystemStats().battery;
+        var battStr = battery.toNumber().toString() + "%";
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx + spacing, y, Graphics.FONT_XTINY, battStr,
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+
+    // ════════════════════════════════════════════
+    //  Helpers
+    // ════════════════════════════════════════════
+
+    // Safe dictionary access — returns null if key missing or data isn't a dict
+    private function safeGet(dict, key) {
+        if (dict instanceof Lang.Dictionary && dict.hasKey(key)) {
+            return dict[key];
+        }
+        return null;
+    }
+
+    // BG color based on clinical thresholds
+    private function getBgColor(glucose) {
+        if (glucose == null) {
+            return Graphics.COLOR_WHITE;
+        }
+        var bg = glucose.toFloat();
+        if (bg == null) {
+            return Graphics.COLOR_WHITE;
+        }
+        if (bg < BG_URGENT_LOW || bg > BG_URGENT_HIGH) {
+            return Graphics.COLOR_RED;
+        }
+        if (bg < BG_LOW || bg > BG_HIGH) {
+            return Graphics.COLOR_YELLOW;
+        }
+        return Graphics.COLOR_GREEN;
+    }
+
+    // Trend arrow mapping — ASCII arrows for MIP display compatibility
+    private function getTrendArrow(trendRaw) {
+        if (trendRaw == null || trendRaw.equals("--")) { return "-"; }
+        if (trendRaw.equals("DoubleUp"))      { return "^^"; }
+        if (trendRaw.equals("SingleUp"))      { return "^";  }
+        if (trendRaw.equals("FortyFiveUp"))   { return "/";  }
+        if (trendRaw.equals("Flat"))          { return ">";  }
+        if (trendRaw.equals("FortyFiveDown")) { return "\\"; }
+        if (trendRaw.equals("SingleDown"))    { return "v";  }
+        if (trendRaw.equals("DoubleDown"))    { return "vv"; }
+        return "-";
     }
 }
