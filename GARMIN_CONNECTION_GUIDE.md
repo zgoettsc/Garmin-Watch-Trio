@@ -131,7 +131,9 @@ Trio rebuilds and sends the watch state when any of these events occur:
 
 ### Throttling
 
-All updates are throttled to a **minimum 10-second interval** via Combine's `.throttle()` operator. If multiple triggers fire within 10 seconds, only the most recent state is sent. This prevents overwhelming the Bluetooth connection.
+Proactive push updates are throttled to a **minimum 300-second (5-minute) interval** via Combine's `.throttle()` operator. If multiple triggers fire within that window, only the most recent state is sent. This matches the CGM reading interval and prevents flooding the ConnectIQ message queue — the watch's one-shot `registerForPhoneAppMessageEvent` model can only process one message at a time, so a shorter throttle causes an unbounded queue and 30+ minute delays.
+
+The poll response path (watch sends `"status"` → `receivedMessage(_:from:)` → `broadcastStateToWatchApps()`) bypasses this throttle entirely, so the watch always gets an immediate response when it explicitly requests data.
 
 ---
 
