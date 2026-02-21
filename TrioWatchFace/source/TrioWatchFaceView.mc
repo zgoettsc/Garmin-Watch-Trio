@@ -103,16 +103,15 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     }
 
     // ════════════════════════════════════════════
-    //  Loop indicator + loop age + battery %
+    //  Loop indicator + battery %
     // ════════════════════════════════════════════
     private function drawStatusRow(dc, cx, width, y, data, app) {
         var sp = width / 4;
 
-        // Loop indicator: green if loop ran within 10 min, red otherwise
+        // Loop indicator: green if data received within 10 min, red otherwise
         var loopActive = false;
-        var loopDate = safeGet(data, "loopDate");
-        if (loopDate != null) {
-            var age = Time.now().value() - loopDate;
+        if (app.lastReceiveTime > 0) {
+            var age = Time.now().value() - app.lastReceiveTime;
             if (age >= 0 && age < DATA_STALE_SEC) {
                 loopActive = true;
             }
@@ -126,17 +125,6 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
             dc.drawText(cx - sp, y, Graphics.FONT_XTINY, "X",
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
-
-        // Time since last loop ran (minutes)
-        var ageStr = "--";
-        if (loopDate != null) {
-            var ageSec = Time.now().value() - loopDate;
-            if (ageSec < 0) { ageSec = 0; }
-            ageStr = (ageSec / 60).toString() + "m";
-        }
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, y, Graphics.FONT_XTINY, ageStr,
-            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
         // Battery
         var battery = System.getSystemStats().battery;
