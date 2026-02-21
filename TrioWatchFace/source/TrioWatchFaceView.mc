@@ -106,11 +106,9 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
 
         // Loop indicator: green dot or red X
         var loopActive = false;
-        var loopDate = safeGet(data, "lastLoopDateInterval");
+        var loopDate = safeGet(data, "loopDate");
         if (loopDate != null) {
-            var nowSec = Time.now().value();
-            var loopSec = (loopDate instanceof Long) ? loopDate.toNumber() : loopDate;
-            var age = nowSec - loopSec;
+            var age = Time.now().value() - loopDate;
             if (age >= 0 && age < LOOP_STALE_SEC) {
                 loopActive = true;
             }
@@ -125,23 +123,13 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
 
-        // Glucose age: minutes since Trio sent the payload (sentAt = "HH:mm:ss")
+        // Glucose age: minutes since the CGM reading
         var ageStr = "--";
-        var sentAt = safeGet(data, "sentAt");
-        if (sentAt != null && sentAt.length() >= 8) {
-            var sentH = sentAt.substring(0, 2).toNumber();
-            var sentM = sentAt.substring(3, 5).toNumber();
-            var sentS = sentAt.substring(6, 8).toNumber();
-            if (sentH != null && sentM != null && sentS != null) {
-                var sentTotal = sentH * 3600 + sentM * 60 + sentS;
-                var clock = System.getClockTime();
-                var nowTotal = clock.hour * 3600 + clock.min * 60 + clock.sec;
-                var diffSec = nowTotal - sentTotal;
-                if (diffSec < 0) {
-                    diffSec = diffSec + 86400;  // midnight crossover
-                }
-                ageStr = (diffSec / 60).toString() + "m";
-            }
+        var glucoseDate = safeGet(data, "glucoseDate");
+        if (glucoseDate != null) {
+            var ageSec = Time.now().value() - glucoseDate;
+            if (ageSec < 0) { ageSec = 0; }
+            ageStr = (ageSec / 60).toString() + "m";
         }
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, y, Graphics.FONT_XTINY, ageStr,
