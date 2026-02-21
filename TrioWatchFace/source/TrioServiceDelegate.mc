@@ -5,13 +5,10 @@ using Toybox.System;
 
 // Background service delegate — fetches Trio data from Nightscout.
 //
-// Temporal event fires every 5 min → onTemporalEvent()
-//   → web request to /entries.json → parse glucose/trend/delta
-//   → web request to /devicestatus.json → parse IOB/COB/loop
-//   → Background.exit() passes combined data to foreground
-//
-// This bypasses Garmin Connect Mobile companion messaging entirely,
-// using the phone's internet (or watch WiFi) for direct HTTP.
+// Uses the /pebble endpoint which returns a single JSON object (not
+// an array) containing glucose, trend, delta, IOB, and COB in one
+// request.  This is critical because Connect IQ's makeWebRequest
+// rejects top-level JSON arrays with error -400.
 (:background)
 class TrioServiceDelegate extends System.ServiceDelegate {
 
@@ -20,135 +17,96 @@ class TrioServiceDelegate extends System.ServiceDelegate {
     // Seconds from Unix epoch (1970-01-01) to Garmin epoch (1989-12-31)
     private const EPOCH_OFFSET = 631065600;
 
-    // Intermediate storage while chaining the two requests
-    private var _data = {};
-
     function initialize() {
         ServiceDelegate.initialize();
     }
 
     function onTemporalEvent() {
-        // Step 1: Fetch latest 2 glucose entries (2 for delta calc)
         Communications.makeWebRequest(
-            NS_URL + "/api/v1/entries.json?count=2",
+            NS_URL + "/pebble",
             null,
             {
                 :method => Communications.HTTP_REQUEST_METHOD_GET,
                 :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
             },
-            method(:onEntries)
+            method(:onReceive)
         );
     }
 
-    // Step 1 callback: parse glucose, trend, delta, reading date
-    function onEntries(code, data) {
-        if (code == 200 && data instanceof Lang.Array && data.size() > 0) {
-            var e = data[0];
+    function onReceive(code as Lang.Number, data as Lang.Dictionary or Lang.String or Null) as Void {
+        if (code != 200 || data == null || !(data instanceof Lang.Dictionary)) {
+            Background.exit(null);
+            return;
+        }
 
-            var sgv = e["sgv"];
+        var result = {};
+
+        // bgs is an array inside the top-level dict
+        var bgs = data["bgs"];
+        if (bgs instanceof Lang.Array && bgs.size() > 0) {
+            var bg = bgs[0];
+
+            var sgv = bg["sgv"];
             if (sgv != null) {
-                _data["glucose"] = sgv.toString();
+                result["glucose"] = sgv.toString();
             }
 
-            var dir = e["direction"];
+            var dir = bg["direction"];
             if (dir != null) {
-                _data["trendRaw"] = dir;
+                result["trendRaw"] = dir;
+            }
+
+            var delta = bg["bgdelta"];
+            if (delta != null) {
+                var d = delta.toNumber();
+                var sign = "";
+                if (d >= 0) { sign = "+"; }
+                result["delta"] = sign + d.toString();
+            }
+
+            var iob = bg["iob"];
+            if (iob != null) {
+                result["iob"] = iob.toString();
+            }
+
+            var cob = bg["cob"];
+            if (cob != null) {
+                result["cob"] = cob.toString();
             }
 
             // Reading timestamp → Garmin epoch seconds
-            var ds = e["dateString"];
-            if (ds != null) {
-                var g = isoToGarmin(ds);
-                if (g != null) {
-                    _data["glucoseDate"] = g;
+            var dt = bg["datetime"];
+            if (dt != null) {
+                var unixSec = 0;
+                if (dt instanceof Lang.Long) {
+                    unixSec = (dt / 1000l).toNumber();
+                } else if (dt instanceof Lang.Float || dt instanceof Lang.Double) {
+                    unixSec = (dt / 1000).toNumber();
+                } else {
+                    unixSec = dt / 1000;
                 }
-            }
-
-            // Delta between last two readings
-            if (data.size() > 1 && sgv != null) {
-                var prev = data[1]["sgv"];
-                if (prev != null) {
-                    var diff = sgv.toNumber() - prev.toNumber();
-                    var sign = "";
-                    if (diff >= 0) { sign = "+"; }
-                    _data["delta"] = sign + diff.toString();
-                }
+                result["glucoseDate"] = unixSec - EPOCH_OFFSET;
             }
         }
 
-        // Step 2: Fetch device status for IOB / COB / loop
-        Communications.makeWebRequest(
-            NS_URL + "/api/v1/devicestatus.json?count=1",
-            null,
-            {
-                :method => Communications.HTTP_REQUEST_METHOD_GET,
-                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-            },
-            method(:onDeviceStatus)
-        );
-    }
-
-    // Step 2 callback: parse IOB, COB, loop date, then exit
-    function onDeviceStatus(code, data) {
-        if (code == 200 && data instanceof Lang.Array && data.size() > 0) {
-            var s = data[0];
-            var oa = s["openaps"];
-            if (oa != null) {
-                // IOB
-                var iobObj = oa["iob"];
-                if (iobObj != null && iobObj["iob"] != null) {
-                    _data["iob"] = iobObj["iob"].format("%.2f");
+        // Use status[0].now as loop timestamp (millis since epoch)
+        var status = data["status"];
+        if (status instanceof Lang.Array && status.size() > 0) {
+            var s0 = status[0];
+            var now = s0["now"];
+            if (now != null) {
+                var unixSec = 0;
+                if (now instanceof Lang.Long) {
+                    unixSec = (now / 1000l).toNumber();
+                } else if (now instanceof Lang.Float || now instanceof Lang.Double) {
+                    unixSec = (now / 1000).toNumber();
+                } else {
+                    unixSec = now / 1000;
                 }
-
-                // COB: try enacted first, then suggested
-                var cob = null;
-                var enacted = oa["enacted"];
-                if (enacted != null) {
-                    cob = enacted["COB"];
-                }
-                if (cob == null) {
-                    var suggested = oa["suggested"];
-                    if (suggested != null) {
-                        cob = suggested["COB"];
-                    }
-                }
-                if (cob != null) {
-                    _data["cob"] = cob.toString();
-                }
-            }
-
-            // Loop date from devicestatus timestamp
-            var ca = s["created_at"];
-            if (ca != null) {
-                var g = isoToGarmin(ca);
-                if (g != null) {
-                    _data["loopDate"] = g;
-                }
+                result["loopDate"] = unixSec - EPOCH_OFFSET;
             }
         }
 
-        Background.exit(_data.size() > 0 ? _data : null);
-    }
-
-    // Parse ISO 8601 "YYYY-MM-DDTHH:mm:ss..." to Garmin epoch seconds.
-    // Uses a Julian Day algorithm — no Gregorian module needed in background.
-    private function isoToGarmin(iso) {
-        if (iso.length() < 19) { return null; }
-        var yr = iso.substring(0, 4).toNumber();
-        var mo = iso.substring(5, 7).toNumber();
-        var dy = iso.substring(8, 10).toNumber();
-        var hr = iso.substring(11, 13).toNumber();
-        var mn = iso.substring(14, 16).toNumber();
-        var sc = iso.substring(17, 19).toNumber();
-        if (yr == null || mo == null || dy == null ||
-            hr == null || mn == null || sc == null) {
-            return null;
-        }
-        var y = yr;
-        var m = mo;
-        if (m <= 2) { y = y - 1; m = m + 12; }
-        var days = 365 * y + y / 4 - y / 100 + y / 400
-                 + (153 * (m - 3) + 2) / 5 + dy - 719469;
-        return days * 86400 + hr * 3600 + mn * 60 + sc - EPOCH_OFFSET;
+        Background.exit(result.size() > 0 ? result : null);
     }
 }

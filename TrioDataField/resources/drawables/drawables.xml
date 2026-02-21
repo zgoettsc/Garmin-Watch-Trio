@@ -1,5 +1,0 @@
-<drawables>
-    <!-- Provide a 40x40 PNG icon named launcher_icon.png in this directory -->
-    <!-- This icon appears in the data field selection menu on the watch -->
-    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
-</drawables>
