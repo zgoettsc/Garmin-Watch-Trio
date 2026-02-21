@@ -72,12 +72,12 @@ class TrioServiceDelegate extends System.ServiceDelegate {
 
             var iob = bg["iob"];
             if (iob != null) {
-                result["iob"] = iob.toString();
+                result["iob"] = iob.toFloat().format("%.1f");
             }
 
             var cob = bg["cob"];
             if (cob != null) {
-                result["cob"] = cob.toString();
+                result["cob"] = cob.toFloat().format("%.1f");
             }
 
             // Reading timestamp → Garmin epoch seconds
