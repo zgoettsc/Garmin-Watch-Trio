@@ -105,16 +105,17 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     private function drawStatusRow(dc, cx, width, y, data, app) {
         var sp = width / 4;
 
-        // Loop indicator: green if data received within 10 min, red otherwise
-        var dataActive = false;
-        if (app.lastReceiveTime > 0) {
-            var age = Time.now().value() - app.lastReceiveTime;
+        // Loop indicator: green if loop ran within 10 min, red otherwise
+        var loopActive = false;
+        var loopDate = safeGet(data, "loopDate");
+        if (loopDate != null) {
+            var age = Time.now().value() - loopDate;
             if (age >= 0 && age < DATA_STALE_SEC) {
-                dataActive = true;
+                loopActive = true;
             }
         }
 
-        if (dataActive) {
+        if (loopActive) {
             dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
             dc.fillCircle(cx - sp, y, 5);
         } else {
