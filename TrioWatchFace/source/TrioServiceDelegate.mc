@@ -22,15 +22,21 @@ class TrioServiceDelegate extends System.ServiceDelegate {
     }
 
     function onTemporalEvent() {
-        Communications.makeWebRequest(
-            NS_URL + "/pebble",
-            null,
-            {
-                :method => Communications.HTTP_REQUEST_METHOD_GET,
-                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-            },
-            method(:onReceive)
-        );
+        try {
+            Communications.makeWebRequest(
+                NS_URL + "/pebble",
+                null,
+                {
+                    :method => Communications.HTTP_REQUEST_METHOD_GET,
+                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                },
+                method(:onReceive)
+            );
+        } catch (e) {
+            // Ensure we always exit so the system does not revoke our
+            // temporal-event registration for an unresponsive service.
+            Background.exit(null);
+        }
     }
 
     function onReceive(code as Lang.Number, data as Lang.Dictionary or Lang.String or Null) as Void {
