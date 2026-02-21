@@ -1,0 +1,624 @@
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Background,1,13,23]; ]
+using Toybox.Background;
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Communications,2,13,27]; ]
+using Toybox.Communications;
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [Lang,3,13,17]; ]
+using Toybox.Lang;
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [System,4,13,19]; ]
+using Toybox.System;
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 13; background = true; @symbol_classdef = [TrioServiceDelegate,13,6,25]; @symbol_extends<0> = [System,13,34,40]; @symbol_extends<1> = [ServiceDelegate,13,41,56]; ]
+class TrioServiceDelegate extends System.ServiceDelegate {
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 13; ]
+    <init> {
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 13; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 15; @position = 18; @symbol_constdef = [NS_URL,15,18,24]; ]
+    private
+    const NS_URL = "https://zgoettsc.nightscoutpro.com";
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 18; @position = 18; @symbol_constdef = [EPOCH_OFFSET,18,18,30]; ]
+    private
+    const EPOCH_OFFSET = 631065600;
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 20; @symbol_functiondef = [initialize,20,13,23]; ]
+    function initialize() as Void {
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_20_26_22_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 21 8 ]
+        symbol [ ServiceDelegate %tmp.2 21 8 23 ];
+        %tmp.2 = getv ? :ServiceDelegate;
+        symbol [ initialize %tmp.3 21 24 34 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_20_26_22_4_stop:
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 24; @symbol_functiondef = [onTemporalEvent,24,13,28]; ]
+    function onTemporalEvent() {
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_24_31_40_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 25 8 ]
+        try @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_beginTry @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_endTry @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_catch @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_finally;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_beginTry:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_12_35_8_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 26 12 ]
+        symbol [ Communications %tmp.1 26 12 26 ];
+        %tmp.1 = getm $.Toybox.Communications;
+        symbol [ makeWebRequest %tmp.2 26 27 41 ];
+        %tmp.2 = getv function %tmp.1 :makeWebRequest;
+        symbol [ NS_URL %tmp.4 27 16 22 ];
+        %tmp.4 = getv ? :NS_URL;
+        %tmp.5 = "/pebble";
+        %tmp.6 = add %tmp.4 %tmp.5;
+        %tmp.7 = null;
+        %tmp.8 = newd 2;
+        %tmp.10 = const :method;
+        symbol [ method %tmp.10 30 21 27 const ];
+        symbol [ Communications %tmp.11 30 31 45 ];
+        %tmp.11 = getm $.Toybox.Communications;
+        symbol [ HTTP_REQUEST_METHOD_GET %tmp.12 30 46 69 ];
+        %tmp.12 = getv %tmp.11 :HTTP_REQUEST_METHOD_GET;
+        %tmp.13 = dup %tmp.8;
+        %tmp.14 = aputv %tmp.13 %tmp.10 %tmp.12;
+        %tmp.16 = const :responseType;
+        symbol [ responseType %tmp.16 31 21 33 const ];
+        symbol [ Communications %tmp.17 31 37 51 ];
+        %tmp.17 = getm $.Toybox.Communications;
+        symbol [ HTTP_RESPONSE_CONTENT_TYPE_JSON %tmp.18 31 52 83 ];
+        %tmp.18 = getv %tmp.17 :HTTP_RESPONSE_CONTENT_TYPE_JSON;
+        %tmp.19 = dup %tmp.14;
+        %tmp.20 = aputv %tmp.19 %tmp.16 %tmp.18;
+        %tmp.21 = self;
+        symbol [ method %tmp.22 33 16 22 ];
+        %tmp.22 = getv function %tmp.21 :method;
+        %tmp.24 = const :onReceive;
+        symbol [ onReceive %tmp.24 33 24 33 const ];
+        %tmp.25 = invoke %tmp.21 %tmp.22(%tmp.24);
+        invoke %tmp.1 %tmp.2(%tmp.6, %tmp.7, %tmp.20, %tmp.25);
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_12_35_8_stop:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_endTry:
+        jsr @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_finally;
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_catch:
+        %tmp.26 = exception;
+        push %tmp.26;
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 35 10 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_catch" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_35_10_39_8_end" ]
+        %e.1 = local;
+        symbol [ e %e.1 35 17 18 ];
+        %tmp.27 = dup %tmp.26;
+        lputv %e.1 %tmp.27;
+        symbol [ e %e.1 35 17 18 ];
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_35_20_39_8_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 38 12 ]
+        symbol [ Background %tmp.28 38 12 22 ];
+        %tmp.28 = getm $.Toybox.Background;
+        symbol [ exit %tmp.29 38 23 27 ];
+        %tmp.29 = getv function %tmp.28 :exit;
+        %tmp.30 = null;
+        invoke %tmp.28 %tmp.29(%tmp.30);
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_35_20_39_8_stop:
+        jsr @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_finally;
+        pop;
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_35_10_39_8_end:
+        try @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_catch @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_35_10_39_8_end @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_35_10_39_8_end @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_finally;
+        jsr @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_finally;
+        throw %tmp.26;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_finally:
+        jsrret;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_25_8_39_8_end:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_24_31_40_4_stop:
+    }
+    [ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 42; @symbol_functiondef = [onReceive,42,13,22]; @symbol_param<0> = [code,42,23,27]; @symbol_param<0>_type<0> = [Lang,42,31,35]; @symbol_param<0>_type<1> = [Number,42,36,42]; @symbol_param<1> = [data,42,44,48]; @symbol_param<1>_type<0> = [Lang,42,52,56]; @symbol_param<1>_type<1> = [Dictionary,42,57,67]; @symbol_param<1>_type<2> = [Lang,42,71,75]; @symbol_param<1>_type<3> = [String,42,76,82]; ]
+    function onReceive(code as Lang.Number, data as Lang.Dictionary or Lang.String or Null) as Void {
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_42_100_104_4_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 43 8 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_8_46_8_if_stmt:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_12_43_76_begin:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_12_43_35_begin:
+        %tmp.1 = lgetv %code;
+        symbol [ code %tmp.1 43 12 16 ];
+        %tmp.2 = 200;
+        %tmp.3 = ne %tmp.1 %tmp.2;
+        bt %tmp.3 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_8_46_8_if_true;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_27_43_35_false:
+        %tmp.4 = lgetv %data;
+        symbol [ data %tmp.4 43 27 31 ];
+        %tmp.5 = null;
+        %tmp.6 = eq %tmp.4 %tmp.5;
+        push %tmp.6;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_27_43_35_end:
+        %tmp.7 = phi [%tmp.3 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_12_43_35_begin] [%tmp.6 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_27_43_35_false] [%tmp.7 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_27_43_35_end];
+        bt %tmp.7 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_8_46_8_if_true;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_43_43_76_false:
+        %tmp.8 = lgetv %data;
+        symbol [ data %tmp.8 43 45 49 ];
+        %tmp.9 = as %tmp.8 { (!Null) };
+        symbol [ Lang %tmp.10 43 61 65 ];
+        %tmp.10 = getm $.Toybox.Lang;
+        symbol [ Dictionary %tmp.11 43 66 76 ];
+        %tmp.11 = getv %tmp.10 :Dictionary;
+        %tmp.12 = isa %tmp.9 %tmp.11;
+        %tmp.13 = not %tmp.12;
+        push %tmp.13;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_43_43_76_end:
+        %tmp.14 = phi [%tmp.7 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_12_43_76_begin] [%tmp.13 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_43_43_76_false] [%tmp.14 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_43_43_76_end];
+        bf %tmp.14 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_8_46_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_8_46_8_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_79_46_8_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 44 12 ]
+        symbol [ Background %tmp.15 44 12 22 ];
+        %tmp.15 = getm $.Toybox.Background;
+        symbol [ exit %tmp.16 44 23 27 ];
+        %tmp.16 = getv function %tmp.15 :exit;
+        %tmp.17 = null;
+        invoke %tmp.15 %tmp.16(%tmp.17);
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 45 12 ]
+        ret ?;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_79_46_8_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_8_46_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_43_8_46_8_if_end:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 48 8 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_42_100_104_4_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_42_100_104_4_stop" ]
+        %result.1 = local;
+        symbol [ result %result.1 48 12 18 ];
+        %tmp.18 = newd 0;
+        lputv %result.1 %tmp.18;
+        symbol [ result %result.1 48 12 18 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 51 8 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_42_100_104_4_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_42_100_104_4_stop" ]
+        %bgs.2 = local;
+        symbol [ bgs %bgs.2 51 12 15 ];
+        %tmp.19 = lgetv %data;
+        symbol [ data %tmp.19 51 18 22 ];
+        %tmp.20 = "bgs";
+        %tmp.21 = agetv %tmp.19 %tmp.20;
+        lputv %bgs.2 %tmp.21;
+        symbol [ bgs %bgs.2 51 12 15 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 52 8 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_8_90_8_if_stmt:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_12_52_54_begin:
+        %tmp.22 = lgetv %bgs.2;
+        symbol [ bgs %tmp.22 52 12 15 ];
+        symbol [ Lang %tmp.23 52 27 31 ];
+        %tmp.23 = getm $.Toybox.Lang;
+        symbol [ Array %tmp.24 52 32 37 ];
+        %tmp.24 = getv %tmp.23 :Array;
+        %tmp.25 = isa %tmp.22 %tmp.24;
+        bf %tmp.25 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_8_90_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_41_52_54_true:
+        %tmp.26 = lgetv %bgs.2;
+        symbol [ bgs %tmp.26 52 41 44 ];
+        %tmp.27 = as %tmp.26 { (Lang.Array) };
+        symbol [ size %tmp.28 52 45 49 ];
+        %tmp.28 = getv function %tmp.27 :size;
+        %tmp.29 = invoke %tmp.27 %tmp.28();
+        %tmp.30 = 0;
+        %tmp.31 = gt %tmp.29 %tmp.30;
+        push %tmp.31;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_41_52_54_end:
+        %tmp.32 = phi [%tmp.25 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_12_52_54_begin] [%tmp.31 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_41_52_54_true] [%tmp.32 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_41_52_54_end];
+        bf %tmp.32 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_8_90_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_8_90_8_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 53 12 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_stop" ]
+        %bg.3 = local;
+        symbol [ bg %bg.3 53 16 18 ];
+        %tmp.33 = lgetv %bgs.2;
+        symbol [ bgs %tmp.33 53 21 24 ];
+        %tmp.34 = as %tmp.33 { (Lang.Array) };
+        %tmp.35 = 0;
+        %tmp.36 = agetv %tmp.34 %tmp.35;
+        lputv %bg.3 %tmp.36;
+        symbol [ bg %bg.3 53 16 18 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 55 12 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_stop" ]
+        %sgv.4 = local;
+        symbol [ sgv %sgv.4 55 16 19 ];
+        %tmp.37 = lgetv %bg.3;
+        symbol [ bg %tmp.37 55 22 24 ];
+        %tmp.38 = "sgv";
+        %tmp.39 = agetv %tmp.37 %tmp.38;
+        lputv %sgv.4 %tmp.39;
+        symbol [ sgv %sgv.4 55 16 19 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 56 12 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_56_12_58_12_if_stmt:
+        %tmp.40 = lgetv %sgv.4;
+        symbol [ sgv %tmp.40 56 16 19 ];
+        %tmp.41 = null;
+        %tmp.42 = ne %tmp.40 %tmp.41;
+        bf %tmp.42 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_56_12_58_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_56_12_58_12_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_56_29_58_12_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 57 16 ]
+        %tmp.43 = lgetv %result.1;
+        symbol [ result %tmp.43 57 16 22 ];
+        %tmp.44 = lgetv %sgv.4;
+        symbol [ sgv %tmp.44 57 36 39 ];
+        %tmp.45 = as %tmp.44 { (!Null) };
+        symbol [ toString %tmp.46 57 40 48 ];
+        %tmp.46 = getv function %tmp.45 :toString;
+        %tmp.47 = invoke %tmp.45 %tmp.46();
+        %tmp.48 = "glucose";
+        aputv %tmp.43 %tmp.48 %tmp.47;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_56_29_58_12_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_56_12_58_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_56_12_58_12_if_end:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 60 12 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_stop" ]
+        %dir.5 = local;
+        symbol [ dir %dir.5 60 16 19 ];
+        %tmp.49 = lgetv %bg.3;
+        symbol [ bg %tmp.49 60 22 24 ];
+        %tmp.50 = "direction";
+        %tmp.51 = agetv %tmp.49 %tmp.50;
+        lputv %dir.5 %tmp.51;
+        symbol [ dir %dir.5 60 16 19 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 61 12 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_61_12_63_12_if_stmt:
+        %tmp.52 = lgetv %dir.5;
+        symbol [ dir %tmp.52 61 16 19 ];
+        %tmp.53 = null;
+        %tmp.54 = ne %tmp.52 %tmp.53;
+        bf %tmp.54 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_61_12_63_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_61_12_63_12_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_61_29_63_12_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 62 16 ]
+        %tmp.55 = lgetv %result.1;
+        symbol [ result %tmp.55 62 16 22 ];
+        %tmp.56 = lgetv %dir.5;
+        symbol [ dir %tmp.56 62 37 40 ];
+        %tmp.57 = as %tmp.56 { (!Null) };
+        %tmp.58 = "trendRaw";
+        aputv %tmp.55 %tmp.58 %tmp.57;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_61_29_63_12_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_61_12_63_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_61_12_63_12_if_end:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 65 12 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_stop" ]
+        %delta.6 = local;
+        symbol [ delta %delta.6 65 16 21 ];
+        %tmp.59 = lgetv %bg.3;
+        symbol [ bg %tmp.59 65 24 26 ];
+        %tmp.60 = "bgdelta";
+        %tmp.61 = agetv %tmp.59 %tmp.60;
+        lputv %delta.6 %tmp.61;
+        symbol [ delta %delta.6 65 16 21 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 66 12 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_66_12_71_12_if_stmt:
+        %tmp.62 = lgetv %delta.6;
+        symbol [ delta %tmp.62 66 16 21 ];
+        %tmp.63 = null;
+        %tmp.64 = ne %tmp.62 %tmp.63;
+        bf %tmp.64 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_66_12_71_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_66_12_71_12_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_66_31_71_12_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 67 16 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_66_31_71_12_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_66_31_71_12_stop" ]
+        %d.7 = local;
+        symbol [ d %d.7 67 20 21 ];
+        %tmp.65 = lgetv %delta.6;
+        symbol [ delta %tmp.65 67 24 29 ];
+        %tmp.66 = as %tmp.65 { (!Null) };
+        symbol [ toNumber %tmp.67 67 30 38 ];
+        %tmp.67 = getv function %tmp.66 :toNumber;
+        %tmp.68 = invoke %tmp.66 %tmp.67();
+        lputv %d.7 %tmp.68;
+        symbol [ d %d.7 67 20 21 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 68 16 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_66_31_71_12_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_66_31_71_12_stop" ]
+        %sign.8 = local;
+        symbol [ sign %sign.8 68 20 24 ];
+        %tmp.69 = "";
+        lputv %sign.8 %tmp.69;
+        symbol [ sign %sign.8 68 20 24 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 69 16 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_69_16_69_42_if_stmt:
+        %tmp.70 = lgetv %d.7;
+        symbol [ d %tmp.70 69 20 21 ];
+        %tmp.71 = 0;
+        %tmp.72 = gte %tmp.70 %tmp.71;
+        bf %tmp.72 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_69_16_69_42_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_69_16_69_42_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_69_28_69_42_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 69 30 ]
+        %tmp.73 = "+";
+        lputv %sign.8 %tmp.73;
+        symbol [ sign %sign.8 69 30 34 ];
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_69_28_69_42_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_69_16_69_42_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_69_16_69_42_if_end:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 70 16 ]
+        %tmp.74 = lgetv %result.1;
+        symbol [ result %tmp.74 70 16 22 ];
+        %tmp.75 = lgetv %sign.8;
+        symbol [ sign %tmp.75 70 34 38 ];
+        %tmp.76 = lgetv %d.7;
+        symbol [ d %tmp.76 70 41 42 ];
+        symbol [ toString %tmp.77 70 43 51 ];
+        %tmp.77 = getv function %tmp.76 :toString;
+        %tmp.78 = invoke %tmp.76 %tmp.77();
+        %tmp.79 = add %tmp.75 %tmp.78;
+        %tmp.80 = "delta";
+        aputv %tmp.74 %tmp.80 %tmp.79;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_66_31_71_12_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_66_12_71_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_66_12_71_12_if_end:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 73 12 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_stop" ]
+        %iob.9 = local;
+        symbol [ iob %iob.9 73 16 19 ];
+        %tmp.81 = lgetv %bg.3;
+        symbol [ bg %tmp.81 73 22 24 ];
+        %tmp.82 = "iob";
+        %tmp.83 = agetv %tmp.81 %tmp.82;
+        lputv %iob.9 %tmp.83;
+        symbol [ iob %iob.9 73 16 19 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 74 12 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_74_12_76_12_if_stmt:
+        %tmp.84 = lgetv %iob.9;
+        symbol [ iob %tmp.84 74 16 19 ];
+        %tmp.85 = null;
+        %tmp.86 = ne %tmp.84 %tmp.85;
+        bf %tmp.86 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_74_12_76_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_74_12_76_12_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_74_29_76_12_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 75 16 ]
+        %tmp.87 = lgetv %result.1;
+        symbol [ result %tmp.87 75 16 22 ];
+        %tmp.88 = lgetv %iob.9;
+        symbol [ iob %tmp.88 75 32 35 ];
+        %tmp.89 = as %tmp.88 { (!Null) };
+        symbol [ toString %tmp.90 75 36 44 ];
+        %tmp.90 = getv function %tmp.89 :toString;
+        %tmp.91 = invoke %tmp.89 %tmp.90();
+        %tmp.92 = "iob";
+        aputv %tmp.87 %tmp.92 %tmp.91;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_74_29_76_12_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_74_12_76_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_74_12_76_12_if_end:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 78 12 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_stop" ]
+        %cob.10 = local;
+        symbol [ cob %cob.10 78 16 19 ];
+        %tmp.93 = lgetv %bg.3;
+        symbol [ bg %tmp.93 78 22 24 ];
+        %tmp.94 = "cob";
+        %tmp.95 = agetv %tmp.93 %tmp.94;
+        lputv %cob.10 %tmp.95;
+        symbol [ cob %cob.10 78 16 19 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 79 12 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_79_12_81_12_if_stmt:
+        %tmp.96 = lgetv %cob.10;
+        symbol [ cob %tmp.96 79 16 19 ];
+        %tmp.97 = null;
+        %tmp.98 = ne %tmp.96 %tmp.97;
+        bf %tmp.98 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_79_12_81_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_79_12_81_12_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_79_29_81_12_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 80 16 ]
+        %tmp.99 = lgetv %result.1;
+        symbol [ result %tmp.99 80 16 22 ];
+        %tmp.100 = lgetv %cob.10;
+        symbol [ cob %tmp.100 80 32 35 ];
+        %tmp.101 = as %tmp.100 { (!Null) };
+        symbol [ toString %tmp.102 80 36 44 ];
+        %tmp.102 = getv function %tmp.101 :toString;
+        %tmp.103 = invoke %tmp.101 %tmp.102();
+        %tmp.104 = "cob";
+        aputv %tmp.99 %tmp.104 %tmp.103;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_79_29_81_12_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_79_12_81_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_79_12_81_12_if_end:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 85 12 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_stop" ]
+        %dt.11 = local;
+        symbol [ dt %dt.11 85 16 18 ];
+        %tmp.105 = lgetv %bg.3;
+        symbol [ bg %tmp.105 85 21 23 ];
+        %tmp.106 = "datetime";
+        %tmp.107 = agetv %tmp.105 %tmp.106;
+        lputv %dt.11 %tmp.107;
+        symbol [ dt %dt.11 85 16 18 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 86 12 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_12_89_12_if_stmt:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_16_86_57_begin:
+        %tmp.108 = lgetv %dt.11;
+        symbol [ dt %tmp.108 86 16 18 ];
+        %tmp.109 = null;
+        %tmp.110 = ne %tmp.108 %tmp.109;
+        bf %tmp.110 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_12_89_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_30_86_57_true:
+        %tmp.111 = lgetv %dt.11;
+        symbol [ dt %tmp.111 86 32 34 ];
+        %tmp.112 = as %tmp.111 { (!Null) };
+        symbol [ Lang %tmp.113 86 46 50 ];
+        %tmp.113 = getm $.Toybox.Lang;
+        symbol [ String %tmp.114 86 51 57 ];
+        %tmp.114 = getv %tmp.113 :String;
+        %tmp.115 = isa %tmp.112 %tmp.114;
+        %tmp.116 = not %tmp.115;
+        push %tmp.116;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_30_86_57_end:
+        %tmp.117 = phi [%tmp.110 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_16_86_57_begin] [%tmp.116 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_30_86_57_true] [%tmp.117 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_30_86_57_end];
+        bf %tmp.117 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_12_89_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_12_89_12_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_60_89_12_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 87 16 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_60_89_12_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_60_89_12_stop" ]
+        %unixSec.12 = local;
+        symbol [ unixSec %unixSec.12 87 20 27 ];
+        %tmp.118 = lgetv %dt.11;
+        symbol [ dt %tmp.118 87 31 33 ];
+        %tmp.119 = as %tmp.118 { (!Lang.String) && (!Null) };
+        symbol [ toLong %tmp.120 87 34 40 ];
+        %tmp.120 = getv function %tmp.119 :toLong;
+        %tmp.121 = invoke %tmp.119 %tmp.120();
+        %tmp.122 = 1000l;
+        %tmp.123 = div %tmp.121 %tmp.122;
+        symbol [ toNumber %tmp.124 87 52 60 ];
+        %tmp.124 = getv function %tmp.123 :toNumber;
+        %tmp.125 = invoke %tmp.123 %tmp.124();
+        lputv %unixSec.12 %tmp.125;
+        symbol [ unixSec %unixSec.12 87 20 27 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 88 16 ]
+        %tmp.126 = lgetv %result.1;
+        symbol [ result %tmp.126 88 16 22 ];
+        %tmp.127 = lgetv %unixSec.12;
+        symbol [ unixSec %tmp.127 88 40 47 ];
+        symbol [ EPOCH_OFFSET %tmp.129 88 50 62 ];
+        %tmp.129 = getv ? :EPOCH_OFFSET;
+        %tmp.130 = sub %tmp.127 %tmp.129;
+        %tmp.131 = "glucoseDate";
+        aputv %tmp.126 %tmp.131 %tmp.130;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_60_89_12_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_12_89_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_86_12_89_12_if_end:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_57_90_8_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_8_90_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_52_8_90_8_if_end:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 93 8 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_42_100_104_4_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_42_100_104_4_stop" ]
+        %status.13 = local;
+        symbol [ status %status.13 93 12 18 ];
+        %tmp.132 = lgetv %data;
+        symbol [ data %tmp.132 93 21 25 ];
+        %tmp.133 = "status";
+        %tmp.134 = agetv %tmp.132 %tmp.133;
+        lputv %status.13 %tmp.134;
+        symbol [ status %status.13 93 12 18 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 94 8 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_8_101_8_if_stmt:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_12_94_60_begin:
+        %tmp.135 = lgetv %status.13;
+        symbol [ status %tmp.135 94 12 18 ];
+        symbol [ Lang %tmp.136 94 30 34 ];
+        %tmp.136 = getm $.Toybox.Lang;
+        symbol [ Array %tmp.137 94 35 40 ];
+        %tmp.137 = getv %tmp.136 :Array;
+        %tmp.138 = isa %tmp.135 %tmp.137;
+        bf %tmp.138 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_8_101_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_44_94_60_true:
+        %tmp.139 = lgetv %status.13;
+        symbol [ status %tmp.139 94 44 50 ];
+        %tmp.140 = as %tmp.139 { (Lang.Array) };
+        symbol [ size %tmp.141 94 51 55 ];
+        %tmp.141 = getv function %tmp.140 :size;
+        %tmp.142 = invoke %tmp.140 %tmp.141();
+        %tmp.143 = 0;
+        %tmp.144 = gt %tmp.142 %tmp.143;
+        push %tmp.144;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_44_94_60_end:
+        %tmp.145 = phi [%tmp.138 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_12_94_60_begin] [%tmp.144 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_44_94_60_true] [%tmp.145 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_44_94_60_end];
+        bf %tmp.145 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_8_101_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_8_101_8_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_63_101_8_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 95 12 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_63_101_8_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_63_101_8_stop" ]
+        %s0.14 = local;
+        symbol [ s0 %s0.14 95 16 18 ];
+        %tmp.146 = lgetv %status.13;
+        symbol [ status %tmp.146 95 21 27 ];
+        %tmp.147 = as %tmp.146 { (Lang.Array) };
+        %tmp.148 = 0;
+        %tmp.149 = agetv %tmp.147 %tmp.148;
+        lputv %s0.14 %tmp.149;
+        symbol [ s0 %s0.14 95 16 18 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 96 12 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_63_101_8_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_63_101_8_stop" ]
+        %nowTs.15 = local;
+        symbol [ nowTs %nowTs.15 96 16 21 ];
+        %tmp.150 = lgetv %s0.14;
+        symbol [ s0 %tmp.150 96 24 26 ];
+        %tmp.151 = "now";
+        %tmp.152 = agetv %tmp.150 %tmp.151;
+        lputv %nowTs.15 %tmp.152;
+        symbol [ nowTs %nowTs.15 96 16 21 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 97 12 ]
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_12_100_12_if_stmt:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_16_97_63_begin:
+        %tmp.153 = lgetv %nowTs.15;
+        symbol [ nowTs %tmp.153 97 16 21 ];
+        %tmp.154 = null;
+        %tmp.155 = ne %tmp.153 %tmp.154;
+        bf %tmp.155 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_12_100_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_33_97_63_true:
+        %tmp.156 = lgetv %nowTs.15;
+        symbol [ nowTs %tmp.156 97 35 40 ];
+        %tmp.157 = as %tmp.156 { (!Null) };
+        symbol [ Lang %tmp.158 97 52 56 ];
+        %tmp.158 = getm $.Toybox.Lang;
+        symbol [ String %tmp.159 97 57 63 ];
+        %tmp.159 = getv %tmp.158 :String;
+        %tmp.160 = isa %tmp.157 %tmp.159;
+        %tmp.161 = not %tmp.160;
+        push %tmp.161;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_33_97_63_end:
+        %tmp.162 = phi [%tmp.155 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_16_97_63_begin] [%tmp.161 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_33_97_63_true] [%tmp.162 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_33_97_63_end];
+        bf %tmp.162 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_12_100_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_12_100_12_if_true:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_66_100_12_start:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 98 16 ]
+        [ "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_66_100_12_start" "C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_66_100_12_stop" ]
+        %unixSec.16 = local;
+        symbol [ unixSec %unixSec.16 98 20 27 ];
+        %tmp.163 = lgetv %nowTs.15;
+        symbol [ nowTs %tmp.163 98 31 36 ];
+        %tmp.164 = as %tmp.163 { (!Lang.String) && (!Null) };
+        symbol [ toLong %tmp.165 98 37 43 ];
+        %tmp.165 = getv function %tmp.164 :toLong;
+        %tmp.166 = invoke %tmp.164 %tmp.165();
+        %tmp.167 = 1000l;
+        %tmp.168 = div %tmp.166 %tmp.167;
+        symbol [ toNumber %tmp.169 98 55 63 ];
+        %tmp.169 = getv function %tmp.168 :toNumber;
+        %tmp.170 = invoke %tmp.168 %tmp.169();
+        lputv %unixSec.16 %tmp.170;
+        symbol [ unixSec %unixSec.16 98 20 27 ];
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 99 16 ]
+        %tmp.171 = lgetv %result.1;
+        symbol [ result %tmp.171 99 16 22 ];
+        %tmp.172 = lgetv %unixSec.16;
+        symbol [ unixSec %tmp.172 99 37 44 ];
+        symbol [ EPOCH_OFFSET %tmp.174 99 47 59 ];
+        %tmp.174 = getv ? :EPOCH_OFFSET;
+        %tmp.175 = sub %tmp.172 %tmp.174;
+        %tmp.176 = "loopDate";
+        aputv %tmp.171 %tmp.176 %tmp.175;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_66_100_12_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_12_100_12_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_97_12_100_12_if_end:
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_63_101_8_stop:
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_8_101_8_if_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_94_8_101_8_if_end:
+[ "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc" 103 8 ]
+        symbol [ Background %tmp.177 103 8 18 ];
+        %tmp.177 = getm $.Toybox.Background;
+        symbol [ exit %tmp.178 103 19 23 ];
+        %tmp.178 = getv function %tmp.177 :exit;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_103_24_103_53_begin:
+        %tmp.179 = lgetv %result.1;
+        symbol [ result %tmp.179 103 24 30 ];
+        symbol [ size %tmp.180 103 31 35 ];
+        %tmp.180 = getv function %tmp.179 :size;
+        %tmp.181 = invoke %tmp.179 %tmp.180();
+        %tmp.182 = 0;
+        %tmp.183 = gt %tmp.181 %tmp.182;
+        bf %tmp.183 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_103_24_103_53_else_false;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_103_24_103_53_true:
+        %tmp.184 = lgetv %result.1;
+        symbol [ result %tmp.184 103 44 50 ];
+        push %tmp.184;
+        goto @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_103_24_103_53_end;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_103_24_103_53_else_false:
+        %tmp.185 = null;
+        push %tmp.185;
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_103_24_103_53_end:
+        %tmp.186 = phi [%tmp.183 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_103_24_103_53_begin] [%tmp.184 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_103_24_103_53_true] [%tmp.185 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_103_24_103_53_else_false] [%tmp.186 @C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_103_24_103_53_end];
+        invoke %tmp.177 %tmp.178(%tmp.186);
+C__Users_d1_Desktop_Development_PC_EPM_Garmin_Watch_Trio_TrioWatchFace_source_TrioServiceDelegate_mc_42_100_104_4_stop:
+    }
+}
+[ @file = "C:\Users\d1\Desktop\Development PC\EPM\Garmin-Watch-Trio\TrioWatchFace\source\TrioServiceDelegate.mc"; @line = 1; ]
+<init> {
+}
