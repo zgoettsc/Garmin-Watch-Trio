@@ -75,16 +75,10 @@ class TrioServiceDelegate extends System.ServiceDelegate {
             }
 
             // Reading timestamp → Garmin epoch seconds
+            // datetime is Unix milliseconds; toLong() handles all numeric types
             var dt = bg["datetime"];
-            if (dt != null) {
-                var unixSec = 0;
-                if (dt instanceof Lang.Long) {
-                    unixSec = (dt / 1000l).toNumber();
-                } else if (dt instanceof Lang.Float || dt instanceof Lang.Double) {
-                    unixSec = (dt / 1000).toNumber();
-                } else {
-                    unixSec = dt / 1000;
-                }
+            if (dt != null && !(dt instanceof Lang.String)) {
+                var unixSec = (dt.toLong() / 1000l).toNumber();
                 result["glucoseDate"] = unixSec - EPOCH_OFFSET;
             }
         }
@@ -93,16 +87,9 @@ class TrioServiceDelegate extends System.ServiceDelegate {
         var status = data["status"];
         if (status instanceof Lang.Array && status.size() > 0) {
             var s0 = status[0];
-            var now = s0["now"];
-            if (now != null) {
-                var unixSec = 0;
-                if (now instanceof Lang.Long) {
-                    unixSec = (now / 1000l).toNumber();
-                } else if (now instanceof Lang.Float || now instanceof Lang.Double) {
-                    unixSec = (now / 1000).toNumber();
-                } else {
-                    unixSec = now / 1000;
-                }
+            var nowTs = s0["now"];
+            if (nowTs != null && !(nowTs instanceof Lang.String)) {
+                var unixSec = (nowTs.toLong() / 1000l).toNumber();
                 result["loopDate"] = unixSec - EPOCH_OFFSET;
             }
         }

@@ -87,14 +87,15 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
         // ── Zone 6: Loop status + Glucose age + Battery ──
         drawStatusRow(dc, cx, width, 250, data, app);
 
-        // ── Debug: Poll age (minutes since watch last received data) ──
-        var pollAgeStr = "rx:--";
+        // ── Zone 7: Time since last Nightscout read ──
+        var readAgeStr = "--";
         if (app.lastReceiveTime > 0) {
-            var pollAgeSec = Time.now().value() - app.lastReceiveTime;
-            pollAgeStr = "rx:" + (pollAgeSec / 60).toString() + "m";
+            var readAgeSec = Time.now().value() - app.lastReceiveTime;
+            if (readAgeSec < 0) { readAgeSec = 0; }
+            readAgeStr = (readAgeSec / 60).toString() + "m ago";
         }
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, 272, Graphics.FONT_XTINY, pollAgeStr,
+        dc.drawText(cx, 272, Graphics.FONT_XTINY, readAgeStr,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
