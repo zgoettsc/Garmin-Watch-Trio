@@ -14,8 +14,8 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     private const BG_HIGH        = 180;
     private const BG_URGENT_HIGH = 250;
 
-    // Loop is stale after 15 minutes (900 seconds)
-    private const LOOP_STALE_SEC = 900;
+    // Data is stale after 10 minutes (600 seconds)
+    private const DATA_STALE_SEC = 600;
 
     function initialize() {
         WatchFace.initialize();
@@ -87,14 +87,15 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
         // ── Zone 6: Loop status + Glucose age + Battery ──
         drawStatusRow(dc, cx, width, 250, data, app);
 
-        // ── Debug: Poll age (minutes since watch last received data) ──
-        var pollAgeStr = "rx:--";
+        // ── Zone 7: Time since last Nightscout read ──
+        var readAgeStr = "--";
         if (app.lastReceiveTime > 0) {
-            var pollAgeSec = Time.now().value() - app.lastReceiveTime;
-            pollAgeStr = "rx:" + (pollAgeSec / 60).toString() + "m";
+            var readAgeSec = Time.now().value() - app.lastReceiveTime;
+            if (readAgeSec < 0) { readAgeSec = 0; }
+            readAgeStr = (readAgeSec / 60).toString() + "m ago";
         }
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, 272, Graphics.FONT_XTINY, pollAgeStr,
+        dc.drawText(cx, 272, Graphics.FONT_XTINY, readAgeStr,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
@@ -104,12 +105,12 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     private function drawStatusRow(dc, cx, width, y, data, app) {
         var sp = width / 4;
 
-        // Loop indicator: green dot or red X
+        // Loop indicator: green if loop ran within 10 min, red otherwise
         var loopActive = false;
         var loopDate = safeGet(data, "loopDate");
         if (loopDate != null) {
             var age = Time.now().value() - loopDate;
-            if (age >= 0 && age < LOOP_STALE_SEC) {
+            if (age >= 0 && age < DATA_STALE_SEC) {
                 loopActive = true;
             }
         }
