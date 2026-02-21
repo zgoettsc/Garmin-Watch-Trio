@@ -55,6 +55,12 @@ class TrioWatchFaceApp extends Application.AppBase {
 
     // Called when the background service hands back data via Background.exit()
     function onBackgroundData(data) {
+        // Re-register the temporal event every time, regardless of whether
+        // this request succeeded.  Garmin devices can silently revoke the
+        // registration (slow response, transient error, firmware quirk).
+        // Re-arming here guarantees the next poll fires in 5 minutes.
+        Background.registerForTemporalEvent(new Time.Duration(300));
+
         if (data != null) {
             trioData = data;
             lastReceiveTime = Time.now().value();
