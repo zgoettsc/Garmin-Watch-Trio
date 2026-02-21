@@ -86,6 +86,16 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
 
         // ── Zone 6: Loop status + Glucose age + Battery ──
         drawStatusRow(dc, cx, width, 250, data, app);
+
+        // ── Debug: Poll age (minutes since watch last received data) ──
+        var pollAgeStr = "rx:--";
+        if (app.lastReceiveTime > 0) {
+            var pollAgeSec = Time.now().value() - app.lastReceiveTime;
+            pollAgeStr = "rx:" + (pollAgeSec / 60).toString() + "m";
+        }
+        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, 272, Graphics.FONT_XTINY, pollAgeStr,
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
     // ════════════════════════════════════════════
