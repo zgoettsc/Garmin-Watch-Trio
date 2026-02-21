@@ -14,8 +14,8 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     private const BG_HIGH        = 180;
     private const BG_URGENT_HIGH = 250;
 
-    // Loop is stale after 15 minutes (900 seconds)
-    private const LOOP_STALE_SEC = 900;
+    // Data is stale after 10 minutes (600 seconds)
+    private const DATA_STALE_SEC = 600;
 
     function initialize() {
         WatchFace.initialize();
@@ -105,17 +105,16 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     private function drawStatusRow(dc, cx, width, y, data, app) {
         var sp = width / 4;
 
-        // Loop indicator: green dot or red X
-        var loopActive = false;
-        var loopDate = safeGet(data, "loopDate");
-        if (loopDate != null) {
-            var age = Time.now().value() - loopDate;
-            if (age >= 0 && age < LOOP_STALE_SEC) {
-                loopActive = true;
+        // Loop indicator: green if data received within 10 min, red otherwise
+        var dataActive = false;
+        if (app.lastReceiveTime > 0) {
+            var age = Time.now().value() - app.lastReceiveTime;
+            if (age >= 0 && age < DATA_STALE_SEC) {
+                dataActive = true;
             }
         }
 
-        if (loopActive) {
+        if (dataActive) {
             dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
             dc.fillCircle(cx - sp, y, 5);
         } else {
