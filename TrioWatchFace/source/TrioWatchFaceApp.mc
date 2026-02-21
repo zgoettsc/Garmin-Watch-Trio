@@ -35,9 +35,8 @@ class TrioWatchFaceApp extends Application.AppBase {
             lastReceiveTime = rxTime;
         }
 
-        // Poll every 5 minutes (minimum allowed interval for watch faces).
-        // Trio keeps its persistent store fresh on every Live Activity update,
-        // so the watch always gets the latest data when it polls.
+        // Poll Nightscout every 5 minutes (minimum interval for watch faces).
+        // The background service fetches glucose + devicestatus via HTTP.
         Background.registerForTemporalEvent(new Time.Duration(300));
     }
 
