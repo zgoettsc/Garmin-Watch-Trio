@@ -35,19 +35,14 @@ class TrioWatchFaceApp extends Application.AppBase {
             lastReceiveTime = rxTime;
         }
 
-        // Schedule the background service to run every 5 minutes
-        // as a fallback poll (minimum allowed interval for watch faces).
+        // Poll every 5 minutes (minimum allowed interval for watch faces).
+        // Trio keeps its persistent store fresh on every Live Activity update,
+        // so the watch always gets the latest data when it polls.
         Background.registerForTemporalEvent(new Time.Duration(300));
-
-        // Wake the background service instantly whenever Trio pushes
-        // a message — this enables real-time updates instead of only
-        // receiving data every 5 minutes via the temporal poll.
-        Background.registerForPhoneAppMessageEvent();
     }
 
     function onStop(state) {
         Background.deleteTemporalEvent();
-        Background.deletePhoneAppMessageEvent();
     }
 
     function getInitialView() {
@@ -71,11 +66,5 @@ class TrioWatchFaceApp extends Application.AppBase {
 
             WatchUi.requestUpdate();
         }
-
-        // CRITICAL: Phone app message events are one-shot in the Garmin SDK.
-        // After the event fires, it is unregistered and no more push data
-        // will arrive until we re-register.  Do this after every background
-        // exit (even null/error) so push stays alive.
-        Background.registerForPhoneAppMessageEvent();
     }
 }
