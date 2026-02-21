@@ -55,12 +55,15 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
         var glucose  = safeGet(data, "glucose");
         var trendRaw = safeGet(data, "trendRaw");
         var bgText   = (glucose != null) ? glucose : "--";
-        var tArrow   = getTrendArrow(trendRaw);
         var bgColor  = getBgColor(glucose);
 
         dc.setColor(bgColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, 145, Graphics.FONT_LARGE, bgText + " " + tArrow,
+        dc.drawText(cx, 145, Graphics.FONT_LARGE, bgText,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+
+        // Draw graphical trend arrow to the right of BG value
+        var bgHalf = dc.getTextWidthInPixels(bgText, Graphics.FONT_LARGE) / 2;
+        drawTrendArrow(dc, cx + bgHalf + 16, 145, trendRaw, bgColor);
 
         // ── Zone 4: Delta ──
         var delta = safeGet(data, "delta");
@@ -84,7 +87,7 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
         dc.drawText(cx + spacing, 222, Graphics.FONT_TINY, cobText,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // ── Zone 6: Loop status + Glucose age + Battery ──
+        // ── Zone 6: Loop status + Loop age + Battery ──
         drawStatusRow(dc, cx, width, 250, data, app);
 
         // ── Zone 7: Time since last Nightscout read ──
@@ -100,16 +103,15 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
     }
 
     // ════════════════════════════════════════════
-    //  Loop indicator + glucose age + battery %
+    //  Loop indicator + battery %
     // ════════════════════════════════════════════
     private function drawStatusRow(dc, cx, width, y, data, app) {
         var sp = width / 4;
 
-        // Loop indicator: green if loop ran within 10 min, red otherwise
+        // Loop indicator: green if data received within 10 min, red otherwise
         var loopActive = false;
-        var loopDate = safeGet(data, "loopDate");
-        if (loopDate != null) {
-            var age = Time.now().value() - loopDate;
+        if (app.lastReceiveTime > 0) {
+            var age = Time.now().value() - app.lastReceiveTime;
             if (age >= 0 && age < DATA_STALE_SEC) {
                 loopActive = true;
             }
@@ -124,24 +126,72 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
 
-        // Glucose age: minutes since the CGM reading
-        var ageStr = "--";
-        var glucoseDate = safeGet(data, "glucoseDate");
-        if (glucoseDate != null) {
-            var ageSec = Time.now().value() - glucoseDate;
-            if (ageSec < 0) { ageSec = 0; }
-            ageStr = (ageSec / 60).toString() + "m";
-        }
-        dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, y, Graphics.FONT_XTINY, ageStr,
-            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-
         // Battery
         var battery = System.getSystemStats().battery;
         var battStr = battery.toNumber().toString() + "%";
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx + sp, y, Graphics.FONT_XTINY, battStr,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+
+    // ════════════════════════════════════════════
+    //  Graphical trend arrows
+    // ════════════════════════════════════════════
+    private function drawTrendArrow(dc, x, y, trendRaw, color) {
+        dc.setColor(color, Graphics.COLOR_TRANSPARENT);
+
+        if (trendRaw == null || trendRaw.equals("--")) {
+            dc.drawText(x, y, Graphics.FONT_MEDIUM, "-",
+                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            return;
+        }
+
+        dc.setPenWidth(3);
+        var len = 12;
+        var hs  = 7;
+
+        if (trendRaw.equals("DoubleUp")) {
+            drawArrowUp(dc, x, y - 9, 8, hs);
+            drawArrowUp(dc, x, y + 9, 8, hs);
+        } else if (trendRaw.equals("SingleUp")) {
+            drawArrowUp(dc, x, y, len, hs);
+        } else if (trendRaw.equals("FortyFiveUp")) {
+            var d = 9;
+            dc.drawLine(x - d, y + d, x + d, y - d);
+            dc.drawLine(x + d, y - d, x + d - hs, y - d);
+            dc.drawLine(x + d, y - d, x + d, y - d + hs);
+        } else if (trendRaw.equals("Flat")) {
+            dc.drawLine(x - len, y, x + len, y);
+            dc.drawLine(x + len, y, x + len - hs, y - hs);
+            dc.drawLine(x + len, y, x + len - hs, y + hs);
+        } else if (trendRaw.equals("FortyFiveDown")) {
+            var d = 9;
+            dc.drawLine(x - d, y - d, x + d, y + d);
+            dc.drawLine(x + d, y + d, x + d - hs, y + d);
+            dc.drawLine(x + d, y + d, x + d, y + d - hs);
+        } else if (trendRaw.equals("SingleDown")) {
+            drawArrowDown(dc, x, y, len, hs);
+        } else if (trendRaw.equals("DoubleDown")) {
+            drawArrowDown(dc, x, y - 9, 8, hs);
+            drawArrowDown(dc, x, y + 9, 8, hs);
+        } else {
+            dc.drawText(x, y, Graphics.FONT_MEDIUM, "-",
+                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        }
+
+        dc.setPenWidth(1);
+    }
+
+    private function drawArrowUp(dc, x, y, len, hs) {
+        dc.drawLine(x, y + len, x, y - len);
+        dc.drawLine(x, y - len, x - hs, y - len + hs);
+        dc.drawLine(x, y - len, x + hs, y - len + hs);
+    }
+
+    private function drawArrowDown(dc, x, y, len, hs) {
+        dc.drawLine(x, y - len, x, y + len);
+        dc.drawLine(x, y + len, x - hs, y + len - hs);
+        dc.drawLine(x, y + len, x + hs, y + len - hs);
     }
 
     // ════════════════════════════════════════════
@@ -172,18 +222,5 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
             return Graphics.COLOR_YELLOW;
         }
         return Graphics.COLOR_GREEN;
-    }
-
-    // Trend arrow mapping — ASCII arrows for MIP display compatibility
-    private function getTrendArrow(trendRaw) {
-        if (trendRaw == null || trendRaw.equals("--")) { return "-"; }
-        if (trendRaw.equals("DoubleUp"))      { return "^^"; }
-        if (trendRaw.equals("SingleUp"))      { return "^";  }
-        if (trendRaw.equals("FortyFiveUp"))   { return "/";  }
-        if (trendRaw.equals("Flat"))          { return ">";  }
-        if (trendRaw.equals("FortyFiveDown")) { return "\\"; }
-        if (trendRaw.equals("SingleDown"))    { return "v";  }
-        if (trendRaw.equals("DoubleDown"))    { return "vv"; }
-        return "-";
     }
 }
