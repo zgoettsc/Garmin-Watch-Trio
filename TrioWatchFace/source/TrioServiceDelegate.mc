@@ -41,7 +41,7 @@ class TrioServiceDelegate extends System.ServiceDelegate {
     }
 
     // Step 1 callback: parse glucose, trend, delta, reading date
-    function onEntries(code as Number, data) as Void {
+    function onEntries(code, data) {
         if (code == 200 && data instanceof Lang.Array && data.size() > 0) {
             var e = data[0];
 
@@ -89,7 +89,7 @@ class TrioServiceDelegate extends System.ServiceDelegate {
     }
 
     // Step 2 callback: parse IOB, COB, loop date, then exit
-    function onDeviceStatus(code as Number, data) as Void {
+    function onDeviceStatus(code, data) {
         if (code == 200 && data instanceof Lang.Array && data.size() > 0) {
             var s = data[0];
             var oa = s["openaps"];
@@ -132,7 +132,7 @@ class TrioServiceDelegate extends System.ServiceDelegate {
 
     // Parse ISO 8601 "YYYY-MM-DDTHH:mm:ss..." to Garmin epoch seconds.
     // Uses a Julian Day algorithm — no Gregorian module needed in background.
-    private function isoToGarmin(iso as String) as Number or Null {
+    private function isoToGarmin(iso) {
         if (iso.length() < 19) { return null; }
         var yr = iso.substring(0, 4).toNumber();
         var mo = iso.substring(5, 7).toNumber();
