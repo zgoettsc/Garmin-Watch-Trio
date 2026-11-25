@@ -5,14 +5,15 @@ using Toybox.System;
 
 // Background service delegate — fetches Trio data from Nightscout.
 //
+// The site address and access token live in Secrets.mc, which is not
+// committed (see Secrets.mc.example).
+//
 // Uses the /pebble endpoint which returns a single JSON object (not
 // an array) containing glucose, trend, delta, IOB, and COB in one
 // request.  This is critical because Connect IQ's makeWebRequest
 // rejects top-level JSON arrays with error -400.
 (:background)
 class TrioServiceDelegate extends System.ServiceDelegate {
-
-    private const NS_URL = "https://zgoettsc.nightscoutpro.com";
 
     // Seconds from Unix epoch (1970-01-01) to Garmin epoch (1989-12-31)
     private const EPOCH_OFFSET = 631065600;
@@ -23,9 +24,16 @@ class TrioServiceDelegate extends System.ServiceDelegate {
 
     function onTemporalEvent() {
         try {
+            // Nightscout access token (Admin Tools > Subjects), sent as
+            // ?token=...  Leave Secrets.NS_TOKEN empty for a site that is
+            // readable without one.
+            var params = null;
+            if (Secrets.NS_TOKEN.length() > 0) {
+                params = { "token" => Secrets.NS_TOKEN };
+            }
             Communications.makeWebRequest(
-                NS_URL + "/pebble",
-                null,
+                Secrets.NS_URL + "/pebble",
+                params,
                 {
                     :method => Communications.HTTP_REQUEST_METHOD_GET,
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
@@ -35,13 +43,16 @@ class TrioServiceDelegate extends System.ServiceDelegate {
         } catch (e) {
             // Ensure we always exit so the system does not revoke our
             // temporal-event registration for an unresponsive service.
-            Background.exit(null);
+            Background.exit({ "err" => -9999 });
         }
     }
 
     function onReceive(code as Lang.Number, data as Lang.Dictionary or Lang.String or Null) as Void {
         if (code != 200 || data == null || !(data instanceof Lang.Dictionary)) {
-            Background.exit(null);
+            // Hand the failure code back so the face can show it:
+            // 401 = token rejected, negative = Bluetooth/phone/network
+            // (e.g. -104 phone not connected, -2 no response from phone).
+            Background.exit({ "err" => (code == 200 ? -9998 : code) });
             return;
         }
 
@@ -100,6 +111,9 @@ class TrioServiceDelegate extends System.ServiceDelegate {
             }
         }
 
-        Background.exit(result.size() > 0 ? result : null);
+        if (result.size() == 0) {
+            result = { "err" => -9997 };   // 200 but nothing usable in the reply
+        }
+        Background.exit(result);
     }
 }

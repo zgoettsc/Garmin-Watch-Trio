@@ -16,6 +16,10 @@ class TrioWatchFaceApp extends Application.AppBase {
     // Used by the view to display data freshness on-screen.
     var lastReceiveTime = 0;
 
+    // Result of the most recent poll: 0 = ok, otherwise the HTTP status
+    // or Connect IQ error code.  Shown next to the data age when non-zero.
+    var lastError = 0;
+
     // Storage keys
     private const STORAGE_KEY = "trioData";
     private const RECEIVE_TIME_KEY = "lastRx";
@@ -83,7 +87,13 @@ class TrioWatchFaceApp extends Application.AppBase {
         // Re-arming here guarantees the next poll fires in 5 minutes.
         armPoll();
 
-        if (data != null) {
+        if (data instanceof Lang.Dictionary && data.hasKey("err")) {
+            // Failed poll: keep showing the last good reading (its age is
+            // on screen) and remember why the poll failed.
+            lastError = data["err"];
+            WatchUi.requestUpdate();
+        } else if (data != null) {
+            lastError = 0;
             trioData = data;
             lastReceiveTime = Time.now().value();
 
