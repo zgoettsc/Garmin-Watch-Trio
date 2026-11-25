@@ -97,6 +97,10 @@ class TrioWatchFaceView extends WatchUi.WatchFace {
             if (readAgeSec < 0) { readAgeSec = 0; }
             readAgeStr = (readAgeSec / 60).toString() + "m ago";
         }
+        if (app.lastError != 0) {
+            // Last poll failed; 401 means the Nightscout token was rejected.
+            readAgeStr = readAgeStr + "  E" + app.lastError.toString();
+        }
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, 272, Graphics.FONT_XTINY, readAgeStr,
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);

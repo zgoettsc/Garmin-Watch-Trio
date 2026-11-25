@@ -1,0 +1,4 @@
+# Site address and access token for the watch face (see Secrets.mc.example)
+TrioWatchFace/source/Secrets.mc
+# macOS
+.DS_Store

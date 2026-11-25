@@ -16,6 +16,10 @@ class TrioWatchFaceApp extends Application.AppBase {
     // Used by the view to display data freshness on-screen.
     var lastReceiveTime = 0;
 
+    // Result of the most recent poll: 0 = ok, otherwise the HTTP status
+    // or Connect IQ error code.  Shown next to the data age when non-zero.
+    var lastError = 0;
+
     // Storage keys
     private const STORAGE_KEY = "trioData";
     private const RECEIVE_TIME_KEY = "lastRx";
@@ -37,11 +41,33 @@ class TrioWatchFaceApp extends Application.AppBase {
 
         // Poll Nightscout every 5 minutes (minimum interval for watch faces).
         // The background service fetches glucose + devicestatus via HTTP.
-        Background.registerForTemporalEvent(new Time.Duration(300));
+        armPoll();
+    }
+
+    // (Re-)arm the 5-minute Nightscout poll.  Safe to call repeatedly:
+    // registering again with the same interval replaces the existing
+    // registration.  Never let an exception here take the face down.
+    function armPoll() {
+        try {
+            Background.registerForTemporalEvent(new Time.Duration(300));
+        } catch (e) {
+        }
     }
 
     function onStop(state) {
-        Background.deleteTemporalEvent();
+        // Do NOT delete the temporal event here.
+        //
+        // This class is annotated (:background), so the system runs
+        // onStart()/onStop() for the background service process as well
+        // as for the watch face itself.  Every 5-minute poll therefore
+        // ended with onStop() -> deleteTemporalEvent(), cancelling the
+        // next poll.  Polling only resumed if onBackgroundData() happened
+        // to re-register afterwards, or when the face was restarted
+        // (re-selecting the face), which is why the data went stale for
+        // hours and then "caught up".
+        //
+        // The registration is tied to this app: the system drops it when
+        // another watch face is selected, so no clean-up is needed.
     }
 
     function getInitialView() {
@@ -59,9 +85,15 @@ class TrioWatchFaceApp extends Application.AppBase {
         // this request succeeded.  Garmin devices can silently revoke the
         // registration (slow response, transient error, firmware quirk).
         // Re-arming here guarantees the next poll fires in 5 minutes.
-        Background.registerForTemporalEvent(new Time.Duration(300));
+        armPoll();
 
-        if (data != null) {
+        if (data instanceof Lang.Dictionary && data.hasKey("err")) {
+            // Failed poll: keep showing the last good reading (its age is
+            // on screen) and remember why the poll failed.
+            lastError = data["err"];
+            WatchUi.requestUpdate();
+        } else if (data != null) {
+            lastError = 0;
             trioData = data;
             lastReceiveTime = Time.now().value();
 
