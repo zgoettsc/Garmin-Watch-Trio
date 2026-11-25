@@ -37,11 +37,33 @@ class TrioWatchFaceApp extends Application.AppBase {
 
         // Poll Nightscout every 5 minutes (minimum interval for watch faces).
         // The background service fetches glucose + devicestatus via HTTP.
-        Background.registerForTemporalEvent(new Time.Duration(300));
+        armPoll();
+    }
+
+    // (Re-)arm the 5-minute Nightscout poll.  Safe to call repeatedly:
+    // registering again with the same interval replaces the existing
+    // registration.  Never let an exception here take the face down.
+    function armPoll() {
+        try {
+            Background.registerForTemporalEvent(new Time.Duration(300));
+        } catch (e) {
+        }
     }
 
     function onStop(state) {
-        Background.deleteTemporalEvent();
+        // Do NOT delete the temporal event here.
+        //
+        // This class is annotated (:background), so the system runs
+        // onStart()/onStop() for the background service process as well
+        // as for the watch face itself.  Every 5-minute poll therefore
+        // ended with onStop() -> deleteTemporalEvent(), cancelling the
+        // next poll.  Polling only resumed if onBackgroundData() happened
+        // to re-register afterwards, or when the face was restarted
+        // (re-selecting the face), which is why the data went stale for
+        // hours and then "caught up".
+        //
+        // The registration is tied to this app: the system drops it when
+        // another watch face is selected, so no clean-up is needed.
     }
 
     function getInitialView() {
@@ -59,7 +81,7 @@ class TrioWatchFaceApp extends Application.AppBase {
         // this request succeeded.  Garmin devices can silently revoke the
         // registration (slow response, transient error, firmware quirk).
         // Re-arming here guarantees the next poll fires in 5 minutes.
-        Background.registerForTemporalEvent(new Time.Duration(300));
+        armPoll();
 
         if (data != null) {
             trioData = data;
